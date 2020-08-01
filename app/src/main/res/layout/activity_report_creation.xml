@@ -42,7 +42,8 @@
                 android:layout_marginTop="12dp"
                 android:background="#BAB5B5"
                 android:inputType="textPersonName"
-                android:hint="@string/Name" />
+                android:hint="@string/Name"
+                tools:ignore="Autofill" />
 
             <EditText
                 android:id="@+id/surname"
@@ -84,7 +85,8 @@
                 android:background="#BAB5B5"
                 android:ems="10"
                 android:hint="@string/Eye_color"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                tools:ignore="Autofill" />
 
             <EditText
                 android:id="@+id/weight"
@@ -97,7 +99,8 @@
                 android:background="#BAB5B5"
                 android:ems="10"
                 android:hint="@string/Weight"
-                android:inputType="textPersonName"/>
+                android:inputType="textPersonName"
+                tools:ignore="Autofill,TextFields" />
 
             <EditText
                 android:id="@+id/height"
@@ -110,7 +113,8 @@
                 android:background="#BAB5B5"
                 android:ems="10"
                 android:hint="@string/height"
-                android:inputType="textPersonName"/>
+                android:inputType="textPersonName"
+                tools:ignore="Autofill,TextFields" />
 
             <EditText
                 android:id="@+id/lastLocation"
@@ -122,7 +126,8 @@
                 android:layout_marginTop="179dp"
                 android:background="#BAB5B5"
                 android:ems="10"
-                android:hint="@string/last_location" />
+                android:hint="@string/last_location"
+                tools:ignore="Autofill,TextFields" />
 
             <TextView
                 android:id="@+id/promptDescription"
@@ -145,7 +150,8 @@
                 android:layout_marginTop="253dp"
                 android:background="#BAB5B5"
                 android:inputType="textPersonName"
-                android:hint="@string/description" />
+                android:hint="@string/description"
+                tools:ignore="Autofill" />
 
             <Button
                 android:id="@+id/post"
