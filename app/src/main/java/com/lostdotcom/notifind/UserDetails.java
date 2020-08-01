@@ -2,12 +2,12 @@ package com.lostdotcom.notifind;
 
 public class UserDetails {
 
-    public String userID;
-    public String userEmail;
-    public String password;
-    public String location;
-    public String userName;
-    public String userSurname;
+    private String userID;
+    private String userEmail;
+    private String password;
+    private String location;
+    private String userName;
+    private String userSurname;
 
     public UserDetails() {
 
