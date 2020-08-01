@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">NotiFind</string>
+    <string name="forgot_pas">Forgot Password</string>
+    <string name="Email_Input">Email</string>
+    <string name="Password_Input">Password</string>
+    <string name="Login_Button">Login</string>
+    <string name="signup_to_notifind">Sign Up To NotiFind</string>
+    <string name="enter_address">Address</string>
+    <string name="enter_name">Name</string>
+    <string name="enter_surname">Surname</string>
+    <string name="signup">Sign Up</string>
+    <string name="goBack">Back To Login</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="textview">promptEmail</string>
+    <string name="submit_email">Submit Email</string>
+    <string name="return_to_login">Return to Login</string>
 </resources>

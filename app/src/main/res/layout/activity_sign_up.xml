@@ -4,6 +4,238 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="false"
+    android:background="#0F222D"
+    android:backgroundTintMode="screen"
+    android:elevation="25dp"
+    android:fadingEdge="vertical"
     tools:context=".SignUpActivity">
+
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/signup_to_notifind"
+        android:textAlignment="center"
+        android:textColor="#FFFFC107"
+        android:textSize="45sp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="575dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:backgroundTint="#FFC107"
+        app:cardBackgroundColor="#FFC107"
+        app:cardCornerRadius="250dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFC107">
+
+            <EditText
+                android:id="@+id/signUpName"
+                android:layout_width="174dp"
+                android:layout_height="28dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="67dp"
+                android:layout_marginTop="342dp"
+                android:background="#9F9898"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/enter_name"
+                tools:ignore="Autofill,LabelFor"
+                />
+
+            <EditText
+                android:id="@+id/signUpSurname"
+                android:layout_width="174dp"
+                android:layout_height="28dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="408dp"
+                android:background="#9F9898"
+                android:ems="10"
+                android:hint="@string/enter_surname"
+                android:inputType="textPersonName"
+
+                tools:ignore="Autofill,LabelFor"
+                />
+
+            <EditText
+                android:id="@+id/signUpEmail"
+                android:layout_width="174dp"
+                android:layout_height="28dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="80dp"
+                android:background="#9F9898"
+                android:ems="10"
+
+                android:hint="@string/Email_Input"
+                android:inputType="textEmailAddress"
+                tools:ignore="Autofill,LabelFor" />
+
+            <EditText
+                android:id="@+id/signUpPassword"
+                android:layout_width="174dp"
+                android:layout_height="28dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="145dp"
+                android:hint="@string/Password_Input"
+                android:layout_marginEnd="61dp"
+                android:background="#9F9898"
+                android:contentDescription="EnterPassword"
+                android:ems="10"
+                android:inputType="textPassword"
+                tools:ignore="Autofill,ContentDescription,HardcodedText,LabelFor" />
+
+            <EditText
+                android:id="@+id/signUpPassword2"
+                android:layout_width="174dp"
+                android:layout_height="28dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="60dp"
+                android:hint="@string/Password_Input"
+                android:layout_marginBottom="338dp"
+                android:background="#9F9898"
+                android:ems="10"
+                android:inputType="textPassword"
+                tools:ignore="Autofill,LabelFor" />
+
+            <Button
+                android:id="@+id/signUpButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="107dp"
+                android:layout_marginBottom="24dp"
+                android:enabled="true"
+                android:onClick="signUpButton2Clicked"
+                android:text="@string/signup"
+                tools:ignore="RelativeOverlap" />
+
+            <TextView
+                android:id="@+id/nameprompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="67dp"
+                android:layout_marginTop="321dp"
+                android:text="Enter Name"
+                android:textColor="#000000"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/surnamePromt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="66dp"
+                android:layout_marginTop="386dp"
+                android:text="Enter Surname"
+                android:textColor="#000000"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/emailPrompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="65dp"
+
+                android:layout_marginTop="60dp"
+                android:text="Enter Email"
+                android:textColor="#000000"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/addressPrompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="66dp"
+                android:layout_marginTop="253dp"
+                android:text="Enter Address"
+                android:textColor="#000000"
+                tools:ignore="HardcodedText"
+                />
+
+            <TextView
+                android:id="@+id/passwordPrompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="125dp"
+                android:text="Enter Password"
+                android:textColor="#000000"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/confirmPrompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="66dp"
+                android:layout_marginTop="189dp"
+                android:text="Confirm Password"
+                android:textColor="#000000"
+                tools:ignore="HardcodedText" />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="174dp"
+                android:layout_height="28dp"
+                android:hint="@string/enter_address"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="66dp"
+
+                android:layout_marginTop="275dp"
+                android:background="#9F9898"
+                android:ems="10"
+                android:enabled="true"
+                android:inputType="textPostalAddress"
+                tools:ignore="Autofill,LabelFor"/>
+
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/loginReturn"
+        android:layout_width="133dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="49dp"
+        android:background="#0F222D"
+        android:onClick="returnLoginButtonClicked"
+        android:text="@string/goBack"
+        android:textColor="#33FFFF" />
 
 </RelativeLayout>
