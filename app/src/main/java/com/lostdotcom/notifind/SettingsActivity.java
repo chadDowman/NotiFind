@@ -2,6 +2,7 @@ package com.lostdotcom.notifind;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,19 +34,23 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void btnAccountSettingsClicked (View view){
-
+        Intent i = new Intent (this, AccountSettingsActivity.class); // Instance of intent class
+        startActivity(i);
     }
 
     public void btnNotificationSettingsClicked (View view){
-
+        Intent i = new Intent (this, NotificationSettingsActivity.class); // Instance of intent class
+        startActivity(i);
     }
 
     public void btnPrivacySettingsClicked (View view){
-
+        Intent i = new Intent (this, PrivacySettingsActivity.class); // Instance of intent class
+        startActivity(i);
     }
 
     public void btnAboutClicked (View view){
-
+        Intent i = new Intent (this, AboutActivity.class); // Instance of intent class
+        startActivity(i);
     }
 
 }
