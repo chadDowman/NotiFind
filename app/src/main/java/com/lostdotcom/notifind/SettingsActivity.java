@@ -30,7 +30,8 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void btnPreviousClicked (View view){
-
+        Intent i = new Intent (this, ReportViewingActivity.class); // Instance of intent class
+        startActivity(i);
     }
 
     public void btnAccountSettingsClicked (View view){
