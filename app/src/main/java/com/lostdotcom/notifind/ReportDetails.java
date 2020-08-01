@@ -11,6 +11,17 @@ public class ReportDetails {
     private String lastSeenLocation;
     private String description;
 
+    public ReportDetails(String name, String surname, int age, String eyeColor, int weight, int height, String lastSeenLocation, String description) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.eyeColor = eyeColor;
+        this.weight = weight;
+        this.height = height;
+        this.lastSeenLocation = lastSeenLocation;
+        this.description = description;
+    }
+
     public String getName() {
         return name;
     }

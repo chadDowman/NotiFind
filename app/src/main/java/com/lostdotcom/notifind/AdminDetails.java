@@ -9,6 +9,15 @@ public class AdminDetails {
     private String adminEmail;
     private String adminPassword;
 
+    public AdminDetails(String adminLocation, String adminType, String adminPhoneNumber, String adminEmail, String adminPassword) {
+        this.adminLocation = adminLocation;
+        this.adminType = adminType;
+        this.adminPhoneNumber = adminPhoneNumber;
+        this.adminEmail = adminEmail;
+        this.adminPassword = adminPassword;
+    }
+
+
     public int getAdminID() {
         return adminID;
     }
