@@ -3,6 +3,7 @@ package com.lostdotcom.notifind;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 public class ReportCreation extends AppCompatActivity {
@@ -29,6 +30,10 @@ public class ReportCreation extends AppCompatActivity {
         txtHeight = (EditText) findViewById(R.id.height);
         txtLastSeenLocation = (EditText) findViewById(R.id.lastLocation);
         txtDescription = (EditText) findViewById(R.id.description);
+    }
+
+    public void postReportButtonClicked (View view){
+
     }
 
 
