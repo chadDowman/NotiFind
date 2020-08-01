@@ -41,6 +41,7 @@
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="12dp"
                 android:background="#BAB5B5"
+                android:inputType="textPersonName"
                 android:hint="@string/Name" />
 
             <EditText
@@ -51,8 +52,11 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="112dp"
                 android:layout_marginTop="12dp"
+                android:ems="10"
                 android:background="#BAB5B5"
-                android:hint="@string/surname" />
+                android:hint="@string/surname"
+                android:inputType="textPersonName"
+                tools:ignore="Autofill,TextFields" />
 
             <EditText
                 android:id="@+id/age"
@@ -63,7 +67,11 @@
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="52dp"
                 android:background="#BAB5B5"
-                android:hint="@string/age" />
+                android:ems="10"
+                android:hint="@string/age"
+                android:inputType="textPersonName"
+                android:importantForAutofill="no"
+                tools:ignore="TextFields" />
 
             <EditText
                 android:id="@+id/eyecolor"
@@ -74,7 +82,9 @@
                 android:layout_marginStart="111dp"
                 android:layout_marginTop="52dp"
                 android:background="#BAB5B5"
-                android:hint="@string/Eye_color" />
+                android:ems="10"
+                android:hint="@string/Eye_color"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/weight"
@@ -85,7 +95,9 @@
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="88dp"
                 android:background="#BAB5B5"
-                android:hint="@string/Weight" />
+                android:ems="10"
+                android:hint="@string/Weight"
+                android:inputType="textPersonName"/>
 
             <EditText
                 android:id="@+id/height"
@@ -96,7 +108,9 @@
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="122dp"
                 android:background="#BAB5B5"
-                android:hint="@string/height" />
+                android:ems="10"
+                android:hint="@string/height"
+                android:inputType="textPersonName"/>
 
             <EditText
                 android:id="@+id/lastLocation"
@@ -107,6 +121,7 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="179dp"
                 android:background="#BAB5B5"
+                android:ems="10"
                 android:hint="@string/last_location" />
 
             <TextView
@@ -129,6 +144,7 @@
                 android:layout_marginStart="-3dp"
                 android:layout_marginTop="253dp"
                 android:background="#BAB5B5"
+                android:inputType="textPersonName"
                 android:hint="@string/description" />
 
             <Button
