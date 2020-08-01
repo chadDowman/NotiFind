@@ -20,15 +20,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-    //    txtLoginEmail = (EditText) findViewById(R.id.email);
-    //    txtLoginPassword = (EditText) findViewById(R.id.password);
-    //    btnLogin = (Button) findViewById(R.id.login);
+        txtLoginEmail = (EditText) findViewById(R.id.email);
+        txtLoginPassword = (EditText) findViewById(R.id.password);
+        btnLogin = (Button) findViewById(R.id.login);
 
     }
 
     public void loginButtonClicked (View view){
-    //    String email = txtLoginEmail.getText().toString();
-    //    String password = txtLoginPassword.getText().toString();
+        String email = txtLoginEmail.getText().toString();
+        String password = txtLoginPassword.getText().toString();
 
 
     }
