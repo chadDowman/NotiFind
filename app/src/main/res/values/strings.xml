@@ -11,7 +11,7 @@
     <string name="signup">Sign Up</string>
     <string name="goBack">Back To Login</string>
     <string name="enter_email">Enter Email</string>
-    <string name="textview">promptEmail</string>
+    <string name="forgotPasswordTextView">Enter Your Email</string>
     <string name="submit_email">Submit Email</string>
     <string name="return_to_login">Return to Login</string>
     <string name="todo">TODO</string>
@@ -23,8 +23,6 @@
     <string name="height">Height</string>
     <string name="last_location">Last Location</string>
     <string name="describe_the_missing_person">Describe the Missing person</string>
-    <string name="enter_email">Enter Email</string>
-    <string name="forget">Did you forget your Password?</string>
     <string name="description">Description</string>
     <string name="mail">Enter Email</string>
 </resources>
