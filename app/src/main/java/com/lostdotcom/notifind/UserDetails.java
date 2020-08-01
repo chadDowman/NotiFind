@@ -2,7 +2,7 @@ package com.lostdotcom.notifind;
 
 public class UserDetails {
 
-    private String userID;
+    private int userID;
     private String userEmail;
     private String password;
     private String location;
@@ -26,11 +26,11 @@ public class UserDetails {
         this.userSurname = userSurname;
     }
 
-    public String getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 
