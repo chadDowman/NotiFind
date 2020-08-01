@@ -26,4 +26,5 @@
     <string name="description">Description</string>
     <string name="mail">Enter Email</string>
     <string name="taunt">Did you forget your Password</string>
+    <string name="back">Back to Previous</string>
 </resources>

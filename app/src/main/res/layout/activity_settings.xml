@@ -1,9 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsActivity">
+    android:background="#0F222D"
+    tools:context=".SettingsActivity" >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="248dp"
+        android:layout_height="529dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="90dp" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gloss">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="145dp"
+                android:layout_height="167dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="49dp"
+                android:layout_marginTop="-2dp"
+                app:srcCompat="@drawable/logo"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/btnAccountSettings"
+                android:layout_width="155dp"
+                android:layout_height="41dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="43dp"
+                android:layout_marginTop="177dp"
+                android:onClick="btnAccountSettingsClicked"
+                app:srcCompat="@drawable/account"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/btnNotificationSettings"
+                android:layout_width="152dp"
+                android:layout_height="41dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="44dp"
+                android:layout_marginBottom="245dp"
+                android:onClick="btnNotificationSettingsClicked"
+                app:srcCompat="@drawable/notes"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/btnPrivacySettings"
+                android:layout_width="156dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="42dp"
+                android:layout_marginBottom="183dp"
+                android:onClick="btnPrivacySettingsClicked"
+                app:srcCompat="@drawable/privacy"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/btnAbout"
+                android:layout_width="158dp"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="42dp"
+                android:layout_marginBottom="119dp"
+                android:onClick="btnAboutClicked"
+                app:srcCompat="@drawable/about"
+                tools:ignore="ContentDescription" />
+
+            <ImageButton
+                android:id="@+id/btnCloseAccount"
+                android:layout_width="158dp"
+                android:layout_height="33dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="43dp"
+                android:layout_marginBottom="54dp"
+                app:srcCompat="@drawable/close"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnPrevious"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="66dp"
+        android:layout_marginBottom="40dp"
+        android:background="#0F222D"
+
+        android:onClick="btnPreviousClicked"
+        android:text="@string/back"
+        android:textColor="@color/white" />
+</RelativeLayout>
