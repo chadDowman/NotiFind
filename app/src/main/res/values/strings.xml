@@ -26,4 +26,5 @@
     <string name="enter_email">Enter Email</string>
     <string name="forget">Did you forget your Password?</string>
     <string name="description">Description</string>
+    <string name="mail">Enter Email</string>
 </resources>
