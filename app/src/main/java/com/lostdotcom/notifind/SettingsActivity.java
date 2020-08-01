@@ -6,27 +6,29 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class SettingsActivity extends AppCompatActivity {
 
     Button btnPrevious;
-    Button btnAccountSettings;
-    Button btnNotificationSettings;
-    Button btnPrivacySettings;
-    Button btnAbout;
-    Button btnCloseAccount;
+    ImageButton btnAccountSettings;
+    ImageButton btnNotificationSettings;
+    ImageButton btnPrivacySettings;
+    ImageButton btnAbout;
+    ImageButton btnCloseAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-    //    btnPrevious = (Button) findViewById(R.id.btnPrevious);
-    //    btnAccountSettings = (Button) findViewById(R.id.btnAccountSettings);
-    //    btnNotificationSettings = (Button) findViewById(R.id.btnNotificationSettings);
-    //    btnPrivacySettings = (Button) findViewById(R.id.btnPrivacySettings);
-    //    btnAbout = (Button) findViewById(R.id.btnAbout);
-    //    btnCloseAccount = (Button) findViewById(R.id.btnCloseAccount);
+        btnPrevious = (Button) findViewById(R.id.btnPrevious);
+        btnAccountSettings = (ImageButton) findViewById(R.id.btnAccountSettings);
+        btnNotificationSettings = (ImageButton) findViewById(R.id.btnNotificationSettings);
+        btnPrivacySettings = (ImageButton) findViewById(R.id.btnPrivacySettings);
+        btnAbout = (ImageButton) findViewById(R.id.btnAbout);
+        btnCloseAccount = (ImageButton) findViewById(R.id.btnCloseAccount);
+
     }
 
     public void btnPreviousClicked (View view){
