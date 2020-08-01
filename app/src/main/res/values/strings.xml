@@ -14,4 +14,5 @@
     <string name="textview">promptEmail</string>
     <string name="submit_email">Submit Email</string>
     <string name="return_to_login">Return to Login</string>
+    <string name="todo">TODO</string>
 </resources>
