@@ -17,6 +17,10 @@ public class AdminDetails {
         this.adminPassword = adminPassword;
     }
 
+    public AdminDetails(String adminEmail, String adminPassword) {
+        this.adminEmail = adminEmail;
+        this.adminPassword = adminPassword;
+    }
 
     public int getAdminID() {
         return adminID;

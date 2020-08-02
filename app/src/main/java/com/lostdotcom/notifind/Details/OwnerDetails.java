@@ -6,6 +6,11 @@ public class OwnerDetails {
     private String ownerEmail;
     private String ownerPassowrd;
 
+    public OwnerDetails(String ownerEmail, String ownerPassowrd) {
+        this.ownerEmail = ownerEmail;
+        this.ownerPassowrd = ownerPassowrd;
+    }
+
     public int getOwnerID() {
         return ownerID;
     }
