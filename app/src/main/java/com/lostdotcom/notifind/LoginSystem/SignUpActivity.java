@@ -24,12 +24,12 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        txtSignUpEmail = (EditText) findViewById(R.id.signUpEmail);
-        txtSignUpPassword = (EditText) findViewById(R.id.signUpPassword);
-        txtSignUpPasswordConfirm = (EditText) findViewById(R.id.signUpPassword2);
-        txtSignUpLocation = (EditText) findViewById(R.id.address);
-        txtSignUpName = (EditText) findViewById(R.id.signUpName);
-        txtSignUpSurname = (EditText) findViewById(R.id.signUpSurname);
+        txtSignUpEmail = findViewById(R.id.signUpEmail);
+        txtSignUpPassword = findViewById(R.id.signUpPassword);
+        txtSignUpPasswordConfirm = findViewById(R.id.signUpPassword2);
+        txtSignUpLocation = findViewById(R.id.address);
+        txtSignUpName = findViewById(R.id.signUpName);
+        txtSignUpSurname = findViewById(R.id.signUpSurname);
     }
 
     public void signUpButton2Clicked (View view){

@@ -24,19 +24,20 @@ public class ReportCreationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_creation);
 
-        txtName = (EditText) findViewById(R.id.name);
-        txtSurname = (EditText) findViewById(R.id.surname);
-        txtAge = (EditText) findViewById(R.id.age);
-        txtEyeColor = (EditText) findViewById(R.id.eyecolor);
-        txtWeight = (EditText) findViewById(R.id.weight);
-        txtHeight = (EditText) findViewById(R.id.height);
-        txtLastSeenLocation = (EditText) findViewById(R.id.lastLocation);
-        txtDescription = (EditText) findViewById(R.id.description);
+        txtName = findViewById(R.id.name);
+        txtSurname = findViewById(R.id.surname);
+        txtAge = findViewById(R.id.age);
+        txtEyeColor = findViewById(R.id.eyecolor);
+        txtWeight = findViewById(R.id.weight);
+        txtHeight = findViewById(R.id.height);
+        txtLastSeenLocation = findViewById(R.id.lastLocation);
+        txtDescription = findViewById(R.id.description);
     }
 
     public void postReportButtonClicked (View view){
 
     }
 
+    //TODO onClick for logout Button
 
 }

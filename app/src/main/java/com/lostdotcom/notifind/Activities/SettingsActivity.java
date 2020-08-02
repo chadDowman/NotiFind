@@ -24,12 +24,12 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        btnPrevious = (Button) findViewById(R.id.btnPrevious);
-        btnAccountSettings = (ImageButton) findViewById(R.id.btnAccountSettings);
-        btnNotificationSettings = (ImageButton) findViewById(R.id.btnNotificationSettings);
-        btnPrivacySettings = (ImageButton) findViewById(R.id.btnPrivacySettings);
-        btnAbout = (ImageButton) findViewById(R.id.btnAbout);
-        btnCloseAccount = (ImageButton) findViewById(R.id.btnCloseAccount);
+        btnPrevious =  findViewById(R.id.btnPrevious);
+        btnAccountSettings = findViewById(R.id.btnAccountSettings);
+        btnNotificationSettings = findViewById(R.id.btnNotificationSettings);
+        btnPrivacySettings = findViewById(R.id.btnPrivacySettings);
+        btnAbout = findViewById(R.id.btnAbout);
+        btnCloseAccount = findViewById(R.id.btnCloseAccount);
 
     }
 
