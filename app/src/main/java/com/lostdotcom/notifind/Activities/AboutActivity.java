@@ -1,14 +1,16 @@
-package com.lostdotcom.notifind;
+package com.lostdotcom.notifind.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PrivacySettingsActivity extends AppCompatActivity {
+import com.lostdotcom.notifind.R;
+
+public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_privacy_settings);
+        setContentView(R.layout.activity_about);
     }
 }

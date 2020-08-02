@@ -1,4 +1,4 @@
-package com.lostdotcom.notifind;
+package com.lostdotcom.notifind.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-public class ReportCreation extends AppCompatActivity {
+import com.lostdotcom.notifind.R;
+
+public class ReportCreationActivity extends AppCompatActivity {
 
     EditText txtName;
     EditText txtSurname;

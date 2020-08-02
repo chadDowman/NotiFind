@@ -9,7 +9,7 @@
     android:backgroundTintMode="screen"
     android:elevation="25dp"
     android:fadingEdge="vertical"
-    tools:context=".SignUpActivity">
+    tools:context=".LoginSystem.SignUpActivity">
 
 
     <TextView

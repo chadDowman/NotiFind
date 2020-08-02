@@ -1,4 +1,4 @@
-package com.lostdotcom.notifind;
+package com.lostdotcom.notifind.Details;
 
 public class AdminDetails {
 

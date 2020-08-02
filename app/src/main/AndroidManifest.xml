@@ -9,16 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ReportViewingActivity"></activity>
-        <activity android:name=".AboutActivity" />
-        <activity android:name=".NotificationSettingsActivity" />
-        <activity android:name=".PrivacySettingsActivity" />
-        <activity android:name=".AccountSettingsActivity" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".ReportCreation" />
-        <activity android:name=".ForgotPassword" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".Activities.ReportViewingActivity"></activity>
+        <activity android:name=".Activities.AboutActivity" />
+        <activity android:name=".Activities.NotificationSettingsActivity" />
+        <activity android:name=".Activities.PrivacySettingsActivity" />
+        <activity android:name=".Activities.AccountSettingsActivity" />
+        <activity android:name=".Activities.SettingsActivity" />
+        <activity android:name=".Activities.ReportCreationActivity" />
+        <activity android:name=".LoginSystem.ForgotPassword" />
+        <activity android:name=".LoginSystem.SignUpActivity" />
+        <activity android:name=".LoginSystem.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
