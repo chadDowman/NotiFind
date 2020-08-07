@@ -39,9 +39,21 @@ public class LoginActivity extends AppCompatActivity {
 
         if (!email.isEmpty() && !password.isEmpty()){
             //TODO FireBase Connection Here
-
+            /*
+            if  (email.equals(insert database email here) && password.equals(insert database password here)){
+                Intent i = new Intent (this, ReportViewingActivity.class); // Instance of intent class
+                startActivity(i);
+            }else if (email.equals(insert admin database email here) && password.equals(insert admin database password here)){
+                Intent i = new Intent (this, ReportCreationActivity.class); // Instance of intent class
+                startActivity(i);
+            }else if ((email.equals(insert owner database email here) && password.equals(insert owner database password here))){
+                Intent i = new Intent (this, .class); // Instance of intent class
+                startActivity(i);
+            }else{
+                Toast Incorrect Password Or Username
+            }
+             */
         }
-
     }
 
     @Override
