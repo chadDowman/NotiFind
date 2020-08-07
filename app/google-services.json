@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "675334307144",
+    "firebase_url": "https://notifind-fd9db.firebaseio.com",
+    "project_id": "notifind-fd9db",
+    "storage_bucket": "notifind-fd9db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675334307144:android:9f5bb95a427a7e8ba6477d",
+        "android_client_info": {
+          "package_name": "com.lostdotcom.notifind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675334307144-jd70inajpboou1g3nmi2ipine0e6jrhk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDclx9-V593yq9tm8pjESTh8b-vxVWNaoQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675334307144-jd70inajpboou1g3nmi2ipine0e6jrhk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
