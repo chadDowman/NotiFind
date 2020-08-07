@@ -14,7 +14,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:layout_marginStart="61dp"
-        android:layout_marginTop="67dp" >
+        android:layout_marginTop="67dp"
+        app:cardCornerRadius="25dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -79,8 +80,8 @@
                 android:layout_marginEnd="33dp"
                 android:layout_marginBottom="314dp"
                 android:background="#A69F9F"
-                android:hint="@string/Password_Input"
                 android:ems="10"
+                android:hint="@string/Password_Input"
                 android:inputType="textPassword" />
 
             <Button

@@ -1,122 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0F222D"
-    android:title ="Setting"
-
-
 
 
     tools:context=".Activities.AccountSettingsActivity">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="197dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="17dp"
+        android:background="#0F222D"
+        android:textColor="#FFFFFF"
+        android:text="@string/back_to_settings" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="231dp"
+        android:ems="10"
+        android:hint="@string/change_my_email"
+        android:textColorHint="#FFFFFF"
+        android:inputType="textPersonName"
+        android:importantForAutofill="no"
+        tools:ignore="RelativeOverlap" />
+
     <TextView
-        android:id="@+id/textAccount"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MY ACCOUNT"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="168dp"
+        android:text="@string/MyAccount"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
+        android:textSize="25sp"
+        tools:ignore="RelativeOverlap" />
 
     <EditText
-        android:id="@+id/txtEmail"
+        android:id="@+id/editTextTextPersonName3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="294dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="Change my email"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.281" />
+        android:hint="@string/change_my_password"
+        android:textColorHint="#FFFFFF"
+        android:inputType="textPassword"
+        tools:ignore="Autofill,RelativeOverlap" />
 
     <EditText
-        android:id="@+id/txtContact"
+        android:id="@+id/editTextTextPersonName4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginBottom="327dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="Contact"
+        android:inputType="textPersonName"
+        android:hint="@string/change_my_location"
+        android:textColorHint="#FFFFFF"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginBottom="159dp"
+        android:background="#0F222D"
+        android:text="@string/contact"
+        android:textColor="#FFEB3B" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="95dp"
+        android:background="#0F222D"
+        android:text="@string/change"
         android:textColor="#FFEB3B"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.877" />
+        tools:ignore="RelativeOverlap" />
 
-    <EditText
-        android:id="@+id/txtPassword"
+    <Button
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="Change my Password"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.379" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="358dp"
+        android:layout_marginEnd="95dp"
+        android:background="#0F222D"
+        android:text="@string/change"
+        android:textColor="#FFEB3B"
+        tools:ignore="RelativeOverlap" />
 
-    <EditText
-        android:id="@+id/txtLocation"
+    <Button
+        android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="Change my Location"
-        android:textColor="#FFFFFF"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.479" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="293dp"
+        android:layout_marginEnd="95dp"
+        android:background="#0F222D"
+        android:text="@string/change"
+        android:textColor="#FFEB3B"
+        tools:ignore="RelativeOverlap" />
 
-    <TextView
-        android:id="@+id/textSETTINGS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#FFFFFF"
-        android:textSize="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.935"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
-    <TextView
-        android:id="@+id/txtBack8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="<"
-        android:textColor="#FFFFFF"
-        android:textSize="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.006" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

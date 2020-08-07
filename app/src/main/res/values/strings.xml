@@ -36,5 +36,13 @@
     <string name="enter_phone">Enter Phone</string>
     <string name="address">Enter Address</string>
     <string name="enter_password">Enter Password</string>
+    <string name="change_my_email">Change My Email</string>
+    <string name="change_my_password">Change My Password</string>
+    <string name="change_my_location">Change My Location</string>
+    <string name="my_account">MY Account</string>
+    <string name="MyAccount">My Account</string>
+    <string name="change">Change</string>
+    <string name="contact">Contact</string>
+    <string name="back_to_settings">Back to settings</string>
 
 </resources>
