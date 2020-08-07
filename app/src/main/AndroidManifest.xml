@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.AdminCreationActivity"></activity>
-        <activity android:name=".Activities.ReportViewingActivity" />
+        <activity android:name=".Viewing.ReportViewingActivity" />
         <activity android:name=".Activities.AboutActivity" />
         <activity android:name=".Activities.NotificationSettingsActivity" />
         <activity android:name=".Activities.PrivacySettingsActivity" />

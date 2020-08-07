@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.lostdotcom.notifind.R;
+import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 

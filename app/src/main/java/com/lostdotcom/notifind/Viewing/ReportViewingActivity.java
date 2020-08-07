@@ -1,4 +1,4 @@
-package com.lostdotcom.notifind.Activities;
+package com.lostdotcom.notifind.Viewing;
 
 
 

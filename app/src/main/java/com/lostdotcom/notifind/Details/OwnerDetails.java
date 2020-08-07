@@ -1,6 +1,6 @@
 package com.lostdotcom.notifind.Details;
 
-// The purpose of this class is to initialise the details of the Owner when logging in. We will use the getters and setters in this
+// The purpose of this class is to initialise the activity_custom_rows of the Owner when logging in. We will use the getters and setters in this
 // class once it is initialised
 
 public class OwnerDetails {
