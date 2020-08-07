@@ -7,6 +7,7 @@
     tools:context=".Activities.ReportViewingActivity">
 
     <ListView
+        android:id="@+id/missingList"
         android:layout_width="312dp"
         android:layout_height="616dp"
         android:layout_alignParentStart="true"
