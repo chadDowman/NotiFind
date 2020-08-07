@@ -1,8 +1,11 @@
 package com.lostdotcom.notifind.LoginSystem;
 
+/*
+This class is responsible for the login interface and allows users to login, access the forgot password screen, and access the sign up screen.
+ */
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.lostdotcom.notifind.Activities.SettingsActivity;
 import com.lostdotcom.notifind.R;
 

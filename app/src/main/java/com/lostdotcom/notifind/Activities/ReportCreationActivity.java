@@ -1,11 +1,11 @@
 package com.lostdotcom.notifind.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
+// This is the screen that will post the missing persons reports.
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
 import com.lostdotcom.notifind.R;
 
 public class ReportCreationActivity extends AppCompatActivity {

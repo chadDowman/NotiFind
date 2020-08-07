@@ -1,5 +1,9 @@
 package com.lostdotcom.notifind.Details;
 
+
+// The purpose of this class is to initialise the details of the admin when logging in and when the admin account is created. We will use the getters and setters in this
+// class once the thing is initialised
+
 public class AdminDetails {
 
     private int adminID;

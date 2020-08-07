@@ -1,11 +1,13 @@
 package com.lostdotcom.notifind.LoginSystem;
 
-import androidx.appcompat.app.AppCompatActivity;
+/*
+This class is responsible for the password recovery of users
+ */
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
 

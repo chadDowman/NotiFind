@@ -1,7 +1,11 @@
 package com.lostdotcom.notifind.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
+/*
+This class controls the settings screen and is how users access the account settings, notification settings, privacy settings and about settings screens
+respectively. It is also where users are able to request closure of their accounts.
+ */
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

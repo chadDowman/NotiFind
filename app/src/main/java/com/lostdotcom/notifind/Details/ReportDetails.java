@@ -1,5 +1,8 @@
 package com.lostdotcom.notifind.Details;
 
+// The purpose of this class is to initialise the details of the missing persons once a admin clicks post missing persons report. We will use the getters and setters in this
+// class once the attributes are initialised
+
 public class ReportDetails {
 
     private String name;
