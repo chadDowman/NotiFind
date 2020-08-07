@@ -13,8 +13,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.lostdotcom.notifind.Activities.ReportCreationActivity;
 import com.lostdotcom.notifind.Activities.SettingsActivity;
 import com.lostdotcom.notifind.R;
+import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
