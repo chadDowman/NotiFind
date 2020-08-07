@@ -1,6 +1,6 @@
 package com.lostdotcom.notifind.Details;
 
-// The purpose of this class is to initialise the details of the user when logging in and when the user account is created. We will use the getters and setters in this
+// The purpose of this class is to initialise the activity_custom_rows of the user when logging in and when the user account is created. We will use the getters and setters in this
 // class once the attributes are initialised
 
 public class UserDetails {

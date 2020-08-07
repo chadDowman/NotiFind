@@ -4,9 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0F222D"
-    tools:context=".Activities.ReportViewingActivity">
+    tools:context=".Viewing.ReportViewingActivity">
 
     <ListView
+        android:id="@+id/missingList"
         android:layout_width="312dp"
         android:layout_height="616dp"
         android:layout_alignParentStart="true"
