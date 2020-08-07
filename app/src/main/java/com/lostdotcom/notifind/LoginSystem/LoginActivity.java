@@ -82,10 +82,17 @@ public class LoginActivity extends AppCompatActivity {
                 else
                     item.setChecked(true);
                 return true;
+                /*
+            case R.id.dark_theme:
+                if (item.isChecked())
+                    item.setChecked(false);
+                else
+                    item.setChecked(true);
+                return true;
+                 */
             default:
                 return super.onOptionsItemSelected(item);// Just default functionality that makes sure everything doest break
         }
-
 
     }
 

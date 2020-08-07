@@ -8,15 +8,13 @@ public class AdminDetails {
 
     private int adminID;
     private String adminLocation;
-    private String adminType;
     private String adminPhoneNumber;
     private String adminEmail;
     private String adminPassword;
 
     //Constructors
-    public AdminDetails(String adminLocation, String adminType, String adminPhoneNumber, String adminEmail, String adminPassword) {
+    public AdminDetails(String adminLocation, String adminPhoneNumber, String adminEmail, String adminPassword) {
         this.adminLocation = adminLocation;
-        this.adminType = adminType;
         this.adminPhoneNumber = adminPhoneNumber;
         this.adminEmail = adminEmail;
         this.adminPassword = adminPassword;
@@ -42,14 +40,6 @@ public class AdminDetails {
 
     public void setAdminLocation(String adminLocation) {
         this.adminLocation = adminLocation;
-    }
-
-    public String getAdminType() {
-        return adminType;
-    }
-
-    public void setAdminType(String adminType) {
-        this.adminType = adminType;
     }
 
     public String getAdminPhoneNumber() {
