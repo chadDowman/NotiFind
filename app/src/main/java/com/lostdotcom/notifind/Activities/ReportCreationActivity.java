@@ -10,14 +10,14 @@ import com.lostdotcom.notifind.R;
 
 public class ReportCreationActivity extends AppCompatActivity {
 
-    EditText txtName;
-    EditText txtSurname;
-    EditText txtAge;
-    EditText txtEyeColor;
-    EditText txtWeight;
-    EditText txtHeight;
-    EditText txtLastSeenLocation;
-    EditText txtDescription;
+    private EditText txtName;
+    private EditText txtSurname;
+    private EditText txtAge;
+    private EditText txtEyeColor;
+    private EditText txtWeight;
+    private EditText txtHeight;
+    private EditText txtLastSeenLocation;
+    private EditText txtDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,4 +40,70 @@ public class ReportCreationActivity extends AppCompatActivity {
 
     //TODO onClick for logout Button
 
+
+    //Getters and Setters
+
+    public EditText getTxtName() {
+        return txtName;
+    }
+
+    public void setTxtName(EditText txtName) {
+        this.txtName = txtName;
+    }
+
+    public EditText getTxtSurname() {
+        return txtSurname;
+    }
+
+    public void setTxtSurname(EditText txtSurname) {
+        this.txtSurname = txtSurname;
+    }
+
+    public EditText getTxtAge() {
+        return txtAge;
+    }
+
+    public void setTxtAge(EditText txtAge) {
+        this.txtAge = txtAge;
+    }
+
+    public EditText getTxtEyeColor() {
+        return txtEyeColor;
+    }
+
+    public void setTxtEyeColor(EditText txtEyeColor) {
+        this.txtEyeColor = txtEyeColor;
+    }
+
+    public EditText getTxtWeight() {
+        return txtWeight;
+    }
+
+    public void setTxtWeight(EditText txtWeight) {
+        this.txtWeight = txtWeight;
+    }
+
+    public EditText getTxtHeight() {
+        return txtHeight;
+    }
+
+    public void setTxtHeight(EditText txtHeight) {
+        this.txtHeight = txtHeight;
+    }
+
+    public EditText getTxtLastSeenLocation() {
+        return txtLastSeenLocation;
+    }
+
+    public void setTxtLastSeenLocation(EditText txtLastSeenLocation) {
+        this.txtLastSeenLocation = txtLastSeenLocation;
+    }
+
+    public EditText getTxtDescription() {
+        return txtDescription;
+    }
+
+    public void setTxtDescription(EditText txtDescription) {
+        this.txtDescription = txtDescription;
+    }
 }

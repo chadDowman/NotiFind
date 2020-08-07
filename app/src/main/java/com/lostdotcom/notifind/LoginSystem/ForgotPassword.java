@@ -23,6 +23,6 @@ public class ForgotPassword extends AppCompatActivity {
     }
 
     public void submitEmailClicked (View view){
-
+        //TODO This class must send the email to user
     }
 }

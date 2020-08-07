@@ -16,11 +16,10 @@ import com.lostdotcom.notifind.R;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText txtLoginEmail;
-    EditText txtLoginPassword;
-    Button btnLogin;
-    MenuItem settingsMenu;
-
+    private EditText txtLoginEmail;
+    private EditText txtLoginPassword;
+    private Button btnLogin;
+    private MenuItem settingsMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginButtonClicked (View view){
-        String email = txtLoginEmail.getText().toString();
-        String password = txtLoginPassword.getText().toString();
+        String email = getTxtLoginEmail().getText().toString();
+        String password = getTxtLoginPassword().getText().toString();
 
         if (!email.isEmpty() && !password.isEmpty()){
             //TODO FireBase Connection Here
@@ -89,7 +88,37 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void settingsOverFlowClicked (View view){
+    // Getters and Setters
 
+    public EditText getTxtLoginEmail() {
+        return txtLoginEmail;
+    }
+
+    public void setTxtLoginEmail(EditText txtLoginEmail) {
+        this.txtLoginEmail = txtLoginEmail;
+    }
+
+    public EditText getTxtLoginPassword() {
+        return txtLoginPassword;
+    }
+
+    public void setTxtLoginPassword(EditText txtLoginPassword) {
+        this.txtLoginPassword = txtLoginPassword;
+    }
+
+    public Button getBtnLogin() {
+        return btnLogin;
+    }
+
+    public void setBtnLogin(Button btnLogin) {
+        this.btnLogin = btnLogin;
+    }
+
+    public MenuItem getSettingsMenu() {
+        return settingsMenu;
+    }
+
+    public void setSettingsMenu(MenuItem settingsMenu) {
+        this.settingsMenu = settingsMenu;
     }
 }

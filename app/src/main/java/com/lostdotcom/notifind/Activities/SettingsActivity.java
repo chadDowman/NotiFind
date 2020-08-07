@@ -12,12 +12,12 @@ import com.lostdotcom.notifind.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    Button btnPrevious;
-    ImageButton btnAccountSettings;
-    ImageButton btnNotificationSettings;
-    ImageButton btnPrivacySettings;
-    ImageButton btnAbout;
-    ImageButton btnCloseAccount;
+    private Button btnPrevious;
+    private ImageButton btnAccountSettings;
+    private ImageButton btnNotificationSettings;
+    private ImageButton btnPrivacySettings;
+    private ImageButton btnAbout;
+    private ImageButton btnCloseAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,4 +58,53 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    //Getters and Setters
+
+    public Button getBtnPrevious() {
+        return btnPrevious;
+    }
+
+    public void setBtnPrevious(Button btnPrevious) {
+        this.btnPrevious = btnPrevious;
+    }
+
+    public ImageButton getBtnAccountSettings() {
+        return btnAccountSettings;
+    }
+
+    public void setBtnAccountSettings(ImageButton btnAccountSettings) {
+        this.btnAccountSettings = btnAccountSettings;
+    }
+
+    public ImageButton getBtnNotificationSettings() {
+        return btnNotificationSettings;
+    }
+
+    public void setBtnNotificationSettings(ImageButton btnNotificationSettings) {
+        this.btnNotificationSettings = btnNotificationSettings;
+    }
+
+    public ImageButton getBtnPrivacySettings() {
+        return btnPrivacySettings;
+    }
+
+    public void setBtnPrivacySettings(ImageButton btnPrivacySettings) {
+        this.btnPrivacySettings = btnPrivacySettings;
+    }
+
+    public ImageButton getBtnAbout() {
+        return btnAbout;
+    }
+
+    public void setBtnAbout(ImageButton btnAbout) {
+        this.btnAbout = btnAbout;
+    }
+
+    public ImageButton getBtnCloseAccount() {
+        return btnCloseAccount;
+    }
+
+    public void setBtnCloseAccount(ImageButton btnCloseAccount) {
+        this.btnCloseAccount = btnCloseAccount;
+    }
 }

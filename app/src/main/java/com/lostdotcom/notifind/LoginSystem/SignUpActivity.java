@@ -12,12 +12,12 @@ import com.lostdotcom.notifind.R;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    EditText txtSignUpEmail;
-    EditText txtSignUpPassword;
-    EditText txtSignUpPasswordConfirm;
-    EditText txtSignUpLocation;
-    EditText txtSignUpName;
-    EditText txtSignUpSurname;
+    private EditText txtSignUpEmail;
+    private EditText txtSignUpPassword;
+    private EditText txtSignUpPasswordConfirm;
+    private EditText txtSignUpLocation;
+    private EditText txtSignUpName;
+    private EditText txtSignUpSurname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,5 +42,55 @@ public class SignUpActivity extends AppCompatActivity {
     public void returnLoginButtonClicked (View view){
         Intent i = new Intent (this, LoginActivity.class); // Instance of intent class
         startActivity(i);
+    }
+
+    // Getters and Setters
+
+    public EditText getTxtSignUpEmail() {
+        return txtSignUpEmail;
+    }
+
+    public void setTxtSignUpEmail(EditText txtSignUpEmail) {
+        this.txtSignUpEmail = txtSignUpEmail;
+    }
+
+    public EditText getTxtSignUpPassword() {
+        return txtSignUpPassword;
+    }
+
+    public void setTxtSignUpPassword(EditText txtSignUpPassword) {
+        this.txtSignUpPassword = txtSignUpPassword;
+    }
+
+    public EditText getTxtSignUpPasswordConfirm() {
+        return txtSignUpPasswordConfirm;
+    }
+
+    public void setTxtSignUpPasswordConfirm(EditText txtSignUpPasswordConfirm) {
+        this.txtSignUpPasswordConfirm = txtSignUpPasswordConfirm;
+    }
+
+    public EditText getTxtSignUpLocation() {
+        return txtSignUpLocation;
+    }
+
+    public void setTxtSignUpLocation(EditText txtSignUpLocation) {
+        this.txtSignUpLocation = txtSignUpLocation;
+    }
+
+    public EditText getTxtSignUpName() {
+        return txtSignUpName;
+    }
+
+    public void setTxtSignUpName(EditText txtSignUpName) {
+        this.txtSignUpName = txtSignUpName;
+    }
+
+    public EditText getTxtSignUpSurname() {
+        return txtSignUpSurname;
+    }
+
+    public void setTxtSignUpSurname(EditText txtSignUpSurname) {
+        this.txtSignUpSurname = txtSignUpSurname;
     }
 }
