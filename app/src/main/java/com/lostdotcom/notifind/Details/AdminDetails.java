@@ -9,6 +9,7 @@ public class AdminDetails {
     private String adminEmail;
     private String adminPassword;
 
+    //Constructors
     public AdminDetails(String adminLocation, String adminType, String adminPhoneNumber, String adminEmail, String adminPassword) {
         this.adminLocation = adminLocation;
         this.adminType = adminType;
@@ -22,6 +23,7 @@ public class AdminDetails {
         this.adminPassword = adminPassword;
     }
 
+    // Getters and Setters
     public int getAdminID() {
         return adminID;
     }
