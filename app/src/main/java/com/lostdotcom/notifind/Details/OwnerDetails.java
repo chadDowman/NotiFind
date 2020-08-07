@@ -1,14 +1,17 @@
 package com.lostdotcom.notifind.Details;
 
+// The purpose of this class is to initialise the details of the Owner when logging in. We will use the getters and setters in this
+// class once it is initialised
+
 public class OwnerDetails {
 
     private int ownerID;
     private String ownerEmail;
-    private String ownerPassowrd;
+    private String ownerPassword;
 
-    public OwnerDetails(String ownerEmail, String ownerPassowrd) {
+    public OwnerDetails(String ownerEmail, String ownerPassword) {
         this.ownerEmail = ownerEmail;
-        this.ownerPassowrd = ownerPassowrd;
+        this.ownerPassword = ownerPassword;
     }
 
     public int getOwnerID() {
@@ -27,11 +30,11 @@ public class OwnerDetails {
         this.ownerEmail = ownerEmail;
     }
 
-    public String getOwnerPassowrd() {
-        return ownerPassowrd;
+    public String getOwnerPassword() {
+        return ownerPassword;
     }
 
-    public void setOwnerPassowrd(String ownerPassowrd) {
-        this.ownerPassowrd = ownerPassowrd;
+    public void setOwnerPassword(String ownerPassword) {
+        this.ownerPassword = ownerPassword;
     }
 }

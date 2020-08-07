@@ -1,12 +1,14 @@
 package com.lostdotcom.notifind.LoginSystem;
 
-import androidx.appcompat.app.AppCompatActivity;
+/*
+This screen is responsible for signing users up to the NotiFind application.
+ */
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
 import com.lostdotcom.notifind.Details.UserDetails;
 import com.lostdotcom.notifind.R;
 
