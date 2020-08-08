@@ -3,21 +3,26 @@ package com.lostdotcom.notifind.Viewing;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.TextView;
+
 
 import com.lostdotcom.notifind.R;
 
 public class ReportViewingActivity extends AppCompatActivity {
 
-    private String[] names = {"Chad", "Curtis", "Haarith", "Americo", "Mrs O"};
-    private String[] surnames = {"Dowman", "Life", "Thing", "Person", "Lol"};
-    private String[] age = {"21", "22", "23", "24", "25"};
-    private String[] location = {"Marsh", "Cresent","Place", "Thing" ,"The place"};
+     int[] IMAGES = {R.drawable.logo, R.drawable.logo, R.drawable.logo, R.drawable.logo, R.drawable.logo};
+     String[] names = {"Chad", "Curtis", "Haarith", "Americo", "Mrs O"};
+     String[] surnames = {"Dowman", "Life", "Thing", "Person", "Lol"};
+     String[] age = {"21", "22", "23", "24", "25"};
+     String[] location = {"Marsh", "Cresent","Place", "Thing" ,"The place"};
 
 
 
@@ -26,62 +31,50 @@ public class ReportViewingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_viewing);
 
-        String[] names = {"Chad","Ulrich","Mrs o", "Haarith", "Americo"};
+        ListView listView = findViewById(R.id.missingList);
+        CustomAdapter customAdapter = new CustomAdapter();
 
-        ListAdapter adapter = new CustomAdapter(this, names);
-        ListView list = findViewById(R.id.missingList);
-        list.setAdapter(adapter);
-
-        list.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        // Whenever you tap a item in the list each item has a position (0,1,2,3,4 etc)
-                        // This says get that position which is a integer and it gets the value and converts it to a string
-                        String name = String.valueOf(adapterView.getItemAtPosition(i));
-                        Toast.makeText(ReportViewingActivity.this, name, Toast.LENGTH_LONG).show();
-                    }
-                }
-
-        );
-    }
-
-    /*
-    public void initialArrays {
+        listView.setAdapter(customAdapter);
 
     }
-     */
 
-    //Getters and Setters
-    public String[] getNames() {
-        return names;
+    class CustomAdapter extends BaseAdapter{
+
+        @Override
+        public int getCount() {
+            return IMAGES.length;
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @SuppressLint("ViewHolder")
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            view = getLayoutInflater().inflate(R.layout.activity_custom_rows, null);
+
+            ImageView imageView = view.findViewById(R.id.custom_image);
+            TextView textView_name = view.findViewById(R.id.custom_name);
+            TextView textView_surname = view.findViewById(R.id.custom_surname);
+            TextView textView_age = view.findViewById(R.id.custom_age);
+            TextView textView_location = view.findViewById(R.id.custom_location);
+
+            imageView.setImageResource(IMAGES[i]);
+            textView_name.setText(names[i]);
+            textView_surname.setText(surnames[i]);
+            textView_age.setText(age[i]);
+            textView_location.setText(location[i]);
+
+
+            return view;
+        }
     }
 
-    public void setNames(String[] names) {
-        this.names = names;
-    }
-
-    public String[] getSurnames() {
-        return surnames;
-    }
-
-    public void setSurnames(String[] surnames) {
-        this.surnames = surnames;
-    }
-
-    public String[] getAge() {
-        return age;
-    }
-
-    public void setAge(String[] age) {
-        this.age = age;
-    }
-
-    public String[] getLocation() {
-        return location;
-    }
-
-    public void setLocation(String[] location) {
-        this.location = location;
-    }
 }
