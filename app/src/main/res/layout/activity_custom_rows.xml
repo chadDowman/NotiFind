@@ -32,7 +32,7 @@
         android:layout_toRightOf="@+id/custom_image"
         android:gravity="center_vertical"
         android:hint="@string/Name"
-        tools:ignore="HardcodedText,RtlHardcoded" />
+        tools:ignore="RtlHardcoded" />
 
     <TextView
         android:id="@+id/custom_surname"
