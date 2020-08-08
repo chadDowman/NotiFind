@@ -47,7 +47,8 @@
         android:layout_toEndOf="@id/custom_image"
         android:layout_toRightOf="@+id/custom_image"
         android:gravity="center_vertical"
-        android:hint="@string/surname" />
+        android:hint="@string/surname"
+        tools:ignore="RtlHardcoded" />
 
     <TextView
         android:id="@+id/custom_age"
@@ -61,7 +62,8 @@
         android:layout_marginEnd="35dp"
         android:layout_toEndOf="@+id/custom_image"
         android:layout_toRightOf="@+id/custom_image"
-        android:hint="@string/age" />
+        android:hint="@string/age"
+        tools:ignore="RtlHardcoded" />
 
     <TextView
         android:id="@+id/custom_location"
@@ -75,7 +77,8 @@
         android:layout_marginEnd="30dp"
         android:layout_toEndOf="@+id/custom_image"
         android:layout_toRightOf="@+id/custom_image"
-        android:hint="@string/last_location" />
+        android:hint="@string/last_location"
+        tools:ignore="RtlHardcoded" />
 
 
 </RelativeLayout>
