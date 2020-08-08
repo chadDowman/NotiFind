@@ -4,6 +4,7 @@ package com.lostdotcom.notifind.Viewing;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -22,6 +23,9 @@ import com.lostdotcom.notifind.R;
 
 public class ReportViewingActivity extends AppCompatActivity {
 
+    NotificationCompat.Builder notification;
+    private String uniqueID = "life";
+
      int[] IMAGES = {R.drawable.logo, R.drawable.logo, R.drawable.logo, R.drawable.logo, R.drawable.logo};
      String[] names = {"Chad", "Curtis", "Haarith", "Americo", "Mrs O"};
      String[] surnames = {"Dowman", "Life", "Thing", "Person", "Lol"};
@@ -37,6 +41,9 @@ public class ReportViewingActivity extends AppCompatActivity {
         CustomAdapter customAdapter = new CustomAdapter();
 
         listView.setAdapter(customAdapter);
+
+        //Notification Stuff
+        notification = new NotificationCompat.Builder(this, uniqueID);
 
     }
 

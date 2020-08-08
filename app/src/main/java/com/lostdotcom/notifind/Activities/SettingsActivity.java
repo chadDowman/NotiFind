@@ -18,11 +18,11 @@ import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 public class SettingsActivity extends AppCompatActivity {
 
     private Button btnPrevious;
-    private ImageButton btnAccountSettings;
-    private ImageButton btnNotificationSettings;
-    private ImageButton btnPrivacySettings;
-    private ImageButton btnAbout;
-    private ImageButton btnCloseAccount;
+    private Button btnAccountSettings;
+    private Button btnNotificationSettings;
+    private Button btnPrivacySettings;
+    private Button btnAbout;
+    private Button btnCloseAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         btnPrevious =  findViewById(R.id.btnPrevious);
         btnAccountSettings = findViewById(R.id.btnAccountSettings);
-        btnNotificationSettings = findViewById(R.id.btnNotificationSettings);
         btnPrivacySettings = findViewById(R.id.btnPrivacySettings);
         btnAbout = findViewById(R.id.btnAbout);
         btnCloseAccount = findViewById(R.id.btnCloseAccount);
@@ -65,6 +64,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     //Getters and Setters
 
+
     public Button getBtnPrevious() {
         return btnPrevious;
     }
@@ -73,43 +73,43 @@ public class SettingsActivity extends AppCompatActivity {
         this.btnPrevious = btnPrevious;
     }
 
-    public ImageButton getBtnAccountSettings() {
+    public Button getBtnAccountSettings() {
         return btnAccountSettings;
     }
 
-    public void setBtnAccountSettings(ImageButton btnAccountSettings) {
+    public void setBtnAccountSettings(Button btnAccountSettings) {
         this.btnAccountSettings = btnAccountSettings;
     }
 
-    public ImageButton getBtnNotificationSettings() {
+    public Button getBtnNotificationSettings() {
         return btnNotificationSettings;
     }
 
-    public void setBtnNotificationSettings(ImageButton btnNotificationSettings) {
+    public void setBtnNotificationSettings(Button btnNotificationSettings) {
         this.btnNotificationSettings = btnNotificationSettings;
     }
 
-    public ImageButton getBtnPrivacySettings() {
+    public Button getBtnPrivacySettings() {
         return btnPrivacySettings;
     }
 
-    public void setBtnPrivacySettings(ImageButton btnPrivacySettings) {
+    public void setBtnPrivacySettings(Button btnPrivacySettings) {
         this.btnPrivacySettings = btnPrivacySettings;
     }
 
-    public ImageButton getBtnAbout() {
+    public Button getBtnAbout() {
         return btnAbout;
     }
 
-    public void setBtnAbout(ImageButton btnAbout) {
+    public void setBtnAbout(Button btnAbout) {
         this.btnAbout = btnAbout;
     }
 
-    public ImageButton getBtnCloseAccount() {
+    public Button getBtnCloseAccount() {
         return btnCloseAccount;
     }
 
-    public void setBtnCloseAccount(ImageButton btnCloseAccount) {
+    public void setBtnCloseAccount(Button btnCloseAccount) {
         this.btnCloseAccount = btnCloseAccount;
     }
 }
