@@ -6,22 +6,56 @@
     tools:ignore="ExtraText">
 
     <ImageView
-        android:id="@+id/image1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/nameView"
+        android:layout_width="141dp"
+        android:layout_height="154dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="26dp"
-        app:srcCompat="@drawable/logo" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="22dp"
+        tools:srcCompat="@tools:sample/avatars"
+        tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/text1"
-        android:layout_width="81dp"
-        android:layout_height="36dp"
+        android:id="@+id/surnameView"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="98dp"
-        android:text="TextView" />
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="42dp"
+        android:hint="@string/Name"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/ageView"
+        android:layout_width="199dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="41dp"
+        android:hint="@string/surname" />
+
+    <TextView
+        android:id="@+id/lastView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="40dp"
+        android:hint="@string/age" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="157dp"
+        android:layout_marginEnd="40dp"
+        android:hint="@string/last_location" />
+
+
 </RelativeLayout>
