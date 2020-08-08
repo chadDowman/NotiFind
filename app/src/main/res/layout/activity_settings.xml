@@ -32,64 +32,48 @@
                 app:srcCompat="@drawable/logo"
                 tools:ignore="ContentDescription" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/btnAccountSettings"
-                android:layout_width="155dp"
-                android:layout_height="41dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="43dp"
-                android:layout_marginTop="177dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="185dp"
                 android:onClick="btnAccountSettingsClicked"
-                app:srcCompat="@drawable/account"
-                tools:ignore="ContentDescription" />
+                android:text="@string/account_settings" />
 
-            <ImageButton
-                android:id="@+id/btnNotificationSettings"
-                android:layout_width="152dp"
-                android:layout_height="41dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="44dp"
-                android:layout_marginBottom="245dp"
-                android:onClick="btnNotificationSettingsClicked"
-                app:srcCompat="@drawable/notes"
-                tools:ignore="ContentDescription" />
-
-            <ImageButton
+            <Button
                 android:id="@+id/btnPrivacySettings"
-                android:layout_width="156dp"
-                android:layout_height="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="42dp"
-                android:layout_marginBottom="183dp"
+                android:layout_marginStart="47dp"
+                android:layout_marginBottom="231dp"
                 android:onClick="btnPrivacySettingsClicked"
-                app:srcCompat="@drawable/privacy"
-                tools:ignore="ContentDescription" />
+                android:text="@string/privacy_settings" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/btnAbout"
-                android:layout_width="158dp"
-                android:layout_height="36dp"
+                android:layout_width="149dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="42dp"
-                android:layout_marginBottom="119dp"
+                android:layout_marginStart="49dp"
+                android:layout_marginBottom="161dp"
                 android:onClick="btnAboutClicked"
-                app:srcCompat="@drawable/about"
-                tools:ignore="ContentDescription" />
+                android:text="@string/about" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/btnCloseAccount"
-                android:layout_width="158dp"
-                android:layout_height="33dp"
+                android:layout_width="152dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="43dp"
-                android:layout_marginBottom="54dp"
-                app:srcCompat="@drawable/close"
-                tools:ignore="ContentDescription" />
+                android:layout_marginStart="52dp"
+                android:layout_marginBottom="89dp"
+                android:text="@string/close_account" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

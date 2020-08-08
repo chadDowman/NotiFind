@@ -22,19 +22,19 @@
         android:text="@string/back_to_settings" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/changeEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="231dp"
+        android:layout_marginTop="232dp"
         android:ems="10"
         android:hint="@string/change_my_email"
-        android:textColorHint="#FFFFFF"
-        android:inputType="textPersonName"
         android:importantForAutofill="no"
-        tools:ignore="RelativeOverlap" />
+        android:inputType="textEmailAddress"
+        android:textColorHint="#FFFFFF"
+        tools:ignore="RelativeOverlap,TextFields" />
 
     <TextView
         android:id="@+id/textView6"
@@ -50,7 +50,7 @@
         tools:ignore="RelativeOverlap" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/changePassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -64,7 +64,7 @@
         tools:ignore="Autofill,RelativeOverlap" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/changeLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -90,7 +90,7 @@
         android:textColor="#FFEB3B" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/changeEmailButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -98,12 +98,13 @@
         android:layout_marginTop="228dp"
         android:layout_marginEnd="95dp"
         android:background="#0F222D"
+        android:onClick="changeEmailButtonClicked"
         android:text="@string/change"
         android:textColor="#FFEB3B"
         tools:ignore="RelativeOverlap" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/changeLocationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -111,12 +112,13 @@
         android:layout_marginTop="358dp"
         android:layout_marginEnd="95dp"
         android:background="#0F222D"
+        android:onClick="changeLocationButtonClicked"
         android:text="@string/change"
         android:textColor="#FFEB3B"
         tools:ignore="RelativeOverlap" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/changePasswordButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -124,6 +126,7 @@
         android:layout_marginTop="293dp"
         android:layout_marginEnd="95dp"
         android:background="#0F222D"
+        android:onClick="changePasswordButtonClicked"
         android:text="@string/change"
         android:textColor="#FFEB3B"
         tools:ignore="RelativeOverlap" />

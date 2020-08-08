@@ -30,7 +30,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="46dp"
-                app:srcCompat="@drawable/logo" />
+                app:srcCompat="@drawable/logo"
+                tools:ignore="ContentDescription" />
 
             <EditText
                 android:id="@+id/adminEmail"
@@ -43,7 +44,8 @@
                 android:background="#A69F9F"
                 android:ems="10"
                 android:hint="@string/Email_Input"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                tools:ignore="Autofill,RelativeOverlap" />
 
             <EditText
                 android:id="@+id/adminPhoneNo"
@@ -56,7 +58,8 @@
                 android:background="#A69F9F"
                 android:ems="10"
                 android:hint="@string/enter_phone"
-                android:inputType="phone" />
+                android:inputType="phone"
+                tools:ignore="Autofill,RelativeOverlap" />
 
             <EditText
                 android:id="@+id/adminLocation"
@@ -69,7 +72,8 @@
                 android:background="#A69F9F"
                 android:ems="10"
                 android:hint="@string/enter_address"
-                android:inputType="textPostalAddress" />
+                android:inputType="textPostalAddress"
+                tools:ignore="Autofill" />
 
             <EditText
                 android:id="@+id/adminPassword"
@@ -82,7 +86,8 @@
                 android:background="#A69F9F"
                 android:ems="10"
                 android:hint="@string/Password_Input"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                tools:ignore="Autofill" />
 
             <Button
                 android:id="@+id/adminPostBtn"
@@ -102,7 +107,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="187dp"
-                android:text="@string/enter_email" />
+                android:text="@string/enter_email"
+                tools:ignore="RelativeOverlap" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -112,7 +118,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="415dp"
-                android:text="@string/enter_phone" />
+                android:text="@string/enter_phone"
+                tools:ignore="RelativeOverlap" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -122,7 +129,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="334dp"
-                android:text="@string/address" />
+                android:text="@string/address"
+                tools:ignore="RelativeOverlap" />
 
             <TextView
                 android:id="@+id/custom_location"
@@ -132,7 +140,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="260dp"
-                android:text="@string/enter_password" />
+                android:text="@string/enter_password"
+                tools:ignore="RelativeOverlap" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

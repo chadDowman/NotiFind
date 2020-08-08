@@ -50,5 +50,9 @@
     <string name="show_location">Show Location</string>
     <string name="return_to_settings">Return to Settings</string>
     <string name="show_notification">Show Notification</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="privacy_settings">Privacy settings</string>
+    <string name="about">About</string>
+    <string name="close_account">Close Account</string>
 
 </resources>
