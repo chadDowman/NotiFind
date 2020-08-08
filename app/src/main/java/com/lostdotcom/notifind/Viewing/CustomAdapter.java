@@ -31,10 +31,10 @@ class CustomAdapter extends ArrayAdapter<String> {
 
         String singleNameItem = getItem(position); // Position is the position of each item in the list
         TextView listText  = customView.findViewById(R.id.text1);
-        ImageView listImage = customView.findViewById(R.id.image1);
+       // ImageView listImage = customView.findViewById();
 
         listText.setText(singleNameItem); // Sets the text to whatever item it is referencing // Basically changes text dianamically to each item
-        listImage.setImageResource(R.drawable.logo);
+       // listImage.setImageResource(R.drawable.logo);
 
         return customView; // This is what we just created and what we returning. It basically says hey use this
     }
