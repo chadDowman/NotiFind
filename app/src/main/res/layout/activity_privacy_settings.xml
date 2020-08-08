@@ -4,58 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gloss"
+    android:background="#0F222D"
     tools:context=".Activities.PrivacySettingsActivity">
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/returnBut"
         android:layout_width="178dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="14dp"
-        android:text="Return to Settings" />
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:background="#0F222D"
+        android:text="@string/return_to_settings"
+        android:textColor="#FFFFFF" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/showPrivacyLocationBut"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="188dp"
+        android:textColor="#FFFFFF"
+        android:background="#0F222D"
+        android:text="@string/show_location" />
+
+    <Switch
+        android:id="@+id/showPrivacyStatusBut"
+        android:layout_width="171dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="231dp"
+        android:textColor="#FFFFFF"
+        android:background="#0F222D"
+        android:text="@string/show_status" />
+
+    <Switch
+        android:id="@+id/ShowPrivacyProfileBut"
+        android:layout_width="174dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="274dp"
+        android:textColor="#FFFFFF"
+        android:background="#0F222D"
+        android:text="@string/show_my_profile" />
+
+    <TextView
+        android:id="@+id/MyprivacyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="29dp"
-        android:layout_marginTop="111dp"
-        android:background="#AAA4A4"
-        android:text="Show Location" />
-
-    <Switch
-        android:id="@+id/switch2"
-        android:layout_width="141dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="193dp"
-        android:background="#AAA4A4"
-        android:text="Show Status" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="276dp"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginBottom="311dp"
-        android:text="Button" />
+        android:layout_marginTop="127dp"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"
+        android:text="@string/my_privacy_settings"
+        tools:ignore="RelativeOverlap" />
 </RelativeLayout>

@@ -11,9 +11,10 @@
         android:layout_height="154dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="24dp"
-        tools:ignore="ContentDescription"
+        tools:ignore="ContentDescription,RtlHardcoded"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -24,8 +25,9 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="21dp"
         android:layout_marginEnd="42dp"
+        android:layout_toRightOf="@+id/custom_image"
         android:hint="@string/Name"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText,RtlHardcoded" />
 
     <TextView
         android:id="@+id/custom_surname"
@@ -35,6 +37,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="65dp"
         android:layout_marginEnd="41dp"
+        android:layout_toEndOf="@+id/custom_image"
         android:hint="@string/surname" />
 
     <TextView
@@ -45,6 +48,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="112dp"
         android:layout_marginEnd="40dp"
+        android:layout_toEndOf="@+id/custom_image"
         android:hint="@string/age" />
 
     <TextView
@@ -55,6 +59,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="157dp"
         android:layout_marginEnd="40dp"
+        android:layout_toEndOf="@+id/custom_image"
         android:hint="@string/last_location" />
 
 

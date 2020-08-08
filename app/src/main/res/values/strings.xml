@@ -44,5 +44,10 @@
     <string name="change">Change</string>
     <string name="contact">Contact</string>
     <string name="back_to_settings">Back to settings</string>
+    <string name="my_privacy_settings">My Privacy Settings</string>
+    <string name="show_my_profile">Show my profile</string>
+    <string name="show_status">Show Status</string>
+    <string name="show_location">Show Location</string>
+    <string name="return_to_settings">Return to Settings</string>
 
 </resources>
