@@ -49,5 +49,6 @@
     <string name="show_status">Show Status</string>
     <string name="show_location">Show Location</string>
     <string name="return_to_settings">Return to Settings</string>
+    <string name="show_notification">Show Notification</string>
 
 </resources>
