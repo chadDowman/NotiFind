@@ -42,8 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="168dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="162dp"
         android:text="@string/MyAccount"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
@@ -55,12 +55,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="294dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="295dp"
         android:ems="10"
         android:hint="@string/change_my_password"
-        android:textColorHint="#FFFFFF"
         android:inputType="textPassword"
+        android:textColorHint="#FFFFFF"
         tools:ignore="Autofill,RelativeOverlap" />
 
     <EditText
@@ -69,13 +69,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="17dp"
+        android:layout_marginStart="18dp"
         android:layout_marginBottom="327dp"
+        android:autofillHints=""
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/change_my_location"
-        android:textColorHint="#FFFFFF"
-        android:autofillHints="" />
+        android:inputType="textPersonName"
+        android:textColorHint="#FFFFFF" />
 
     <Button
         android:id="@+id/button2"
@@ -83,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="19dp"
+        android:layout_marginStart="18dp"
         android:layout_marginBottom="159dp"
         android:background="#0F222D"
         android:text="@string/contact"
