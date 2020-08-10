@@ -47,11 +47,6 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void btnNotificationSettingsClicked (View view){
-        Intent i = new Intent (this, NotificationSettingsActivity.class); // Instance of intent class
-        startActivity(i);
-    }
-
     public void btnPrivacySettingsClicked (View view){
         Intent i = new Intent (this, PrivacySettingsActivity.class); // Instance of intent class
         startActivity(i);

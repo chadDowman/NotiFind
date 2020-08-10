@@ -12,7 +12,6 @@
         <activity android:name=".Activities.AdminCreationActivity"></activity>
         <activity android:name=".Viewing.ReportViewingActivity" />
         <activity android:name=".Activities.AboutActivity" />
-        <activity android:name=".Activities.NotificationSettingsActivity" />
         <activity android:name=".Activities.PrivacySettingsActivity" />
         <activity android:name=".Activities.AccountSettingsActivity" />
         <activity android:name=".Activities.SettingsActivity" />
