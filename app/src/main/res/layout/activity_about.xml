@@ -16,4 +16,46 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="14dp"
         android:text="@string/return_to_settings" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="97dp"
+        android:text="@string/aboutus"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="159dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/about1"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginEnd="1dp"
+        android:textSize="15sp"
+        android:text="@string/about2"
+        android:textColor="#FFFFFF" />
+
 </RelativeLayout>
