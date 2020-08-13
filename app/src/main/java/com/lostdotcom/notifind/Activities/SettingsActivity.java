@@ -59,7 +59,6 @@ public class SettingsActivity extends AppCompatActivity {
 
     //Getters and Setters
 
-
     public Button getBtnPrevious() {
         return btnPrevious;
     }

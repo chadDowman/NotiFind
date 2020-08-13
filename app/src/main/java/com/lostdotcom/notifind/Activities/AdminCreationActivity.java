@@ -30,7 +30,6 @@ public class AdminCreationActivity extends AppCompatActivity {
          */
     }
 
-
     //Getters and Setters
 
     public String getAdminEmail() {

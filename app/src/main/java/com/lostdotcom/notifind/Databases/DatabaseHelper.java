@@ -1,5 +1,6 @@
 package com.lostdotcom.notifind.Databases;
 
-public class DatabaseHelper {
+public class DatabaseHelper{
+
 
 }
