@@ -4,24 +4,40 @@ package com.lostdotcom.notifind.LoginSystem;
 This screen is responsible for signing users up to the NotiFind application.
  */
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.lostdotcom.notifind.Details.UserDetails;
 import com.lostdotcom.notifind.R;
+import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 
 public class SignUpActivity extends AppCompatActivity {
 
+
+    // Firebase
+    private FirebaseAuth myAuth;
+
+    //------------------------------------
     private EditText txtSignUpEmail;
     private EditText txtSignUpPassword;
     private EditText txtSignUpPasswordConfirm;
     private EditText txtSignUpLocation;
     private EditText txtSignUpName;
     private EditText txtSignUpSurname;
+    private Button btnSignUpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
         txtSignUpLocation = findViewById(R.id.address);
         txtSignUpName = findViewById(R.id.signUpName);
         txtSignUpSurname = findViewById(R.id.signUpSurname);
+        btnSignUpButton = findViewById(R.id.signUpButton2);
 
         Resources r = getResources();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
@@ -44,6 +61,55 @@ public class SignUpActivity extends AppCompatActivity {
         txtSignUpName.setWidth(px);
         txtSignUpPasswordConfirm.setWidth(px);
         txtSignUpSurname.setWidth(px);
+
+        //---------------------------------
+        //Firebase
+        myAuth = FirebaseAuth.getInstance(); // Gets current database instance so we can perform changes
+
+        // Checks if the user is already logged in or not
+        if (myAuth.getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
+            finish();
+        }
+
+        btnSignUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = txtSignUpEmail.getText().toString();
+                String password = txtSignUpPassword.getText().toString();
+                // Checks if its null or not
+                if (TextUtils.isEmpty(email)){
+                    txtSignUpEmail.setError("Email is Required");
+                    return;
+                }
+                if (TextUtils.isEmpty(password)){
+                    txtSignUpPassword.setError("Password is Required");
+                    return;
+                }
+                if (password.length() < 6){
+                    txtSignUpPassword.setError("Password must 6 or more characters");
+                }
+
+                // Firebase Registration
+
+                myAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            toaster("The User has been Created");
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        }else{
+                            toaster("Error! " + task.getException().getMessage());
+                        }
+                    }
+                });
+
+            }
+        });
+    }
+
+    private void toaster (String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     public void signUpButton2Clicked (View view){

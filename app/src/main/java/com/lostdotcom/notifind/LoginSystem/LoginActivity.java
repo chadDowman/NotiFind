@@ -4,25 +4,37 @@ package com.lostdotcom.notifind.LoginSystem;
 This class is responsible for the login interface and allows users to login, access the forgot password screen, and access the sign up screen.
  */
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+import com.google.firebase.auth.FirebaseUser;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 import android.content.res.Resources;
 import android.util.TypedValue;
+import android.widget.Toast;
 
 
 public class LoginActivity extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
+    private static final String TAG = "LoginActivity";
+    //----------------------------------------
     private EditText txtLoginEmail;
     private EditText txtLoginPassword;
     private Button btnLogin;
-    private MenuItem settingsMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         txtLoginEmail = findViewById(R.id.email);
         txtLoginPassword = findViewById(R.id.password);
         btnLogin = findViewById(R.id.login);
-        settingsMenu = findViewById(R.id.settings_menu);
+
 
         Resources r = getResources();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
@@ -40,37 +52,8 @@ public class LoginActivity extends AppCompatActivity {
         txtLoginEmail.setWidth(px);
         txtLoginPassword.setWidth(px);
         btnLogin.setWidth(px);
-
-
     }
 
-
-
-
-
-
-    public void loginButtonClicked (View view){
-        String email = getTxtLoginEmail().getText().toString();
-        String password = getTxtLoginPassword().getText().toString();
-
-        if (!email.isEmpty() && !password.isEmpty()){
-            //TODO FireBase Connection Here
-            /*
-            if  (email.equals(insert database email here) && password.equals(insert database password here)){
-                Intent i = new Intent (this, ReportViewingActivity.class); // Instance of intent class
-                startActivity(i);
-            }else if (email.equals(insert admin database email here) && password.equals(insert admin database password here)){
-                Intent i = new Intent (this, ReportCreationActivity.class); // Instance of intent class
-                startActivity(i);
-            }else if ((email.equals(insert owner database email here) && password.equals(insert owner database password here))){
-                Intent i = new Intent (this, .class); // Instance of intent class
-                startActivity(i);
-            }else{
-                Toast Incorrect Password Or Username
-            }
-             */
-        }
-    }
 
     public void signUpButtonClicked (View view){
         Intent i = new Intent (this, SignUpActivity.class); // Instance of intent class
@@ -83,6 +66,10 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent (this, ReportViewingActivity.class); // Instance of intent class
         startActivity(i);
 
+    }
+
+    private void toaster (String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     // Getters and Setters
@@ -111,11 +98,4 @@ public class LoginActivity extends AppCompatActivity {
         this.btnLogin = btnLogin;
     }
 
-    public MenuItem getSettingsMenu() {
-        return settingsMenu;
-    }
-
-    public void setSettingsMenu(MenuItem settingsMenu) {
-        this.settingsMenu = settingsMenu;
-    }
 }
