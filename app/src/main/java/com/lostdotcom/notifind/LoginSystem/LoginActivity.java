@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
+import android.content.res.Resources;
+import android.util.TypedValue;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,7 +34,20 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.login);
         settingsMenu = findViewById(R.id.settings_menu);
 
+        Resources r = getResources();
+        int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
+
+        txtLoginEmail.setWidth(px);
+        txtLoginPassword.setWidth(px);
+        btnLogin.setWidth(px);
+
+
     }
+
+
+
+
+
 
     public void loginButtonClicked (View view){
         String email = getTxtLoginEmail().getText().toString();

@@ -28,6 +28,7 @@ public class AdminCreationActivity extends AppCompatActivity {
         adminPhoneNo = findViewById(R.id.adminPhoneNo);
         adminPostBtn = findViewById(R.id.adminPostBtn);
          */
+
     }
 
     //Getters and Setters

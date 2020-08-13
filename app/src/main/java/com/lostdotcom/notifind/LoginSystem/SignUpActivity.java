@@ -6,7 +6,9 @@ This screen is responsible for signing users up to the NotiFind application.
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.EditText;
 import com.lostdotcom.notifind.Details.UserDetails;
@@ -32,6 +34,16 @@ public class SignUpActivity extends AppCompatActivity {
         txtSignUpLocation = findViewById(R.id.address);
         txtSignUpName = findViewById(R.id.signUpName);
         txtSignUpSurname = findViewById(R.id.signUpSurname);
+
+        Resources r = getResources();
+        int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
+
+        txtSignUpEmail.setWidth(px);
+        txtSignUpPassword.setWidth(px);
+        txtSignUpLocation.setWidth(px);
+        txtSignUpName.setWidth(px);
+        txtSignUpPasswordConfirm.setWidth(px);
+        txtSignUpSurname.setWidth(px);
     }
 
     public void signUpButton2Clicked (View view){

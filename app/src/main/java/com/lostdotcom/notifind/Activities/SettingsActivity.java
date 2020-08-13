@@ -7,7 +7,9 @@ respectively. It is also where users are able to request closure of their accoun
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -34,6 +36,15 @@ public class SettingsActivity extends AppCompatActivity {
         btnPrivacySettings = findViewById(R.id.btnPrivacySettings);
         btnAbout = findViewById(R.id.btnAbout);
         btnCloseAccount = findViewById(R.id.btnCloseAccount);
+
+        Resources r = getResources();
+        int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
+
+        btnPrevious.setWidth(px);
+        btnAbout.setWidth(px);
+        btnAccountSettings.setWidth(px);
+        btnCloseAccount.setWidth(px);
+        btnPrivacySettings.setWidth(px);
 
     }
 

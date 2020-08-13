@@ -79,8 +79,8 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="314dp"
-        android:layout_height="216dp"
+        android:layout_width="241dp"
+        android:layout_height="248dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/email"
         app:layout_constraintStart_toStartOf="@+id/email"

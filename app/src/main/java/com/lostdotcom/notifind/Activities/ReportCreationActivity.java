@@ -3,7 +3,10 @@ package com.lostdotcom.notifind.Activities;
 // This is the screen that will post the missing persons reports.
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.EditText;
 import com.lostdotcom.notifind.R;
@@ -32,6 +35,18 @@ public class ReportCreationActivity extends AppCompatActivity {
         txtHeight = findViewById(R.id.height);
         txtLastSeenLocation = findViewById(R.id.lastLocation);
         txtDescription = findViewById(R.id.description);
+
+        Resources r = getResources();
+        int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
+
+        txtAge.setWidth(px);
+        txtDescription.setWidth(px);
+        txtEyeColor.setWidth(px);
+        txtHeight.setWidth(px);
+        txtLastSeenLocation.setWidth(px);
+        txtSurname.setWidth(px);
+        txtName.setWidth(px);
+        txtWeight.setWidth(px);
     }
 
     public void postReportButtonClicked (View view){
