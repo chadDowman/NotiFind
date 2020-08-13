@@ -8,30 +8,19 @@
     tools:context=".Activities.SettingsActivity" >
 
     <androidx.cardview.widget.CardView
-        android:layout_width="248dp"
-        android:layout_height="529dp"
+        android:layout_width="256dp"
+        android:layout_height="419dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="74dp"
-        app:cardCornerRadius="50dp"
-        android:layout_marginTop="90dp" >
+        android:layout_marginTop="200dp"
+        app:cardCornerRadius="50dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/gloss">
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="149dp"
-                android:layout_height="173dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="-2dp"
-                app:srcCompat="@drawable/logo"
-                tools:ignore="ContentDescription" />
 
             <Button
                 android:id="@+id/btnAccountSettings"
@@ -39,8 +28,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="45dp"
-                android:layout_marginTop="180dp"
+                android:layout_marginStart="49dp"
+                android:layout_marginTop="131dp"
                 android:background="@android:color/transparent"
                 android:onClick="btnAccountSettingsClicked"
                 android:text="@string/account_settings" />
@@ -51,8 +40,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="45dp"
-                android:layout_marginBottom="218dp"
+                android:layout_marginStart="49dp"
+                android:layout_marginBottom="340dp"
                 android:background="@android:color/transparent"
                 android:onClick="btnPrivacySettingsClicked"
                 android:text="@string/privacy_settings" />
@@ -63,8 +52,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="45dp"
-                android:layout_marginBottom="138dp"
+                android:layout_marginStart="49dp"
+                android:layout_marginBottom="151dp"
                 android:background="@android:color/transparent"
                 android:onClick="btnAboutClicked"
                 android:text="@string/about" />
@@ -75,8 +64,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="45dp"
-                android:layout_marginBottom="52dp"
+                android:layout_marginStart="49dp"
+                android:layout_marginBottom="58dp"
                 android:background="@android:color/transparent"
                 android:text="@string/close_account" />
 
@@ -96,4 +85,16 @@
         android:onClick="btnPreviousClicked"
         android:text="@string/back"
         android:textColor="#FFEB3B" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="260dp"
+        android:layout_height="185dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="59dp"
+
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/logo"
+        tools:ignore="ContentDescription" />
 </RelativeLayout>
