@@ -17,6 +17,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="35dp"
+
         android:background="@drawable/gloss" />
 
     <Button
@@ -27,6 +28,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="70dp"
         android:layout_marginTop="32dp"
+        android:background  = "#0F222D"
+        android:textColor="#FFEB3B"
         android:text="@string/reports" />
 
     <Button
@@ -35,9 +38,27 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="85dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="81dp"
+        android:background="#0F222D"
         android:text="@string/support"
+        android:textColor="#FFEB3B"
         tools:ignore="RelativeOverlap" />
+
+    <Button
+        android:id="@+id/ViewingSignOutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="323dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#0F222D"
+        android:text="Sign Out"
+        android:textColor="#FFEB3B"
+        tools:ignore="HardcodedText" />
 
 </RelativeLayout>

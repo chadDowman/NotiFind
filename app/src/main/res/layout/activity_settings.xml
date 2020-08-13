@@ -14,6 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="74dp"
+        app:cardCornerRadius="50dp"
         android:layout_marginTop="90dp" >
 
         <RelativeLayout
@@ -34,23 +35,25 @@
 
             <Button
                 android:id="@+id/btnAccountSettings"
-                android:layout_width="wrap_content"
+                android:layout_width="149dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="45dp"
-                android:layout_marginTop="185dp"
+                android:layout_marginTop="180dp"
+                android:background="@android:color/transparent"
                 android:onClick="btnAccountSettingsClicked"
                 android:text="@string/account_settings" />
 
             <Button
                 android:id="@+id/btnPrivacySettings"
-                android:layout_width="wrap_content"
+                android:layout_width="149dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="47dp"
-                android:layout_marginBottom="231dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginBottom="218dp"
+                android:background="@android:color/transparent"
                 android:onClick="btnPrivacySettingsClicked"
                 android:text="@string/privacy_settings" />
 
@@ -60,8 +63,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="49dp"
-                android:layout_marginBottom="161dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginBottom="138dp"
+                android:background="@android:color/transparent"
                 android:onClick="btnAboutClicked"
                 android:text="@string/about" />
 
@@ -71,8 +75,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="52dp"
-                android:layout_marginBottom="89dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginBottom="52dp"
+                android:background="@android:color/transparent"
                 android:text="@string/close_account" />
 
         </RelativeLayout>
@@ -90,5 +95,5 @@
 
         android:onClick="btnPreviousClicked"
         android:text="@string/back"
-        android:textColor="@color/white" />
+        android:textColor="#FFEB3B" />
 </RelativeLayout>

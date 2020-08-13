@@ -7,6 +7,22 @@
     android:background="#0F222D"
     tools:context=".Activities.AdminCreationActivity">
 
+    <Button
+        android:id="@+id/viewingSignOutBtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="323dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#0F222D"
+        android:text="Sign Out"
+        android:textColor="#FFEB3B"
+        tools:ignore="HardcodedText" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="286dp"
         android:layout_height="619dp"
@@ -95,8 +111,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="98dp"
-                android:layout_marginBottom="57dp"
+                android:layout_marginEnd="97dp"
+                android:layout_marginBottom="47dp"
+                android:background="@android:color/transparent"
                 android:text="@string/Ad_sign_up" />
 
             <TextView

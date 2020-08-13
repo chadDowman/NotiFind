@@ -123,11 +123,12 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="107dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="23dp"
                 android:enabled="true"
                 android:onClick="signUpButton2Clicked"
                 android:text="@string/signup"
-                tools:ignore="RelativeOverlap" />
+                tools:ignore="RelativeOverlap"
+                android:background="@android:color/transparent"/>
 
             <TextView
                 android:id="@+id/nameprompt"

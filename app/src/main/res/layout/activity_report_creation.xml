@@ -7,6 +7,22 @@
     android:background="#0F222D"
     tools:context=".Activities.ReportCreationActivity">
 
+    <Button
+        android:id="@+id/viewingSignOutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="323dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:text="Sign Out"
+        android:background="#0F222D"
+        android:textColor="#FFEB3B"
+        tools:ignore="HardcodedText" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="352dp"
         android:layout_height="655dp"
@@ -160,10 +176,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/description"
                 android:layout_alignParentEnd="true"
-
                 android:layout_centerInParent="true"
-                android:layout_marginEnd="125dp"
-                android:layout_marginBottom="-333dp"
+                android:layout_marginEnd="135dp"
+                android:layout_marginBottom="-331dp"
+                android:background="@android:color/transparent"
                 android:onClick="postReportButtonClicked"
                 android:text="Post Report"
                 tools:ignore="HardcodedText" />
