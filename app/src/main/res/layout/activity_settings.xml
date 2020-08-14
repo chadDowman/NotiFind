@@ -29,7 +29,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="49dp"
-                android:layout_marginTop="131dp"
+                android:layout_marginTop="126dp"
                 android:background="@android:color/transparent"
                 android:onClick="btnAccountSettingsClicked"
                 android:text="@string/account_settings" />
@@ -78,10 +78,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="66dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="74dp"
         android:layout_marginBottom="40dp"
-        android:background="#0F222D"
 
+        android:background="#0F222D"
         android:onClick="btnPreviousClicked"
         android:text="@string/back"
         android:textColor="#FFEB3B" />
@@ -92,9 +93,9 @@
         android:layout_height="185dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="59dp"
+        android:layout_marginStart="74dp"
 
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         app:srcCompat="@drawable/logo"
         tools:ignore="ContentDescription" />
 </RelativeLayout>
