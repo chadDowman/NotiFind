@@ -1,8 +1,10 @@
-package com.lostdotcom.notifind;
+package com.lostdotcom.notifind.Viewing;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.lostdotcom.notifind.R;
 
 public class ReportProfile extends AppCompatActivity {
 
