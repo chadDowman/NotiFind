@@ -9,7 +9,7 @@
 
     <!--suppress AndroidUnknownAttribute -->
     <Button
-        android:id="@+id/returnBut"
+        android:id="@+id/returnButn"
         android:layout_width="178dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -17,6 +17,7 @@
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:background="#0F222D"
+        android:onClick="SettingReturnClicked"
         android:text="@string/return_to_settings"
         android:textColor="#FFEB3B" />
 

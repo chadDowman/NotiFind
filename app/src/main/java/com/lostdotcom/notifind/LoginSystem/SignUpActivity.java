@@ -84,11 +84,14 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void signUpButton2Clicked (View view){
 
-        // Checks if the user is already logged in or not
+        /*
+                // Checks if the user is already logged in or not
         if (myAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
             finish();
         }
+         */
+
 
         String email = txtSignUpEmail.getText().toString();
         String password = txtSignUpPassword.getText().toString();
