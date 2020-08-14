@@ -109,7 +109,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void toaster (String message){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(SignUpActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     public void signUpButton2Clicked (View view){

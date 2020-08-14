@@ -46,7 +46,7 @@
         tools:ignore="RelativeOverlap" />
 
     <Button
-        android:id="@+id/ViewingSignOutBtn"
+        android:id="@+id/UserSignOutButton"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_alignParentStart="true"
@@ -57,6 +57,7 @@
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
         android:background="#0F222D"
+        android:onClick="signOut"
         android:text="Sign Out"
         android:textColor="#FFEB3B"
         tools:ignore="HardcodedText" />

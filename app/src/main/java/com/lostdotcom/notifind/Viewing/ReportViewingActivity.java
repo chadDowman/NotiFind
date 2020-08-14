@@ -18,7 +18,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.lostdotcom.notifind.Activities.SettingsActivity;
+import com.lostdotcom.notifind.Details.AdminDetails;
+import com.lostdotcom.notifind.LoginSystem.LoginActivity;
+import com.lostdotcom.notifind.LoginSystem.SignUpActivity;
 import com.lostdotcom.notifind.R;
 
 public class ReportViewingActivity extends AppCompatActivity {
@@ -122,6 +126,12 @@ public class ReportViewingActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);// Just default functionality that makes sure everything doest break
         }
 
+    }
+
+    public void signOut (View view){
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        finish();
     }
 
 }

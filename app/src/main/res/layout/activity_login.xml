@@ -48,13 +48,14 @@
         tools:ignore="Autofill" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/btnLogin"
         android:layout_width="137dp"
         android:layout_height="41dp"
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="248dp"
+        android:onClick="LoginButtonClicked"
         android:text="@string/Login_Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

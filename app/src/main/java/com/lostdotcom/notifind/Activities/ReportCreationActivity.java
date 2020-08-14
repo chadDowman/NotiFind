@@ -4,11 +4,16 @@ package com.lostdotcom.notifind.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.EditText;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.lostdotcom.notifind.LoginSystem.LoginActivity;
+import com.lostdotcom.notifind.LoginSystem.SignUpActivity;
 import com.lostdotcom.notifind.R;
 
 public class ReportCreationActivity extends AppCompatActivity {
@@ -120,5 +125,11 @@ public class ReportCreationActivity extends AppCompatActivity {
 
     public void setTxtDescription(EditText txtDescription) {
         this.txtDescription = txtDescription;
+    }
+
+    public void signOut (View view){
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        finish();
     }
 }
