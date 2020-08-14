@@ -13,12 +13,14 @@
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="323dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginStart="321dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="696dp"
         android:background="#0F222D"
         android:text="Sign Out"
         android:textColor="#FFEB3B"
@@ -71,7 +73,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="435dp"
-                android:layout_marginEnd="32dp"
+                android:layout_marginEnd="33dp"
                 android:background="#A69F9F"
                 android:ems="10"
                 android:hint="@string/enter_phone"
@@ -112,8 +114,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="97dp"
-                android:layout_marginBottom="47dp"
+                android:layout_marginEnd="99dp"
+                android:layout_marginBottom="11dp"
                 android:background="@android:color/transparent"
                 android:onClick="AdminSignUpButtonClicked"
                 android:text="@string/Ad_sign_up" />
@@ -161,6 +163,20 @@
                 android:layout_marginTop="260dp"
                 android:text="@string/enter_password"
                 tools:ignore="RelativeOverlap" />
+
+            <Switch
+                android:id="@+id/switch2"
+                android:layout_width="211dp"
+                android:layout_height="wrap_content"
+
+
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="33dp"
+                android:layout_marginBottom="93dp"
+                android:text="Toggle Admin Privlage"
+                tools:ignore="HardcodedText,UseSwitchCompatOrMaterialXml" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
 </RelativeLayout>
