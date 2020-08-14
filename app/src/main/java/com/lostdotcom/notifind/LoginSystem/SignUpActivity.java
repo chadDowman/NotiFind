@@ -77,15 +77,28 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = txtSignUpEmail.getText().toString();
                 String password = txtSignUpPassword.getText().toString();
+                String passwordConfirm = txtSignUpPasswordConfirm.getText().toString();
                 // Checks if its null or not
                 if (TextUtils.isEmpty(email)){
                     txtSignUpEmail.setError("Email is Required");
                     return;
                 }
+
                 if (TextUtils.isEmpty(password)){
                     txtSignUpPassword.setError("Password is Required");
                     return;
                 }
+
+                if (TextUtils.isEmpty(passwordConfirm)){
+                    txtSignUpPassword.setError("Password Confirmation is Required");
+                    return;
+                }
+
+                if (!passwordConfirm.equals(password)){
+                    txtSignUpPasswordConfirm.setError("Password Mismatch");
+                    return;
+                }
+
                 if (password.length() < 6){
                     txtSignUpPassword.setError("Password must 6 or more characters");
                 }
@@ -108,8 +121,9 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private void toaster (String message){
-        Toast.makeText(SignUpActivity.this, message, Toast.LENGTH_SHORT).show();
+    // Makes Toast
+    private void toaster (String bread){
+        Toast.makeText(SignUpActivity.this, bread, Toast.LENGTH_SHORT).show();
     }
 
     public void signUpButton2Clicked (View view){

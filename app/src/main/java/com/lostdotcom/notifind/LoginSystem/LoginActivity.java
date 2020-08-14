@@ -50,22 +50,24 @@ public class LoginActivity extends AppCompatActivity {
         txtLoginPassword.setWidth(px);
         btnLogin.setWidth(px);
 
-        myAuth = FirebaseAuth.getInstance();
+        myAuth = FirebaseAuth.getInstance(); // Gets current database instance or state
 
     }
 
     public void LoginButtonClicked(View view){
         String email = txtLoginEmail.getText().toString();
         String password = txtLoginPassword.getText().toString();
-        // Checks if its null or not
+        // Checks if email is null or not
         if (TextUtils.isEmpty(email)){
             txtLoginEmail.setError("Email is Required");
             return;
         }
+        // Checks if password is null or not
         if (TextUtils.isEmpty(password)){
             txtLoginPassword.setError("Password is Required");
             return;
         }
+        //Makes sure the password length is above 6 characters
         if (password.length() < 6){
             txtLoginPassword.setError("Password must 6 or more characters");
         }
@@ -74,9 +76,11 @@ public class LoginActivity extends AppCompatActivity {
         myAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                // If the task is successful the user will be able to login
                 if (task.isSuccessful()){
                     toaster("Login Successful");
                     startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
+                    // If not the following error message will be displayed as a toast
                 }else{
                     toaster("Error! " + task.getException().getMessage()); // Displays the error message
                 }
@@ -94,13 +98,14 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void forgotPasswordClick(View view) {
-        Intent i = new Intent (this, ReportViewingActivity.class); // Instance of intent class
+        Intent i = new Intent (this, ForgotPassword.class); // Instance of intent class
         startActivity(i);
 
     }
 
-    private void toaster (String message){
-        Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+    // Makes toast
+    private void toaster (String bread){
+        Toast.makeText(LoginActivity.this, bread, Toast.LENGTH_SHORT).show();
     }
 
     // Getters and Setters
