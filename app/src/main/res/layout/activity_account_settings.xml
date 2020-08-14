@@ -11,15 +11,15 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="197dp"
+        android:layout_width="178dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="17dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="-6dp"
         android:background="#0F222D"
-        android:textColor="#FFEB3B"
-        android:text="@string/back_to_settings" />
+        android:text="Return to settings"
+        android:textColor="#FFEB3B" />
 
     <EditText
         android:id="@+id/changeEmail"
@@ -53,10 +53,10 @@
         android:id="@+id/changePassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/changeEmail"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="295dp"
+        android:layout_marginTop="18dp"
         android:ems="10"
         android:hint="@string/change_my_password"
         android:inputType="textPassword"
@@ -67,9 +67,11 @@
         android:id="@+id/changeLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/changePassword"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="18dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="327dp"
         android:autofillHints=""
         android:ems="10"
