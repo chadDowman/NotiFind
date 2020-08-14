@@ -17,6 +17,6 @@ public class PrivacySettingsActivity extends AppCompatActivity {
     }
 
     public void SettingReturnClicked (View view){
-
+        //TODO
     }
 }

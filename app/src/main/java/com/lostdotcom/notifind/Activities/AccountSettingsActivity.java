@@ -20,12 +20,12 @@ public class AccountSettingsActivity extends AppCompatActivity {
     }
 
     public void changeEmailButtonClicked (View view){
-
+        //TODO
     }
     public void changePasswordButtonClicked (View view){
-
+        //TODO
     }
     public void changeLocationButtonClicked (View view){
-
+        //TODO
     }
 }
