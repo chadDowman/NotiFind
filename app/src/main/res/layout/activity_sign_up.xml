@@ -236,18 +236,4 @@
         android:text="@string/goBack"
         android:textColor="#33FFFF" />
 
-    <ProgressBar
-        android:id="@+id/progressBar3"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/loginReturn"
-        android:layout_alignParentStart="true"
-
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="-52dp"
-        android:layout_marginEnd="warp_content"
-        android:layout_marginBottom="warp_content"
-        android:visibility="invisible" />
-
 </RelativeLayout>
