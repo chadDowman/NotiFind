@@ -8,16 +8,17 @@
     tools:context=".Activities.AboutActivity">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/aboutReturnBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="14dp"
-        android:textColor="#FFEB3B"
         android:background="@android:color/transparent"
-        android:text="@string/return_to_settings" />
+        android:onClick="ReturnButtonClicked"
+        android:text="@string/return_to_settings"
+        android:textColor="#FFEB3B" />
 
     <TextView
         android:id="@+id/textView5"
