@@ -19,8 +19,10 @@
         android:layout_marginEnd="-6dp"
         android:background="#0F222D"
         android:text="Return to settings"
-        android:textColor="#FFEB3B" />
+        android:textColor="#FFEB3B"
+        tools:ignore="HardcodedText" />
 
+    <!--suppress AndroidUnknownAttribute -->
     <EditText
         android:id="@+id/changeEmail"
         android:layout_width="wrap_content"
@@ -63,6 +65,7 @@
         android:textColorHint="#FFFFFF"
         tools:ignore="Autofill,RelativeOverlap" />
 
+    <!--suppress AndroidUnknownAttribute -->
     <EditText
         android:id="@+id/changeLocation"
         android:layout_width="wrap_content"
@@ -73,12 +76,13 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="327dp"
-        android:autofillHints=""
         android:ems="10"
         android:hint="@string/change_my_location"
         android:inputType="textPersonName"
-        android:textColorHint="#FFFFFF" />
+        android:textColorHint="#FFFFFF"
+        tools:ignore="Autofill" />
 
+    <!--suppress AndroidUnknownAttribute -->
     <Button
         android:id="@+id/button2"
         android:layout_width="126dp"
@@ -91,6 +95,7 @@
         android:text="@string/contact"
         android:textColor="#FFEB3B" />
 
+    <!--suppress AndroidUnknownAttribute -->
     <Button
         android:id="@+id/changeEmailButton"
         android:layout_width="wrap_content"
@@ -105,8 +110,9 @@
         android:onClick="changeEmailButtonClicked"
         android:text="@string/change"
         android:textColor="#FFEB3B"
-        tools:ignore="RelativeOverlap" />
+        tools:ignore="RelativeOverlap,RtlHardcoded" />
 
+    <!--suppress AndroidUnknownAttribute -->
     <Button
         android:id="@+id/changeLocationButton"
         android:layout_width="wrap_content"
@@ -121,8 +127,9 @@
         android:layout_toRightOf="@+id/changeLocation"
         android:text="@string/change"
         android:textColor="#FFEB3B"
-        tools:ignore="RelativeOverlap" />
+        tools:ignore="RelativeOverlap,RtlHardcoded" />
 
+    <!--suppress AndroidUnknownAttribute -->
     <Button
         android:id="@+id/changePasswordButton"
         android:layout_width="wrap_content"
@@ -137,6 +144,6 @@
         android:onClick="changePasswordButtonClicked"
         android:text="@string/change"
         android:textColor="#FFEB3B"
-        tools:ignore="RelativeOverlap" />
+        tools:ignore="RelativeOverlap,RtlHardcoded" />
 
 </RelativeLayout>

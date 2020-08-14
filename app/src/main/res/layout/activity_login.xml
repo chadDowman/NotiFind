@@ -70,12 +70,13 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="64dp"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="@+id/forgotPassword"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="@+id/forgotPassword"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <ImageView
         android:id="@+id/logo"
@@ -121,10 +122,12 @@
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="0dp"
-        android:layout_height="1dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="58dp"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="617dp" />
+        app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

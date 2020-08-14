@@ -219,29 +219,35 @@
                 android:inputType="textPostalAddress"
                 tools:ignore="Autofill,LabelFor" />
 
-            <Button
-                android:id="@+id/loginReturn"
-                android:layout_width="154dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="176dp"
-                android:layout_marginBottom="197dp"
-                android:background="#0F222D"
-                android:onClick="returnLoginButtonClicked"
-                android:text="@string/goBack"
-                android:textColor="#33FFFF"
-                android:visibility="gone" />
-
-            <ProgressBar
-                android:id="@+id/progressBar3"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="107dp"
-                android:layout_marginBottom="141dp"
-                android:visibility="gone" />
-
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/loginReturn"
+        android:layout_width="112dp"
+        android:layout_height="67dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="176dp"
+        android:layout_marginBottom="9dp"
+        android:background="#0F222D"
+        android:onClick="returnLoginButtonClicked"
+        android:text="@string/goBack"
+        android:textColor="#33FFFF" />
+
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loginReturn"
+        android:layout_alignParentStart="true"
+
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="-52dp"
+        android:layout_marginEnd="warp_content"
+        android:layout_marginBottom="warp_content"
+        android:visibility="invisible" />
 
 </RelativeLayout>
