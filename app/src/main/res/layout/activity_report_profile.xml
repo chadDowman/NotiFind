@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F222D"
+    tools:context=".Activities.ReportCreationActivity">
+
+    <Button
+        android:id="@+id/viewingSignOutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="323dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:text="Sign Out"
+        android:background="#0F222D"
+        android:textColor="#FFEB3B"
+        tools:ignore="HardcodedText" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="352dp"
+        android:layout_height="655dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="38dp" >
+
+        <RelativeLayout
+            android:layout_width="366dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/gloss">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="27dp"
+                android:contentDescription="@string/todo"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="12dp"
+                android:background="#BAB5B5"
+                android:hint="@string/Name"
+                tools:ignore="Autofill" />
+
+            <TextView
+                android:id="@+id/surname"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="112dp"
+                android:layout_marginTop="12dp"
+                android:background="#BAB5B5"
+                android:hint="@string/surname"
+                tools:ignore="Autofill,TextFields" />
+
+            <TextView
+                android:id="@+id/age"
+                android:layout_width="78dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="52dp"
+                android:background="#BAB5B5"
+                android:hint="@string/age"
+                tools:ignore="TextFields" />
+
+            <TextView
+                android:id="@+id/eyecolor"
+                android:layout_width="82dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="111dp"
+                android:layout_marginTop="52dp"
+                android:background="#BAB5B5"
+                android:hint="@string/Eye_color"
+                tools:ignore="Autofill" />
+
+            <TextView
+                android:id="@+id/weight"
+                android:layout_width="193dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="88dp"
+                android:background="#BAB5B5"
+                android:hint="@string/Weight"
+                tools:ignore="Autofill,TextFields" />
+
+            <TextView
+                android:id="@+id/height"
+                android:layout_width="194dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="122dp"
+                android:background="#BAB5B5"
+                android:hint="@string/height"
+                tools:ignore="Autofill,TextFields" />
+
+            <TextView
+                android:id="@+id/lastLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="179dp"
+                android:background="#BAB5B5"
+                android:hint="@string/last_location"
+                tools:ignore="Autofill,TextFields" />
+
+            <TextView
+                android:id="@+id/promptDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="236dp"
+                android:background="#BAB5B5"
+                android:text="@string/describe_the_missing_person" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="-3dp"
+                android:layout_marginTop="253dp"
+                android:background="#BAB5B5"
+                android:hint="@string/description"
+                android:textAlignment="textStart"
+                tools:ignore="Autofill" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

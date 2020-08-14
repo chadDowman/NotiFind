@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lostdotcom.notifind">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.AdminCreationActivity"></activity>
+        <activity android:name=".ReportProfile"></activity>
+        <activity android:name=".Activities.AdminCreationActivity" />
         <activity android:name=".Viewing.ReportViewingActivity" />
         <activity android:name=".Activities.AboutActivity" />
         <activity android:name=".Activities.PrivacySettingsActivity" />
