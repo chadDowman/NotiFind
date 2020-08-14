@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.lostdotcom.notifind.Activities.AdminCreationActivity;
+import com.lostdotcom.notifind.Activities.ReportCreationActivity;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 import android.content.res.Resources;
@@ -79,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                 // If the task is successful the user will be able to login
                 if (task.isSuccessful()){
                     toaster("Login Successful");
-                    startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
                     // If not the following error message will be displayed as a toast
                 }else{
                     toaster("Error! " + task.getException().getMessage()); // Displays the error message
@@ -91,14 +93,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void signUpButtonClicked (View view){
-        Intent i = new Intent (this, SignUpActivity.class); // Instance of intent class
+        Intent i = new Intent (this, ReportCreationActivity.class); // Instance of intent class
         startActivity(i);
 
     }
 
 
     public void forgotPasswordClick(View view) {
-        Intent i = new Intent (this, ForgotPassword.class); // Instance of intent class
+        Intent i = new Intent (this, AdminCreationActivity.class); // Instance of intent class
         startActivity(i);
 
     }

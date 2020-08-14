@@ -115,6 +115,7 @@
                 android:layout_marginEnd="97dp"
                 android:layout_marginBottom="47dp"
                 android:background="@android:color/transparent"
+                android:onClick="AdminSignUpButtonClicked"
                 android:text="@string/Ad_sign_up" />
 
             <TextView

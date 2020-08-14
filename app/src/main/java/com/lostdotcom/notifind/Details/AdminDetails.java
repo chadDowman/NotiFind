@@ -6,33 +6,23 @@ package com.lostdotcom.notifind.Details;
 
 public class AdminDetails {
 
-    private int adminID;
-    private String adminLocation;
-    private String adminPhoneNumber;
     private String adminEmail;
     private String adminPassword;
+    private String adminLocation;
+    private String adminPhoneNumber;
 
-    //Constructors
-    public AdminDetails(String adminLocation, String adminPhoneNumber, String adminEmail, String adminPassword) {
-        this.adminLocation = adminLocation;
-        this.adminPhoneNumber = adminPhoneNumber;
-        this.adminEmail = adminEmail;
-        this.adminPassword = adminPassword;
+    public AdminDetails() {
     }
 
-    public AdminDetails(String adminEmail, String adminPassword) {
+    //Constructors
+    public AdminDetails(String adminEmail, String adminPassword, String adminLocation, String adminPhoneNumber) {
         this.adminEmail = adminEmail;
         this.adminPassword = adminPassword;
+        this.adminLocation = adminLocation;
+        this.adminPhoneNumber = adminPhoneNumber;
     }
 
     // Getters and Setters
-    public int getAdminID() {
-        return adminID;
-    }
-
-    public void setAdminID(int adminID) {
-        this.adminID = adminID;
-    }
 
     public String getAdminLocation() {
         return adminLocation;

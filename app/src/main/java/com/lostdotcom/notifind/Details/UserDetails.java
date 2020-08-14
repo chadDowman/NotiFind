@@ -5,7 +5,6 @@ package com.lostdotcom.notifind.Details;
 
 public class UserDetails {
 
-    private int userID;
     private String userEmail;
     private String password;
     private String location;
@@ -16,25 +15,12 @@ public class UserDetails {
 
     }
 
-    public UserDetails(String userEmail, String password) {
-        this.userEmail = userEmail;
-        this.password = password;
-    }
-
     public UserDetails(String userEmail, String password, String location, String userName, String userSurname) {
         this.userEmail = userEmail;
         this.password = password;
         this.location = location;
         this.userName = userName;
         this.userSurname = userSurname;
-    }
-
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
     }
 
     public String getUserEmail() {

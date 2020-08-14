@@ -7,14 +7,17 @@ public class ReportDetails {
 
     private String name;
     private String surname;
-    private int age;
+    private String age;
     private String eyeColor;
-    private int weight;
-    private int height;
+    private String weight;
+    private String height;
     private String lastSeenLocation;
     private String description;
 
-    public ReportDetails(String name, String surname, int age, String eyeColor, int weight, int height, String lastSeenLocation, String description) {
+    public ReportDetails() {
+    }
+
+    public ReportDetails(String name, String surname, String age, String eyeColor, String weight, String height, String lastSeenLocation, String description) {
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -41,36 +44,12 @@ public class ReportDetails {
         this.surname = surname;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public String getEyeColor() {
         return eyeColor;
     }
 
     public void setEyeColor(String eyeColor) {
         this.eyeColor = eyeColor;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
     }
 
     public String getLastSeenLocation() {
@@ -87,5 +66,29 @@ public class ReportDetails {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
     }
 }
