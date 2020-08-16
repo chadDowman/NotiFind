@@ -44,36 +44,20 @@ public class ReportDetails {
         this.surname = surname;
     }
 
-    public String getEyeColor() {
-        return eyeColor;
-    }
-
-    public void setEyeColor(String eyeColor) {
-        this.eyeColor = eyeColor;
-    }
-
-    public String getLastSeenLocation() {
-        return lastSeenLocation;
-    }
-
-    public void setLastSeenLocation(String lastSeenLocation) {
-        this.lastSeenLocation = lastSeenLocation;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getAge() {
         return age;
     }
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public String getEyeColor() {
+        return eyeColor;
+    }
+
+    public void setEyeColor(String eyeColor) {
+        this.eyeColor = eyeColor;
     }
 
     public String getWeight() {
@@ -90,5 +74,21 @@ public class ReportDetails {
 
     public void setHeight(String height) {
         this.height = height;
+    }
+
+    public String getLastSeenLocation() {
+        return lastSeenLocation;
+    }
+
+    public void setLastSeenLocation(String lastSeenLocation) {
+        this.lastSeenLocation = lastSeenLocation;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

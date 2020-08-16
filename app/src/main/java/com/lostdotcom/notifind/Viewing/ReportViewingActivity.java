@@ -4,91 +4,60 @@ package com.lostdotcom.notifind.Viewing;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.lostdotcom.notifind.Activities.SettingsActivity;
-import com.lostdotcom.notifind.Details.AdminDetails;
+import com.lostdotcom.notifind.Databases.DatabaseHelper;
+import com.lostdotcom.notifind.Databases.RecyclerViewConfig;
+import com.lostdotcom.notifind.Details.ReportDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
-import com.lostdotcom.notifind.LoginSystem.SignUpActivity;
+
 import com.lostdotcom.notifind.R;
+
+import java.util.List;
+
 
 public class ReportViewingActivity extends AppCompatActivity {
 
-    NotificationCompat.Builder notification;
-    private String uniqueID = "life";
 
-     int[] IMAGES = {R.drawable.logo, R.drawable.logo, R.drawable.logo, R.drawable.logo, R.drawable.logo};
-     String[] names = {"Chad", "Curtis", "Haarith", "Americo", "Mrs O"};
-     String[] surnames = {"Dowman", "Life", "Thing", "Person", "Lol"};
-     String[] age = {"21", "22", "23", "24", "25"};
-     String[] location = {"Marsh", "Cresent","Place", "Thing" ,"The place"};
+    private RecyclerView myRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_viewing);
+        myRecyclerView = findViewById(R.id.missingPersonsDisplay);
+        new DatabaseHelper().readReports(new DatabaseHelper.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<ReportDetails> reports, List<String> keys) {
+                new RecyclerViewConfig().setReportConfig(myRecyclerView, ReportViewingActivity.this, reports, keys);
+            }
 
-        ListView listView = findViewById(R.id.missingList);
-        CustomAdapter customAdapter = new CustomAdapter();
+            @Override
+            public void DataInserted() {
 
-        listView.setAdapter(customAdapter);
+            }
 
-        //Notification Stuff
-        notification = new NotificationCompat.Builder(this, uniqueID);
+            @Override
+            public void DataIsUpdated() {
 
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
     }
 
-    class CustomAdapter extends BaseAdapter{
 
-        @Override
-        public int getCount() {
-            return IMAGES.length;
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @SuppressLint("ViewHolder")
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            view = getLayoutInflater().inflate(R.layout.activity_custom_rows, null);
-
-            ImageView imageView = view.findViewById(R.id.custom_image);
-            TextView textView_name = view.findViewById(R.id.custom_name);
-            TextView textView_surname = view.findViewById(R.id.custom_surname);
-            TextView textView_age = view.findViewById(R.id.custom_age);
-            TextView textView_location = view.findViewById(R.id.custom_location);
-
-            imageView.setImageResource(IMAGES[i]);
-            textView_name.setText(names[i]);
-            textView_surname.setText(surnames[i]);
-            textView_age.setText(age[i]);
-            textView_location.setText(location[i]);
-
-
-            return view;
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
