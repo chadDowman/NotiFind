@@ -6,20 +6,6 @@
     android:background="#0F222D"
     tools:context=".Viewing.ReportViewingActivity">
 
-    <ListView
-        android:id="@+id/missingList"
-        android:layout_width="312dp"
-        android:layout_height="616dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="35dp"
-
-        android:background="@drawable/gloss" />
-
     <Button
         android:id="@+id/reports"
         android:layout_width="wrap_content"
@@ -61,5 +47,16 @@
         android:text="Sign Out"
         android:textColor="#FFEB3B"
         tools:ignore="HardcodedText" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/missingPersonsDisplay"
+        android:layout_width="291dp"
+        android:layout_height="580dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="94dp"
+        android:background = "@drawable/gloss"/>
 
 </RelativeLayout>
