@@ -2,6 +2,7 @@ package com.lostdotcom.notifind.Activities;
 
 // This is the screen that will post the missing persons reports.
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,6 +10,8 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -180,6 +183,38 @@ public class ReportCreationActivity extends AppCompatActivity {
     // Makes toast
     private void toaster (String bread){
         Toast.makeText(ReportCreationActivity.this, bread, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.report_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.report_creation:
+                if (item.isChecked())
+                    item.setChecked(false);
+                else
+                    item.setChecked(true);
+                Intent i = new Intent (this, ReportCreationActivity.class); // Instance of intent class
+                startActivity(i);
+                return true;
+            case R.id.report_view:
+                if(item.isChecked())
+                    item.setChecked(false);
+                else
+                    item.setChecked(true);
+                Intent intent = new Intent (this, ReportEditsActivity.class); // Instance of intent class
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);// Just default functionality that makes sure everything doest break
+        }
+
     }
 
     //Getters and Setters

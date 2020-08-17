@@ -1,7 +1,9 @@
 package com.lostdotcom.notifind.Databases;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -9,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.lostdotcom.notifind.Activities.ReportEditsActivity;
 import com.lostdotcom.notifind.Details.ReportDetails;
 import com.lostdotcom.notifind.R;
 
@@ -53,6 +56,23 @@ public class RecyclerViewConfig {
             lastSeenLocation = itemView.findViewById(R.id.report_last_location);
             description = itemView.findViewById(R.id.report_description);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(myContext, ReportEditsActivity.class);
+                    intent.putExtra("key", key);
+                    intent.putExtra("name", name.getText().toString());
+                    intent.putExtra("surname", surname.getText().toString());
+                    intent.putExtra("age", age.getText().toString());
+                    intent.putExtra("eyeColor", eyeColor.getText().toString());
+                    intent.putExtra("weight", weight.getText().toString());
+                    intent.putExtra("height", height.getText().toString());
+                    intent.putExtra("lastSeenLocation", lastSeenLocation.getText().toString());
+                    intent.putExtra("description", description.getText().toString());
+
+                    myContext.startActivity(intent);
+                }
+            });
 
         }
         //Will Recieve report object and key and populate the textviews

@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                 // If the task is successful the user will be able to login
                 if (task.isSuccessful()){
                     toaster("Login Successful");
-                    startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
                     // If not the following error message will be displayed as a toast
                 }else{
                     toaster("Error! " + task.getException().getMessage()); // Displays the error message
