@@ -129,5 +129,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forgotPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/forgotPassword" /><![CDATA[
+
+
+
+    160dp"
+        tools:layout_editor_absoluteY="267dp" />
+
+]]>
 </androidx.constraintlayout.widget.ConstraintLayout>

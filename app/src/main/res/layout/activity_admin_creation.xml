@@ -43,12 +43,12 @@
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="161dp"
+                android:layout_width="208dp"
+                android:layout_height="166dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="12dp"
-                android:layout_marginEnd="46dp"
+                android:layout_marginEnd="33dp"
                 app:srcCompat="@drawable/logo"
                 tools:ignore="ContentDescription" />
 
@@ -114,8 +114,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="99dp"
-                android:layout_marginBottom="11dp"
+                android:layout_marginEnd="98dp"
+                android:layout_marginBottom="1dp"
                 android:background="@android:color/transparent"
                 android:onClick="AdminSignUpButtonClicked"
                 android:text="@string/Ad_sign_up" />
@@ -173,9 +173,33 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="33dp"
-                android:layout_marginBottom="93dp"
+                android:layout_marginBottom="113dp"
                 android:text="Toggle Admin Privlage"
                 tools:ignore="HardcodedText,UseSwitchCompatOrMaterialXml" />
+
+            <Button
+                android:id="@+id/searchAdminbtn"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="2dp"
+                android:layout_marginBottom="51dp"
+                android:background="@android:color/transparent"
+                android:text="Search admin"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="51dp"
+                android:background="@android:color/transparent"
+                android:text="Delete Admin"
+                android:textSize="12sp" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
