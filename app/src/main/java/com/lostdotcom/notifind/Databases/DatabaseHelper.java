@@ -2,6 +2,7 @@ package com.lostdotcom.notifind.Databases;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -50,4 +51,37 @@ public class DatabaseHelper{
             }
         });
     }
+
+
+    // This method adds a new report to the Firebase Real Time Database
+    public void addReport (ReportDetails report, final DataStatus dataStatus){
+        String key = myRef.push().getKey(); // generates a new child in the database and gives us the unique id that child hence the key
+        myRef.child(key).setValue(report).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                dataStatus.DataInserted();
+            }
+        });
+    }
+
+    public void updateReport (String key, ReportDetails report, final DataStatus dataStatus){
+        // The listener just checks if the operation worked successfully
+        myRef.child(key).setValue(report).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                dataStatus.DataIsUpdated();
+            }
+        });
+    }
+
+    public void deleteReport (String key, final DataStatus dataStatus){
+        // If something does not have a value or a null value it automatically deletes it from the database
+        myRef.child(key).setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                dataStatus.DataIsDeleted();
+            }
+        });
+    }
+
 }

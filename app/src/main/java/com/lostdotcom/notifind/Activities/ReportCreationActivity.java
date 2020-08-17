@@ -17,20 +17,16 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.core.Repo;
+import com.lostdotcom.notifind.Databases.DatabaseHelper;
 import com.lostdotcom.notifind.Details.ReportDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
 
+import java.util.List;
 import java.util.Random;
 
 public class ReportCreationActivity extends AppCompatActivity {
-
-    ReportDetails reportDetails;
-    private Random ranNum;
-    //---------------------------------------------------
-    //Firebase
-    private FirebaseDatabase myDatabase;
-    private DatabaseReference myRef;
 
     //---------------------------------------------------
     private EditText txtName;
@@ -46,7 +42,7 @@ public class ReportCreationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report_creation);
+        setContentView(R.layout.activity_report_creation); // Inflates the layout
 
         txtName = findViewById(R.id.name);
         txtSurname = findViewById(R.id.surname);
@@ -71,12 +67,12 @@ public class ReportCreationActivity extends AppCompatActivity {
         txtWeight.setWidth(px);
 
         //----------------------------------------------------------------------------------------------------------
-        //FireBase
-        myDatabase = FirebaseDatabase.getInstance();
-        myRef = myDatabase.getReference("ReportDetails");
     }
 
     public void postReportButtonClicked (View view){
+
+        ReportDetails report = new ReportDetails();
+
         String name = txtName.getText().toString();
         String surname = txtSurname.getText().toString();
         String age = txtAge.getText().toString();
@@ -85,6 +81,15 @@ public class ReportCreationActivity extends AppCompatActivity {
         String height = txtHeight.getText().toString();
         String location = txtLastSeenLocation.getText().toString();
         String description = txtDescription.getText().toString();
+
+        report.setName(name);
+        report.setSurname(surname);
+        report.setAge(age);
+        report.setEyeColor(eyeColor);
+        report.setWeight(weight);
+        report.setHeight(height);
+        report.setLastSeenLocation(location);
+        report.setDescription(description);
 
         // Makes sure the user or admin does not put in any null values
         if (TextUtils.isEmpty(name)){
@@ -127,11 +132,36 @@ public class ReportCreationActivity extends AppCompatActivity {
             return;
         }
 
-        reportDetails = new ReportDetails(name, surname, age, eyeColor, weight, height, location, description);
+        new DatabaseHelper().addReport(report, new DatabaseHelper.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<ReportDetails> reports, List<String> keys) {
+
+            }
+
+            @Override
+            public void DataInserted() {
+                toaster("The Book has been recorded successfully");
+            }
+
+            @Override
+            public void DataIsUpdated() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
+
+        /*
+                reportDetails = new ReportDetails(name, surname, age, eyeColor, weight, height, location, description);
         ranNum = new Random();
         int num = ranNum.nextInt(10000) + 1;
         String id = String.valueOf(num);
         myRef.child(id).setValue(reportDetails);
+         */
+
 
 
         txtName.setText("");
