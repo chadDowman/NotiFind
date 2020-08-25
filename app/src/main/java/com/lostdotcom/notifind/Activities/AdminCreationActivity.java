@@ -16,22 +16,25 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import com.lostdotcom.notifind.Databases.DatabaseHelperAdmins;
 import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
 
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 public class AdminCreationActivity extends AppCompatActivity {
 
-    AdminDetails adminDetails;
-    private Random ranNum;
     //---------------------------------------------------
     //Firebase
 
     private FirebaseDatabase myDatabase;
     private DatabaseReference myRef;
+    private Map<String, Object> claims = new HashMap<>();
 
     //---------------------------------------------------
 
@@ -57,10 +60,17 @@ public class AdminCreationActivity extends AppCompatActivity {
 
     public void AdminSignUpButtonClicked (View view){
 
+        AdminDetails admin = new AdminDetails();
+
         String email = adminEmail.getText().toString();
         String password = adminPassword.getText().toString();
         String location = adminLocation.getText().toString();
         String phoneNo = adminPhoneNo.getText().toString();
+
+        admin.setAdminEmail(email);
+        admin.setAdminPassword(password);
+        admin.setAdminLocation(location);
+        admin.setAdminPhoneNumber(phoneNo);
 
         if (TextUtils.isEmpty(email)){
             adminEmail.setError("Missing Email");
@@ -82,15 +92,34 @@ public class AdminCreationActivity extends AppCompatActivity {
             return;
         }
 
-        adminDetails = new AdminDetails(email, password, location, phoneNo);
-        myRef.child(phoneNo).setValue(adminDetails);
+        new DatabaseHelperAdmins().addAdmin(admin, new DatabaseHelperAdmins.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<AdminDetails> adminCreations, List<String> keys) {
+
+            }
+
+            @Override
+            public void DataInserted() {
+                toaster("The admin has been created");
+            }
+
+            @Override
+            public void DataIsUpdated() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
 
         adminEmail.setText("");
         adminPassword.setText("");
         adminLocation.setText("");
         adminPhoneNo.setText("");
 
-        toaster("The admin has been created");
+
     }
 
     // Makes toast
