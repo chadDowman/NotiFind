@@ -24,6 +24,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -59,6 +60,7 @@ public class ReportCreationActivity extends AppCompatActivity {
     StorageReference mStorageRef;
     public Uri image;
     private StorageTask uploadTask;
+    private Switch notificationSwitch;
 
 
     @Override
@@ -274,7 +276,10 @@ public class ReportCreationActivity extends AppCompatActivity {
         txtLastSeenLocation.setText("");
         txtDescription.setText("");
 
-        notification();
+        if (notificationSwitch.isChecked()){
+            notification();
+        }
+
     }
 
     private void notification (){

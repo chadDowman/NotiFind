@@ -3,6 +3,8 @@ package com.lostdotcom.notifind.Activities;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -17,6 +19,6 @@ public class PrivacySettingsActivity extends AppCompatActivity {
     }
 
     public void SettingReturnClicked (View view){
-        //TODO
+        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
     }
 }

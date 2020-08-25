@@ -46,6 +46,10 @@ public class AccountSettingsActivity extends AppCompatActivity {
         //TODO
     }
 
+    public void buttonBack (View view){
+        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+    }
+
     private void toaster (String bread){
         Toast.makeText(AccountSettingsActivity.this, bread, Toast.LENGTH_SHORT).show();
     }
