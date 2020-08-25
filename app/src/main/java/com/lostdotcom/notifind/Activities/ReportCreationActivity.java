@@ -9,8 +9,10 @@ import androidx.core.app.NotificationManagerCompat;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,11 +20,19 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
 import com.lostdotcom.notifind.Databases.DatabaseHelper;
 import com.lostdotcom.notifind.Details.ReportDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
@@ -41,12 +51,22 @@ public class ReportCreationActivity extends AppCompatActivity {
     private EditText txtHeight;
     private EditText txtLastSeenLocation;
     private EditText txtDescription;
+    private ImageView profilepic;
+    private Button uploadbtn;
+    private Button choosebtn;
+    private ImageView PP;
     private Button btnPostReport;
+    StorageReference mStorageRef;
+    public Uri image;
+    private StorageTask uploadTask;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_creation); // Inflates the layout
+        mStorageRef = FirebaseStorage.getInstance().getReference( "Images");
+
 
         txtName = findViewById(R.id.name);
         txtSurname = findViewById(R.id.surname);
@@ -57,6 +77,32 @@ public class ReportCreationActivity extends AppCompatActivity {
         txtLastSeenLocation = findViewById(R.id.lastLocation);
         txtDescription = findViewById(R.id.description);
         btnPostReport = findViewById(R.id.postReport);
+        profilepic = findViewById(R.id.imageView);
+        uploadbtn = findViewById(R.id.uploadbtn);
+        PP = findViewById(R.id.profilepic);
+        choosebtn = findViewById(R.id.choosebtn);
+
+        choosebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FileChooser();
+            }
+
+        });
+
+        uploadbtn.setOnClickListener(new View.OnClickListener(){
+
+
+            @Override
+            public void onClick(View view) {
+                if (uploadTask != null && uploadTask.isInProgress()) {
+                    Toast.makeText( ReportCreationActivity.this, "Upload in progress", Toast.LENGTH_LONG).show();
+
+                } else {
+                    Fileuploader();
+                }
+            }
+        });
 
         Resources r = getResources();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
@@ -71,6 +117,57 @@ public class ReportCreationActivity extends AppCompatActivity {
         txtWeight.setWidth(px);
 
         //----------------------------------------------------------------------------------------------------------
+    }
+
+
+    private String getExtension(Uri uri){
+
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri));
+    }
+    private void Fileuploader(){
+
+        StorageReference Ref= mStorageRef.child(System.currentTimeMillis()+ "." + getExtension(image));
+
+
+        uploadTask = Ref.putFile(image)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // Get a URL to the uploaded content
+                        //Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                        Toast.makeText( ReportCreationActivity.this, "Image Upload Successful", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                        // ...
+                    }
+                });
+
+    }
+
+
+    private void FileChooser(){
+        Intent intent = new Intent();
+        intent.setType("image/'");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, 1);
+
+}
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==1 && resultCode == RESULT_OK && data!=null && data.getData()!=null);
+
+        image=data.getData();
+        profilepic.setImageURI(image);
+        PP.setImageURI(image);
     }
 
     public void postReportButtonClicked (View view){
