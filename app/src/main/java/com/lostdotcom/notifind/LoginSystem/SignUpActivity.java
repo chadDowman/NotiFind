@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.List;
 import java.util.Random;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,14 +24,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.lostdotcom.notifind.Databases.DatabaseHelperUsers;
 import com.lostdotcom.notifind.Details.UserDetails;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 
 public class SignUpActivity extends AppCompatActivity {
 
-
-    private Random ranNum;
+    UserDetails user;
 
     // Firebase
     private FirebaseAuth myAuth;
@@ -84,14 +86,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void signUpButton2Clicked (View view){
 
-        /*
-                // Checks if the user is already logged in or not
-        if (myAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
-            finish();
-        }
-         */
-
+        user = new UserDetails();
 
         String email = txtSignUpEmail.getText().toString();
         String password = txtSignUpPassword.getText().toString();
@@ -99,6 +94,12 @@ public class SignUpActivity extends AppCompatActivity {
         String name = txtSignUpName.getText().toString();
         String surname = txtSignUpSurname.getText().toString();
         String location = txtSignUpLocation.getText().toString();
+
+        user.setUserEmail(email);
+        user.setPassword(password);
+        user.setUserName(name);
+        user.setUserSurname(surname);
+        user.setLocation(location);
 
         // Checks if its null or not
         if (TextUtils.isEmpty(email)){
@@ -131,7 +132,29 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    toaster("The User has been Created");
+
+                    new DatabaseHelperUsers().addUser(user, new DatabaseHelperUsers.DataStatus() {
+                        @Override
+                        public void DataIsLoaded(List<UserDetails> userCreations, List<String> keys) {
+
+                        }
+
+                        @Override
+                        public void DataInserted() {
+                            toaster("The User has been Created");
+                        }
+
+                        @Override
+                        public void DataIsUpdated() {
+
+                        }
+
+                        @Override
+                        public void DataIsDeleted() {
+
+                        }
+                    });
+
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 }else{
                     toaster("Error! " + task.getException().getMessage());
@@ -139,11 +162,8 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-        userDetails = new UserDetails(email, password, location, name, surname);
-        ranNum = new Random();
-        int num = ranNum.nextInt(10000) + 1;
-        String id = String.valueOf(num);
-        myRef.child(id).setValue(userDetails);
+
+
 
     }
 
