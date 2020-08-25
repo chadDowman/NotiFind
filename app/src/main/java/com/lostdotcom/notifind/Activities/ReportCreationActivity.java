@@ -4,9 +4,14 @@ package com.lostdotcom.notifind.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -140,6 +145,7 @@ public class ReportCreationActivity extends AppCompatActivity {
             @Override
             public void DataInserted() {
                 toaster("The Book has been recorded successfully");
+                notification();
             }
 
             @Override
@@ -174,6 +180,21 @@ public class ReportCreationActivity extends AppCompatActivity {
 
         toaster("The report has been posted");
         //TODO PUSH NOTIFICATIONS
+
+    }
+
+    private void notification (){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("n","n", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"n")
+                    .setContentText("Code Sphere").setSmallIcon(R.drawable.logo).setAutoCancel(true).setContentText("New Data added");
+
+            NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
+            managerCompat.notify(999, builder.build());
+        }
     }
 
     // Makes toast
