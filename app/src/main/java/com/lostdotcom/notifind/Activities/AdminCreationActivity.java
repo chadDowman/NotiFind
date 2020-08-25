@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
@@ -55,6 +56,7 @@ public class AdminCreationActivity extends AppCompatActivity {
     }
 
     public void AdminSignUpButtonClicked (View view){
+
         String email = adminEmail.getText().toString();
         String password = adminPassword.getText().toString();
         String location = adminLocation.getText().toString();
