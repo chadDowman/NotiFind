@@ -242,7 +242,6 @@ public class ReportCreationActivity extends AppCompatActivity {
             @Override
             public void DataInserted() {
                 toaster("The Book has been recorded successfully");
-                notification();
             }
 
             @Override
@@ -275,9 +274,7 @@ public class ReportCreationActivity extends AppCompatActivity {
         txtLastSeenLocation.setText("");
         txtDescription.setText("");
 
-        toaster("The report has been posted");
-        //TODO PUSH NOTIFICATIONS
-
+        notification();
     }
 
     private void notification (){
