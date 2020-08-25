@@ -18,16 +18,28 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lostdotcom.notifind.Activities.AdminCreationActivity;
 import com.lostdotcom.notifind.Activities.ReportCreationActivity;
+import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 import android.content.res.Resources;
 import android.util.TypedValue;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class LoginActivity extends AppCompatActivity {
+
+    protected static final String ownerEmail = "owner@gmail.com";
+    protected static final String ownerPassword = "password69";
 
     private FirebaseAuth myAuth;
     private static final String TAG = "LoginActivity";
@@ -35,6 +47,16 @@ public class LoginActivity extends AppCompatActivity {
     private EditText txtLoginEmail;
     private EditText txtLoginPassword;
     private Button btnLogin;
+    //----------------------------------------
+    private FirebaseDatabase myDatabase;
+    private DatabaseReference myRef;
+    private List<AdminDetails> adminCreations = new ArrayList<>();
+    boolean owner = false;
+    private boolean testBoolean = false;
+    private String emailTest;
+    private String passwordTest;
+    private String email;
+    private String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +75,21 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setWidth(px);
 
         myAuth = FirebaseAuth.getInstance(); // Gets current database instance or state
+        myDatabase = FirebaseDatabase.getInstance();
+        myRef = myDatabase.getReference("AdminDetails");
 
     }
 
     public void LoginButtonClicked(View view){
-        String email = txtLoginEmail.getText().toString();
-        String password = txtLoginPassword.getText().toString();
+
+          email = txtLoginEmail.getText().toString();
+          password = txtLoginPassword.getText().toString();
+
+        if (email.equalsIgnoreCase(ownerEmail) && password.equals(ownerPassword)){
+            owner = true;
+        }
+
+
         // Checks if email is null or not
         if (TextUtils.isEmpty(email)){
             txtLoginEmail.setError("Email is Required");
@@ -80,8 +111,35 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 // If the task is successful the user will be able to login
                 if (task.isSuccessful()){
-                    toaster("Login Successful");
-                    startActivity(new Intent(getApplicationContext(), AdminCreationActivity.class));
+
+                    myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                                AdminDetails admin = snapshot.getValue(AdminDetails.class);
+                                testBoolean = admin.isAdmin();
+                                emailTest = admin.getAdminEmail();
+                                passwordTest = admin.getAdminPassword();
+                                if (email.equals(emailTest) && password.equals(passwordTest) && testBoolean == true){
+                                    startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
+                                    toaster("Welcome Admin");
+                                    finish();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+                    if (owner == true){
+                        startActivity(new Intent(getApplicationContext(), AdminCreationActivity.class));
+                    }else{
+                        startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
+                    }
+
                     // If not the following error message will be displayed as a toast
                 }else{
                     toaster("Error! " + task.getException().getMessage()); // Displays the error message

@@ -32,7 +32,7 @@ public class DatabaseHelperAdmins {
         myRef = myDatabase.getReference("AdminDetails");
     }
 
-    public void readReports(final DatabaseHelperAdmins.DataStatus dataStatus){
+    public void readAdmins(final DatabaseHelperAdmins.DataStatus dataStatus){
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) { // Asynchronous method

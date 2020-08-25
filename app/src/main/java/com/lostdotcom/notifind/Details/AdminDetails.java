@@ -10,16 +10,18 @@ public class AdminDetails {
     private String adminPassword;
     private String adminLocation;
     private String adminPhoneNumber;
+    private boolean admin;
 
     public AdminDetails() {
     }
 
     //Constructors
-    public AdminDetails(String adminEmail, String adminPassword, String adminLocation, String adminPhoneNumber) {
+    public AdminDetails(String adminEmail, String adminPassword, String adminLocation, String adminPhoneNumber, boolean admin) {
         this.adminEmail = adminEmail;
         this.adminPassword = adminPassword;
         this.adminLocation = adminLocation;
         this.adminPhoneNumber = adminPhoneNumber;
+        this.admin = admin;
     }
 
     // Getters and Setters
@@ -55,4 +57,14 @@ public class AdminDetails {
     public void setAdminPassword(String adminPassword) {
         this.adminPassword = adminPassword;
     }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+
 }

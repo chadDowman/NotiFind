@@ -2,6 +2,7 @@ package com.lostdotcom.notifind.Activities;
 
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,8 +11,12 @@ import android.text.TextUtils;
 import android.view.View;
 
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -31,17 +36,17 @@ public class AdminCreationActivity extends AppCompatActivity {
 
     //---------------------------------------------------
     //Firebase
-
+    private FirebaseAuth myAuth;
     private FirebaseDatabase myDatabase;
     private DatabaseReference myRef;
-    private Map<String, Object> claims = new HashMap<>();
-
+    private AdminDetails admin;
     //---------------------------------------------------
 
     private EditText adminEmail;
     private EditText adminPassword;
     private EditText adminLocation;
     private EditText adminPhoneNo;
+    private Switch adminSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +57,9 @@ public class AdminCreationActivity extends AppCompatActivity {
         adminPassword = findViewById(R.id.adminPassword);
         adminLocation = findViewById(R.id.adminLocation);
         adminPhoneNo = findViewById(R.id.adminPhoneNo);
+        adminSwitch = findViewById(R.id.switch2);
 
+        myAuth = FirebaseAuth.getInstance();
         myDatabase = FirebaseDatabase.getInstance();
         myRef = myDatabase.getReference("AdminDetails");
 
@@ -60,17 +67,25 @@ public class AdminCreationActivity extends AppCompatActivity {
 
     public void AdminSignUpButtonClicked (View view){
 
-        AdminDetails admin = new AdminDetails();
+        admin = new AdminDetails();
 
+        boolean adminPriv;
         String email = adminEmail.getText().toString();
         String password = adminPassword.getText().toString();
         String location = adminLocation.getText().toString();
         String phoneNo = adminPhoneNo.getText().toString();
 
+        if (adminSwitch.isChecked()){
+            adminPriv = true;
+        }else{
+            adminPriv = false;
+        }
+
         admin.setAdminEmail(email);
         admin.setAdminPassword(password);
         admin.setAdminLocation(location);
         admin.setAdminPhoneNumber(phoneNo);
+        admin.setAdmin(adminPriv);
 
         if (TextUtils.isEmpty(email)){
             adminEmail.setError("Missing Email");
@@ -92,27 +107,36 @@ public class AdminCreationActivity extends AppCompatActivity {
             return;
         }
 
-        new DatabaseHelperAdmins().addAdmin(admin, new DatabaseHelperAdmins.DataStatus() {
+        myAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void DataIsLoaded(List<AdminDetails> adminCreations, List<String> keys) {
+            public void onComplete(@NonNull Task<AuthResult> task) {
 
-            }
+                new DatabaseHelperAdmins().addAdmin(admin, new DatabaseHelperAdmins.DataStatus() {
+                    @Override
+                    public void DataIsLoaded(List<AdminDetails> adminCreations, List<String> keys) {
 
-            @Override
-            public void DataInserted() {
-                toaster("The admin has been created");
-            }
+                    }
 
-            @Override
-            public void DataIsUpdated() {
+                    @Override
+                    public void DataInserted() {
+                        toaster("The admin has been created");
+                    }
 
-            }
+                    @Override
+                    public void DataIsUpdated() {
 
-            @Override
-            public void DataIsDeleted() {
+                    }
 
+                    @Override
+                    public void DataIsDeleted() {
+
+                    }
+                });
             }
         });
+
+
+
 
         adminEmail.setText("");
         adminPassword.setText("");
