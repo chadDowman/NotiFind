@@ -57,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
     private String passwordTest;
     private String email;
     private String password;
+    private boolean noPurpose = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                                 emailTest = admin.getAdminEmail();
                                 passwordTest = admin.getAdminPassword();
                                 if (email.equals(emailTest) && password.equals(passwordTest) && testBoolean == true){
+                                    noPurpose = true;
                                     startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
                                     toaster("Welcome Admin");
                                     finish();
@@ -134,9 +136,11 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
 
-                    if (owner == true){
+                    if (owner == true && !noPurpose == true){
                         startActivity(new Intent(getApplicationContext(), AdminCreationActivity.class));
-                    }else{
+                    }
+
+                    if (!noPurpose == true){
                         startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
                     }
 

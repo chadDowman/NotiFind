@@ -169,7 +169,7 @@ public class ReportCreationActivity extends AppCompatActivity {
 
         image=data.getData();
         profilepic.setImageURI(image);
-        PP.setImageURI(image);
+     //   PP.setImageURI(image);
     }
 
     public void postReportButtonClicked (View view){
