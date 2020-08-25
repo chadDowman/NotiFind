@@ -132,7 +132,17 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-
+                        myAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                             if(task.isSuccessful()){
+                                 toaster("Registered Successfully, Check your email for the verification link ");
+                             }
+                             else{
+                                 toaster("Please authenticate your email" );
+                             }
+                            }
+                        });
                     new DatabaseHelperUsers().addUser(user, new DatabaseHelperUsers.DataStatus() {
                         @Override
                         public void DataIsLoaded(List<UserDetails> userCreations, List<String> keys) {
