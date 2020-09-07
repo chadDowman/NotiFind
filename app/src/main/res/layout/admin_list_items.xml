@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:text="TextView"
+        app:fontFamily="@font/lobsters"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText,MissingConstraints" />
@@ -23,6 +24,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
+        app:fontFamily="@font/lobsters"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/admin_email"
         tools:ignore="HardcodedText" />
@@ -34,6 +36,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
+        app:fontFamily="@font/lobsters"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/admin_Password"
         tools:ignore="HardcodedText" />
@@ -45,6 +48,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:text="TextView"
+        app:fontFamily="@font/lobsters"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/admin_address"
         tools:ignore="HardcodedText" />

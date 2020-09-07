@@ -60,8 +60,10 @@
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="12dp"
                 android:background="#BAB5B5"
+                android:fontStyle="italic"
                 android:hint="@string/Name"
                 android:inputType="textPersonName"
+                app:fontFamily="@font/maiden_orange"
                 tools:ignore="Autofill" />
 
             <EditText
@@ -74,8 +76,10 @@
                 android:layout_marginTop="12dp"
                 android:background="#BAB5B5"
                 android:ems="10"
+                android:fontStyle="italic"
                 android:hint="@string/surname"
                 android:inputType="textPersonName"
+                app:fontFamily="@font/maiden_orange"
                 tools:ignore="Autofill,TextFields" />
 
             <EditText
@@ -88,9 +92,11 @@
                 android:layout_marginTop="52dp"
                 android:background="#BAB5B5"
                 android:ems="10"
+                android:fontStyle="italic"
                 android:hint="@string/age"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
+                app:fontFamily="@font/maiden_orange"
                 tools:ignore="TextFields" />
 
             <EditText
@@ -103,8 +109,10 @@
                 android:layout_marginTop="52dp"
                 android:background="#BAB5B5"
                 android:ems="10"
+                android:fontStyle="italic"
                 android:hint="@string/Eye_color"
                 android:inputType="textPersonName"
+                app:fontFamily="@font/maiden_orange"
                 tools:ignore="Autofill" />
 
             <EditText
@@ -117,8 +125,10 @@
                 android:layout_marginTop="88dp"
                 android:background="#BAB5B5"
                 android:ems="10"
+                android:fontStyle="italic"
                 android:hint="@string/Weight"
                 android:inputType="textPersonName"
+                app:fontFamily="@font/maiden_orange"
                 tools:ignore="Autofill,TextFields" />
 
             <EditText
@@ -131,6 +141,7 @@
                 android:layout_marginTop="122dp"
                 android:background="#BAB5B5"
                 android:ems="10"
+                app:fontFamily="@font/maiden_orange"
                 android:hint="@string/height"
                 android:inputType="textPersonName"
                 tools:ignore="Autofill,TextFields" />
@@ -144,7 +155,10 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="232dp"
                 android:background="#BAB5B5"
-                android:text="@string/describe_the_missing_person" />
+
+                android:fontStyle="italic"
+                android:text="@string/describe_the_missing_person"
+                app:fontFamily="@font/lobsters" />
 
             <EditText
                 android:id="@+id/description"
@@ -155,9 +169,11 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="251dp"
                 android:background="#BAB5B5"
+                android:fontStyle="italic"
                 android:hint="@string/description"
                 android:inputType="textPersonName"
                 android:textAlignment="textStart"
+                app:fontFamily="@font/mystery_quest"
                 tools:ignore="Autofill" />
 
             <Button
@@ -183,6 +199,7 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginBottom="82dp"
                 android:text="Choose File"
+                app:fontFamily="@font/mystery_quest"
                 tools:ignore="HardcodedText" />
 
             <Button
@@ -191,9 +208,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
+
                 android:layout_marginStart="219dp"
                 android:layout_marginBottom="79dp"
                 android:text="Upload File"
+                app:fontFamily="@font/mystery_quest"
                 tools:ignore="HardcodedText" />
 
             <Spinner

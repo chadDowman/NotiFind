@@ -18,6 +18,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="321dp"
+        app:fontFamily="@font/maiden_orange"
         android:layout_marginTop="3dp"
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="696dp"
@@ -55,58 +56,62 @@
 
             <EditText
                 android:id="@+id/adminEmail"
-                android:layout_width="wrap_content"
+                android:layout_width="215dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="207dp"
-                android:layout_marginEnd="33dp"
+                android:layout_marginTop="206dp"
+                android:layout_marginEnd="27dp"
                 android:background="#A69F9F"
                 android:ems="10"
                 android:hint="@string/Email_Input"
                 android:inputType="textEmailAddress"
+                app:fontFamily="@font/mystery_quest"
                 tools:ignore="Autofill,RelativeOverlap" />
 
             <EditText
                 android:id="@+id/adminPhoneNo"
-                android:layout_width="wrap_content"
+                android:layout_width="215dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="435dp"
-                android:layout_marginEnd="33dp"
+                android:layout_marginTop="429dp"
+                android:layout_marginEnd="27dp"
                 android:background="#A69F9F"
                 android:ems="10"
                 android:hint="@string/enter_phone"
                 android:inputType="phone"
+                app:fontFamily="@font/mystery_quest"
                 tools:ignore="Autofill,RelativeOverlap" />
 
             <EditText
                 android:id="@+id/adminLocation"
-                android:layout_width="wrap_content"
+                android:layout_width="216dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="33dp"
-                android:layout_marginBottom="241dp"
+                android:layout_marginEnd="27dp"
+                android:layout_marginBottom="242dp"
                 android:background="#A69F9F"
                 android:ems="10"
                 android:hint="@string/enter_address"
                 android:inputType="textPostalAddress"
+                app:fontFamily="@font/mystery_quest"
                 tools:ignore="Autofill" />
 
             <EditText
                 android:id="@+id/adminPassword"
-                android:layout_width="wrap_content"
+                android:layout_width="215dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="33dp"
-                android:layout_marginBottom="314dp"
+                android:layout_marginEnd="27dp"
+                android:layout_marginBottom="316dp"
                 android:background="#A69F9F"
                 android:ems="10"
                 android:hint="@string/Password_Input"
                 android:inputType="textPassword"
+                app:fontFamily="@font/mystery_quest"
                 tools:ignore="Autofill" />
 
             <Button
@@ -119,7 +124,8 @@
                 android:layout_marginBottom="1dp"
                 android:background="@android:color/transparent"
                 android:onClick="AdminSignUpButtonClicked"
-                android:text="@string/Ad_sign_up" />
+                android:text="@string/Ad_sign_up"
+                app:fontFamily="@font/mystery_quest" />
 
             <TextView
                 android:id="@+id/textView"
@@ -128,8 +134,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="44dp"
-                android:layout_marginTop="187dp"
+                android:layout_marginTop="188dp"
                 android:text="@string/enter_email"
+                app:fontFamily="@font/lobsters"
                 tools:ignore="RelativeOverlap" />
 
             <TextView
@@ -141,6 +148,7 @@
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="415dp"
                 android:text="@string/enter_phone"
+                app:fontFamily="@font/lobsters"
                 tools:ignore="RelativeOverlap" />
 
             <TextView
@@ -152,6 +160,7 @@
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="334dp"
                 android:text="@string/address"
+                app:fontFamily="@font/lobsters"
                 tools:ignore="RelativeOverlap" />
 
             <TextView
@@ -163,19 +172,22 @@
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="260dp"
                 android:text="@string/enter_password"
+                app:fontFamily="@font/lobsters"
                 tools:ignore="RelativeOverlap" />
 
             <Switch
                 android:id="@+id/switch2"
-                android:layout_width="211dp"
+                android:layout_width="217dp"
                 android:layout_height="wrap_content"
 
 
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="33dp"
+                android:layout_marginEnd="27dp"
                 android:layout_marginBottom="113dp"
                 android:text="Toggle Admin Privlage"
+
+                app:fontFamily="@font/maiden_orange"
                 tools:ignore="HardcodedText,UseSwitchCompatOrMaterialXml" />
 
             <Button
@@ -189,7 +201,8 @@
                 android:background="@android:color/transparent"
                 android:onClick="searchAdminBtnClicked"
                 android:text="Search admin"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                app:fontFamily="@font/mystery_quest" />
 
             <Button
                 android:id="@+id/button4"
@@ -202,7 +215,8 @@
                 android:background="@android:color/transparent"
                 android:onClick="deleteAdminClicked"
                 android:text="Delete Admin"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                app:fontFamily="@font/mystery_quest" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 

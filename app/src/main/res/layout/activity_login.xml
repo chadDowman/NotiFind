@@ -16,6 +16,7 @@
         android:layout_width="262dp"
         android:layout_height="21dp"
         android:layout_marginStart="24dp"
+        app:fontFamily="@font/maiden_orange"
         android:layout_marginTop="292dp"
         android:layout_marginEnd="24dp"
         android:background="#FFFFFF"
@@ -36,6 +37,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:background="#FFFFFF"
+        app:fontFamily="@font/maiden_orange"
         android:hint="@string/Password_Input"
         android:imeActionLabel="Password"
         android:imeOptions="actionDone"
@@ -57,6 +59,7 @@
         android:layout_marginBottom="248dp"
         android:onClick="LoginButtonClicked"
         android:text="@string/Login_Button"
+        app:fontFamily="@font/mystery_quest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -99,6 +102,7 @@
         android:layout_marginBottom="192dp"
         android:longClickable="true"
         android:nestedScrollingEnabled="false"
+        app:fontFamily="@font/maiden_orange"
         android:onClick="signUpButtonClicked"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,6 +119,7 @@
         android:onClick="forgotPasswordClick"
         android:text="@string/forgot_pas"
         android:textColor="#33FFFF"
+        app:fontFamily="@font/mystery_quest"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

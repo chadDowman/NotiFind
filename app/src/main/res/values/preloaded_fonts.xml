@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/lobsters</item>
+        <item>@font/maiden_orange</item>
+        <item>@font/mountains_of_christmas</item>
+        <item>@font/mystery_quest</item>
+        <item>@font/princess_sofia</item>
+    </array>
+</resources>

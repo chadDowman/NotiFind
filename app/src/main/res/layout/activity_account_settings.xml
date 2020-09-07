@@ -21,12 +21,14 @@
         android:onClick="buttonBack"
         android:text="Return to settings"
         android:textColor="#FFEB3B"
+        app:fontFamily="@font/lobsters"
         tools:ignore="HardcodedText" />
 
     <!--suppress AndroidUnknownAttribute -->
     <EditText
         android:id="@+id/changeEmail"
         android:layout_width="wrap_content"
+        app:fontFamily="@font/maiden_orange"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -45,11 +47,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="162dp"
         android:text="@string/MyAccount"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
+        app:fontFamily="@font/mystery_quest"
         tools:ignore="RelativeOverlap" />
 
     <EditText
@@ -57,6 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/changeEmail"
+        app:fontFamily="@font/maiden_orange"
         android:layout_alignParentStart="true"
         android:layout_marginStart="18dp"
         android:layout_marginTop="18dp"
@@ -71,6 +75,7 @@
         android:id="@+id/changeLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:fontFamily="@font/maiden_orange"
         android:layout_below="@+id/changePassword"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
@@ -94,7 +99,8 @@
         android:layout_marginBottom="159dp"
         android:background="#0F222D"
         android:text="@string/contact"
-        android:textColor="#FFEB3B" />
+        android:textColor="#FFEB3B"
+        app:fontFamily="@font/lobsters" />
 
     <!--suppress AndroidUnknownAttribute -->
     <Button
@@ -122,10 +128,10 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="358dp"
         android:layout_marginEnd="95dp"
-        android:background="#0F222D"
-        android:onClick="changeLocationButtonClicked"
         android:layout_toEndOf="@id/changeLocation"
         android:layout_toRightOf="@+id/changeLocation"
+        android:background="#0F222D"
+        android:onClick="changeLocationButtonClicked"
         android:text="@string/change"
         android:textColor="#FFEB3B"
         tools:ignore="RelativeOverlap,RtlHardcoded" />

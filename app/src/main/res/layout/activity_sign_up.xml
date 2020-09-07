@@ -18,9 +18,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="2dp"
-        android:fontFamily="sans-serif-condensed"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/princess_sofia"
         android:text="@string/signup_to_notifind"
         android:textAlignment="center"
         android:textColor="#FFFFC107"
@@ -54,6 +54,7 @@
                 android:ems="10"
                 android:hint="@string/enter_name"
                 android:inputType="textPersonName"
+                app:fontFamily="@font/lobsters"
                 tools:ignore="Autofill,LabelFor" />
 
             <EditText
@@ -69,6 +70,7 @@
                 android:ems="10"
                 android:hint="@string/enter_surname"
                 android:inputType="textPersonName"
+                app:fontFamily="@font/lobsters"
 
                 tools:ignore="Autofill,LabelFor" />
 
@@ -77,14 +79,16 @@
                 android:layout_width="174dp"
                 android:layout_height="28dp"
                 android:layout_alignParentStart="true"
+
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="65dp"
                 android:layout_marginTop="80dp"
                 android:background="#9F9898"
                 android:ems="10"
-
                 android:hint="@string/Email_Input"
+
                 android:inputType="textEmailAddress"
+                app:fontFamily="@font/lobsters"
                 tools:ignore="Autofill,LabelFor" />
 
             <EditText
@@ -100,6 +104,7 @@
                 android:ems="10"
                 android:hint="@string/Password_Input"
                 android:inputType="textPassword"
+                app:fontFamily="@font/lobsters"
                 tools:ignore="Autofill,ContentDescription,HardcodedText,LabelFor" />
 
             <EditText
@@ -114,6 +119,7 @@
                 android:ems="10"
                 android:hint="@string/Password_Input"
                 android:inputType="textPassword"
+                app:fontFamily="@font/lobsters"
                 tools:ignore="Autofill,LabelFor" />
 
             <Button
@@ -124,11 +130,12 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="107dp"
                 android:layout_marginBottom="23dp"
+                android:background="@android:color/transparent"
                 android:enabled="true"
                 android:onClick="signUpButton2Clicked"
                 android:text="@string/signup"
-                tools:ignore="RelativeOverlap"
-                android:background="@android:color/transparent"/>
+                app:fontFamily="@font/mystery_quest"
+                tools:ignore="RelativeOverlap" />
 
             <TextView
                 android:id="@+id/nameprompt"
@@ -137,6 +144,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="67dp"
+                app:fontFamily="@font/maiden_orange"
                 android:layout_marginTop="321dp"
                 android:text="Enter Name"
                 android:textColor="#000000"
@@ -146,6 +154,7 @@
                 android:id="@+id/surnamePromt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:fontFamily="@font/maiden_orange"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="66dp"
@@ -161,7 +170,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="65dp"
-
+                app:fontFamily="@font/maiden_orange"
                 android:layout_marginTop="60dp"
                 android:text="Enter Email"
                 android:textColor="#000000"
@@ -173,6 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                app:fontFamily="@font/maiden_orange"
                 android:layout_marginStart="66dp"
                 android:layout_marginTop="253dp"
                 android:text="Enter Address"
@@ -183,10 +193,11 @@
                 android:id="@+id/passwordPrompt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:fontFamily="@font/maiden_orange"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="65dp"
-                android:layout_marginTop="125dp"
+                android:layout_marginTop="126dp"
                 android:text="Enter Password"
                 android:textColor="#000000"
                 tools:ignore="HardcodedText" />
@@ -197,6 +208,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                app:fontFamily="@font/maiden_orange"
                 android:layout_marginStart="66dp"
                 android:layout_marginTop="189dp"
                 android:text="Confirm Password"
@@ -211,12 +223,13 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="66dp"
                 android:layout_marginTop="275dp"
-
                 android:background="#9F9898"
+
                 android:ems="10"
                 android:enabled="true"
                 android:hint="@string/enter_address"
                 android:inputType="textPostalAddress"
+                app:fontFamily="@font/lobsters"
                 tools:ignore="Autofill,LabelFor" />
 
 
@@ -234,6 +247,7 @@
         android:background="#0F222D"
         android:onClick="returnLoginButtonClicked"
         android:text="@string/goBack"
-        android:textColor="#33FFFF" />
+        android:textColor="#33FFFF"
+        app:fontFamily="@font/mystery_quest" />
 
 </RelativeLayout>
