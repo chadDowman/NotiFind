@@ -67,6 +67,7 @@
                 android:layout_marginStart="49dp"
                 android:layout_marginBottom="58dp"
                 android:background="@android:color/transparent"
+                android:onClick="closeAccountClicked"
                 android:text="@string/close_account" />
 
         </RelativeLayout>

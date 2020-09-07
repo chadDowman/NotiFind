@@ -19,7 +19,6 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
 
 public class ForgotPassword extends AppCompatActivity {
@@ -46,12 +45,8 @@ public class ForgotPassword extends AppCompatActivity {
         //TODO This class must send the email to user
 
 
-        forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                final EditText forgotPasswordEmail = new EditText(view.getContext());
-                AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext());
+        final EditText forgotPasswordEmail = new EditText(view.getContext());
+        AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext());
                 passwordResetDialog.setTitle("Reset your password ?");
                 passwordResetDialog.setMessage("Enter your email to recieve the password link");
                 passwordResetDialog.setView(forgotPasswordEmail);
@@ -90,7 +85,7 @@ public class ForgotPassword extends AppCompatActivity {
 
 
                 });
-            }
-        });
+
+
     }
 }

@@ -67,6 +67,10 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void closeAccountClicked (View view){
+        //Todo Delete account
+    }
+
     //Getters and Setters
 
     public Button getBtnPrevious() {
