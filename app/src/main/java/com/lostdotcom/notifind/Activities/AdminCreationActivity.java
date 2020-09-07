@@ -25,6 +25,7 @@ import com.lostdotcom.notifind.Databases.DatabaseHelperAdmins;
 import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
+import com.lostdotcom.notifind.Viewing.AdminViewingActivity;
 
 
 import java.util.HashMap;
@@ -149,6 +150,10 @@ public class AdminCreationActivity extends AppCompatActivity {
     // Makes toast
     private void toaster (String bread){
         Toast.makeText(AdminCreationActivity.this, bread, Toast.LENGTH_SHORT).show();
+    }
+
+    public void searchAdminBtnClicked (View view){
+        startActivity(new Intent(getApplicationContext(), AdminViewingActivity.class));
     }
 
     public void signOut (View view){

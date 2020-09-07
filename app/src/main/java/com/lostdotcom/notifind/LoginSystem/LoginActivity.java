@@ -124,13 +124,16 @@ public class LoginActivity extends AppCompatActivity {
                                 emailTest = admin.getAdminEmail();
                                 passwordTest = admin.getAdminPassword();
                                 if (email.equals(emailTest) && password.equals(passwordTest) && testBoolean){
-                                    startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
                                     toaster("Welcome Admin");
-                                    finish();
+                                    startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
+                                    return;
                                 } else if (owner){
+                                    toaster("Welcome Owner");
                                     startActivity(new Intent(getApplicationContext(), AdminCreationActivity.class));
+                                    return;
                                 }
                             }
+
                         }
 
                         @Override

@@ -187,6 +187,7 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginBottom="51dp"
                 android:background="@android:color/transparent"
+                android:onClick="searchAdminBtnClicked"
                 android:text="Search admin"
                 android:textSize="12sp" />
 

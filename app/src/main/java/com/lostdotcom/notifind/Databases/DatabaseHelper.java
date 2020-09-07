@@ -74,7 +74,7 @@ public class DatabaseHelper{
         });
     }
 
-    public void deleteReport (String key, final DataStatus dataStatus){
+      public void deleteReport (String key, final DataStatus dataStatus){
         // If something does not have a value or a null value it automatically deletes it from the database
         myRef.child(key).setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
