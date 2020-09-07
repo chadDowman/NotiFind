@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.lostdotcom.notifind.Activities.SettingsActivity;
@@ -101,6 +102,10 @@ public class ReportViewingActivity extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         finish();
+    }
+
+    private void toaster (String bread){
+        Toast.makeText(ReportViewingActivity.this, bread, Toast.LENGTH_SHORT).show();
     }
 
 }

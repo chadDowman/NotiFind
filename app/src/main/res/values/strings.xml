@@ -60,4 +60,15 @@
     <string name="report_edits">Report Edits</string>
     <string name="report_creation">Report Creation</string>
 
+    <string-array name="locations">
+        <item>Western Cape</item>
+        <item>Eastern Cape</item>
+        <item>Northern Cape</item>
+        <item>Free State</item>
+        <item>North West</item>
+        <item>Gauteng</item>
+        <item>Mpumalanga</item>
+        <item>KwaZulu-Natal</item>
+        <item>Limpopo</item>
+    </string-array>
 </resources>

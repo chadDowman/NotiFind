@@ -21,9 +21,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -57,14 +59,24 @@ public class ReportCreationActivity extends AppCompatActivity {
     public Uri image;
     private StorageTask uploadTask;
     private Switch notificationSwitch;
-
+    private Spinner mySpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_creation); // Inflates the layout
-        mStorageRef = FirebaseStorage.getInstance().getReference( "Images");
 
+        //--------------------------------------------------------------------------------------
+
+        mySpinner = findViewById(R.id.lastLocation);
+        ArrayAdapter<String> myAdapter =  new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.locations));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myAdapter);
+
+        //--------------------------------------------------------------------------------------
+        mStorageRef = FirebaseStorage.getInstance().getReference( "Images");
+        //--------------------------------------------------------------------------------------
 
         txtName = findViewById(R.id.name);
         txtSurname = findViewById(R.id.surname);
@@ -72,14 +84,15 @@ public class ReportCreationActivity extends AppCompatActivity {
         txtEyeColor = findViewById(R.id.eyecolor);
         txtWeight = findViewById(R.id.weight);
         txtHeight = findViewById(R.id.height);
-        txtLastSeenLocation = findViewById(R.id.lastLocation);
+    //    txtLastSeenLocation = findViewById(R.id.lastLocation);
         txtDescription = findViewById(R.id.description);
+        //--------------------------------------------------------------------------------------
         Button btnPostReport = findViewById(R.id.postReport);
         profilepic = findViewById(R.id.imageView);
         Button uploadbtn = findViewById(R.id.uploadbtn);
         ImageView PP = findViewById(R.id.profilepic);
         Button choosebtn = findViewById(R.id.choosebtn);
-
+        //--------------------------------------------------------------------------------------
         choosebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,7 +114,7 @@ public class ReportCreationActivity extends AppCompatActivity {
                 }
             }
         });
-
+        //--------------------------------------------------------------------------------------
         Resources r = getResources();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
 
@@ -109,7 +122,6 @@ public class ReportCreationActivity extends AppCompatActivity {
         txtDescription.setWidth(px);
         txtEyeColor.setWidth(px);
         txtHeight.setWidth(px);
-        txtLastSeenLocation.setWidth(px);
         txtSurname.setWidth(px);
         txtName.setWidth(px);
         txtWeight.setWidth(px);
@@ -178,7 +190,7 @@ public class ReportCreationActivity extends AppCompatActivity {
         String eyeColor = txtEyeColor.getText().toString();
         String weight = txtWeight.getText().toString();
         String height = txtHeight.getText().toString();
-        String location = txtLastSeenLocation.getText().toString();
+        String location = mySpinner.getSelectedItem().toString();
         String description = txtDescription.getText().toString();
 
         report.setName(name);
@@ -221,11 +233,6 @@ public class ReportCreationActivity extends AppCompatActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(location)){
-            txtLastSeenLocation.setError("Missing Location Field");
-            return;
-        }
-
         if (TextUtils.isEmpty(description)){
             txtDescription.setError("Missing Description Field");
             return;
@@ -239,7 +246,7 @@ public class ReportCreationActivity extends AppCompatActivity {
 
             @Override
             public void DataInserted() {
-                toaster("The Book has been recorded successfully");
+                toaster("The report has been recorded successfully");
             }
 
             @Override
@@ -253,15 +260,6 @@ public class ReportCreationActivity extends AppCompatActivity {
             }
         });
 
-        /*
-                reportDetails = new ReportDetails(name, surname, age, eyeColor, weight, height, location, description);
-        ranNum = new Random();
-        int num = ranNum.nextInt(10000) + 1;
-        String id = String.valueOf(num);
-        myRef.child(id).setValue(reportDetails);
-         */
-
-
 
         txtName.setText("");
         txtSurname.setText("");
@@ -272,9 +270,8 @@ public class ReportCreationActivity extends AppCompatActivity {
         txtLastSeenLocation.setText("");
         txtDescription.setText("");
 
-        if (notificationSwitch.isChecked()){
-            notification();
-        }
+        notification();
+
 
     }
 

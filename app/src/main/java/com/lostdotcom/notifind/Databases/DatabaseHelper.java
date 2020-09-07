@@ -1,14 +1,19 @@
 package com.lostdotcom.notifind.Databases;
 
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lostdotcom.notifind.Details.ReportDetails;
+import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +23,7 @@ public class DatabaseHelper{
     private FirebaseDatabase myDatabase;
     private DatabaseReference myRef;
     private List<ReportDetails> reports = new ArrayList<>();
+    private String user;
 
     public interface DataStatus{
         void DataIsLoaded(List<ReportDetails> reports, List<String> keys);
@@ -50,6 +56,7 @@ public class DatabaseHelper{
 
             }
         });
+
     }
 
 
@@ -84,4 +91,11 @@ public class DatabaseHelper{
         });
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
 }
