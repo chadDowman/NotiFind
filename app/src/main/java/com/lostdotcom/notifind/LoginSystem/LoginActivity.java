@@ -127,7 +127,6 @@ public class LoginActivity extends AppCompatActivity {
                                 passwordTest = admin.getAdminPassword();
                                 if (email.equals(emailTest) && password.equals(passwordTest) && testBoolean){
                                     toaster("Welcome Admin");
-                                    RecyclerViewConfig recycle = new RecyclerViewConfig(testBoolean);
                                     startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
                                     return;
                                 } else if (owner){

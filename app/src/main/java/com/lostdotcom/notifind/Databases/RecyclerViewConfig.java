@@ -33,10 +33,6 @@ public class RecyclerViewConfig {
         recyclerView.setAdapter(myReportAdapter);
     }
 
-    public RecyclerViewConfig(boolean admin) {
-        this.admin = admin;
-    }
-
     public RecyclerViewConfig() {
     }
 
