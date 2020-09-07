@@ -18,8 +18,9 @@
         android:layout_marginStart="323dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
-        android:text="Sign Out"
         android:background="#0F222D"
+        android:onClick="signOut"
+        android:text="Sign Out"
         android:textColor="#FFEB3B"
         tools:ignore="HardcodedText" />
 

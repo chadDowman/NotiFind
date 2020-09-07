@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lostdotcom.notifind.Activities.ReportEditsActivity;
 import com.lostdotcom.notifind.Details.ReportDetails;
+import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
+import com.lostdotcom.notifind.Viewing.ReportProfile;
 
 import org.w3c.dom.Text;
 
@@ -23,12 +25,20 @@ public class RecyclerViewConfig {
 
     private Context myContext;
     private ReportAdapter myReportAdapter;
+    private boolean admin = true;
 
     public void setReportConfig(RecyclerView recyclerView, Context context, List<ReportDetails> reports, List<String> keys){
         myContext = context;
         myReportAdapter = new ReportAdapter(reports, keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(myReportAdapter);
+    }
+
+    public RecyclerViewConfig(boolean admin) {
+        this.admin = admin;
+    }
+
+    public RecyclerViewConfig() {
     }
 
     // Responsible for inflating the layout ReportListItem and populating the view items
@@ -59,18 +69,37 @@ public class RecyclerViewConfig {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(myContext, ReportEditsActivity.class);
-                    intent.putExtra("key", key);
-                    intent.putExtra("name", name.getText().toString());
-                    intent.putExtra("surname", surname.getText().toString());
-                    intent.putExtra("age", age.getText().toString());
-                    intent.putExtra("eyeColor", eyeColor.getText().toString());
-                    intent.putExtra("weight", weight.getText().toString());
-                    intent.putExtra("height", height.getText().toString());
-                    intent.putExtra("lastSeenLocation", lastSeenLocation.getText().toString());
-                    intent.putExtra("description", description.getText().toString());
 
-                    myContext.startActivity(intent);
+                    LoginActivity login = new LoginActivity();
+
+                    if (login.isTestBoolean()){
+                        Intent intent = new Intent(myContext, ReportEditsActivity.class);
+                        intent.putExtra("key", key);
+                        intent.putExtra("name", name.getText().toString());
+                        intent.putExtra("surname", surname.getText().toString());
+                        intent.putExtra("age", age.getText().toString());
+                        intent.putExtra("eyeColor", eyeColor.getText().toString());
+                        intent.putExtra("weight", weight.getText().toString());
+                        intent.putExtra("height", height.getText().toString());
+                        intent.putExtra("lastSeenLocation", lastSeenLocation.getText().toString());
+                        intent.putExtra("description", description.getText().toString());
+
+                        myContext.startActivity(intent);
+                    }else{
+                        Intent intent = new Intent(myContext, ReportProfile.class);
+                        intent.putExtra("key", key);
+                        intent.putExtra("name", name.getText().toString());
+                        intent.putExtra("surname", surname.getText().toString());
+                        intent.putExtra("age", age.getText().toString());
+                        intent.putExtra("eyeColor", eyeColor.getText().toString());
+                        intent.putExtra("weight", weight.getText().toString());
+                        intent.putExtra("height", height.getText().toString());
+                        intent.putExtra("lastSeenLocation", lastSeenLocation.getText().toString());
+                        intent.putExtra("description", description.getText().toString());
+
+                        myContext.startActivity(intent);
+                    }
+
                 }
             });
 

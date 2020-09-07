@@ -6,6 +6,8 @@ This class is responsible for the login interface and allows users to login, acc
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lostdotcom.notifind.Activities.AdminCreationActivity;
 import com.lostdotcom.notifind.Activities.ReportCreationActivity;
+import com.lostdotcom.notifind.Databases.RecyclerViewConfig;
 import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
@@ -196,4 +199,11 @@ public class LoginActivity extends AppCompatActivity {
         this.btnLogin = btnLogin;
     }
 
+    public boolean isTestBoolean() {
+        return testBoolean;
+    }
+
+    public void setTestBoolean(boolean testBoolean) {
+        this.testBoolean = testBoolean;
+    }
 }
