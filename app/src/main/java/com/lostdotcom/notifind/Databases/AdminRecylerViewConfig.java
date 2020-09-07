@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.lostdotcom.notifind.Activities.AdminCreationActivity;
 import com.lostdotcom.notifind.Activities.ReportCreationActivity;
 import com.lostdotcom.notifind.Activities.ReportEditsActivity;
 import com.lostdotcom.notifind.Details.AdminDetails;
@@ -53,7 +54,7 @@ public class AdminRecylerViewConfig {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(myContext, ReportCreationActivity.class);
+                    Intent intent = new Intent(myContext, AdminCreationActivity.class);
                     intent.putExtra("key", key);
                     intent.putExtra("email", adminEmail.getText().toString());
                     intent.putExtra("password", adminPassword.getText().toString());

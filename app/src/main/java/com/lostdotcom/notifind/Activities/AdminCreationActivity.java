@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import com.lostdotcom.notifind.Databases.DatabaseHelper;
 import com.lostdotcom.notifind.Databases.DatabaseHelperAdmins;
 import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
@@ -49,6 +50,12 @@ public class AdminCreationActivity extends AppCompatActivity {
     private EditText adminPhoneNo;
     private Switch adminSwitch;
 
+    private String key;
+    private String email;
+    private String password;
+    private String location;
+    private String phoneNo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +70,12 @@ public class AdminCreationActivity extends AppCompatActivity {
         myAuth = FirebaseAuth.getInstance();
         myDatabase = FirebaseDatabase.getInstance();
         myRef = myDatabase.getReference("AdminDetails");
+
+        key = getIntent().getStringExtra("key");
+        email = getIntent().getStringExtra("email");
+        password = getIntent().getStringExtra("password");
+        location = getIntent().getStringExtra("location");
+        phoneNo = getIntent().getStringExtra("phoneNo");
 
     }
 
@@ -145,6 +158,32 @@ public class AdminCreationActivity extends AppCompatActivity {
         adminPhoneNo.setText("");
 
 
+    }
+
+    public void deleteAdminClicked (View view){
+        new DatabaseHelperAdmins().deleteAdmin(key, new DatabaseHelperAdmins.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<AdminDetails> adminCreations, List<String> keys) {
+
+            }
+
+            @Override
+            public void DataInserted() {
+
+            }
+
+            @Override
+            public void DataIsUpdated() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+                toaster("The report has been deleted successfully");
+                finish();
+                return;
+            }
+        });
     }
 
     // Makes toast

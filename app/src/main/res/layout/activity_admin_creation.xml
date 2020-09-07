@@ -200,6 +200,7 @@
                 android:layout_marginEnd="0dp"
                 android:layout_marginBottom="51dp"
                 android:background="@android:color/transparent"
+                android:onClick="deleteAdminClicked"
                 android:text="Delete Admin"
                 android:textSize="12sp" />
         </RelativeLayout>

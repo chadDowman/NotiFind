@@ -3,12 +3,17 @@ package com.lostdotcom.notifind.Viewing;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.lostdotcom.notifind.Activities.AdminCreationActivity;
 import com.lostdotcom.notifind.Databases.AdminRecylerViewConfig;
 import com.lostdotcom.notifind.Databases.DatabaseHelperAdmins;
 import com.lostdotcom.notifind.Databases.RecyclerViewConfig;
 import com.lostdotcom.notifind.Details.AdminDetails;
+import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
 
 import java.util.List;
@@ -46,5 +51,15 @@ public class AdminViewingActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void backBtnClicked (View view){
+        startActivity(new Intent(getApplicationContext(), AdminCreationActivity.class));
+    }
+
+    public void signOut (View view){
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        finish();
     }
 }
