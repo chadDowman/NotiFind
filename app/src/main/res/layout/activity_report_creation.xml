@@ -133,19 +133,6 @@
                 android:inputType="textPersonName"
                 tools:ignore="Autofill,TextFields" />
 
-            <EditText
-                android:id="@+id/lastLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="-1dp"
-                android:layout_marginTop="179dp"
-                android:background="#BAB5B5"
-                android:ems="10"
-                android:hint="@string/last_location"
-                tools:ignore="Autofill,TextFields" />
-
             <TextView
                 android:id="@+id/promptDescription"
                 android:layout_width="352dp"
@@ -206,6 +193,15 @@
                 android:layout_marginBottom="79dp"
                 android:text="Upload File"
                 tools:ignore="HardcodedText" />
+
+            <Spinner
+                android:id="@+id/lastLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="177dp"
+                android:layout_marginEnd="0dp" />
 
         </RelativeLayout>
 
