@@ -34,6 +34,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -57,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
     private String passwordTest;
     private String email;
     private String password;
-    private boolean noPurpose = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,14 +119,16 @@ public class LoginActivity extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                                 AdminDetails admin = snapshot.getValue(AdminDetails.class);
+                                assert admin != null;
                                 testBoolean = admin.isAdmin();
                                 emailTest = admin.getAdminEmail();
                                 passwordTest = admin.getAdminPassword();
-                                if (email.equals(emailTest) && password.equals(passwordTest) && testBoolean == true){
-                                    noPurpose = true;
+                                if (email.equals(emailTest) && password.equals(passwordTest) && testBoolean){
                                     startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
                                     toaster("Welcome Admin");
                                     finish();
+                                } else if (owner){
+                                    startActivity(new Intent(getApplicationContext(), AdminCreationActivity.class));
                                 }
                             }
                         }
@@ -136,17 +139,12 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
 
-                    if (owner == true && !noPurpose == true){
-                        startActivity(new Intent(getApplicationContext(), AdminCreationActivity.class));
-                    }
+                    startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
 
-                    if (!noPurpose == true){
-                        startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
-                    }
 
                     // If not the following error message will be displayed as a toast
                 }else{
-                    toaster("Error! " + task.getException().getMessage()); // Displays the error message
+                    toaster("Error! " + Objects.requireNonNull(task.getException()).getMessage()); // Displays the error message
                 }
             }
         });
