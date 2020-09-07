@@ -24,18 +24,15 @@ import java.util.List;
 public class RecyclerViewConfig {
 
     private Context myContext;
-    private ReportAdapter myReportAdapter;
-    private boolean admin = true;
 
     public void setReportConfig(RecyclerView recyclerView, Context context, List<ReportDetails> reports, List<String> keys){
         myContext = context;
-        myReportAdapter = new ReportAdapter(reports, keys);
+        ReportAdapter myReportAdapter = new ReportAdapter(reports, keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(myReportAdapter);
     }
 
     public RecyclerViewConfig(boolean admin) {
-        this.admin = admin;
     }
 
     public RecyclerViewConfig() {

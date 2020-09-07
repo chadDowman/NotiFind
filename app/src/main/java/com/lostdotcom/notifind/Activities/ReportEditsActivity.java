@@ -28,18 +28,8 @@ public class ReportEditsActivity extends AppCompatActivity {
     private EditText txtHeightEdit;
     private EditText txtLastSeenLocationEdit;
     private EditText txtDescriptionEdit;
-    private Button btnUpdateReportEdit;
-    private Button btnDeleteReportEdit;
 
     private String key;
-    private String txtName;
-    private String txtSurname;
-    private String txtAge;
-    private String txtEyeColor;
-    private String txtWeight;
-    private String txtHeight;
-    private String txtLastSeenLocation;
-    private String txtDescription;
 
 
     @Override
@@ -49,14 +39,14 @@ public class ReportEditsActivity extends AppCompatActivity {
 
         key = getIntent().getStringExtra("key");
 
-        txtName = getIntent().getStringExtra("name");
-        txtSurname = getIntent().getStringExtra("surname");
-        txtAge = getIntent().getStringExtra("age");
-        txtEyeColor = getIntent().getStringExtra("eyeColor");
-        txtWeight = getIntent().getStringExtra("weight");
-        txtHeight = getIntent().getStringExtra("height");
-        txtLastSeenLocation = getIntent().getStringExtra("lastSeenLocation");
-        txtDescription = getIntent().getStringExtra("description");
+        String txtName = getIntent().getStringExtra("name");
+        String txtSurname = getIntent().getStringExtra("surname");
+        String txtAge = getIntent().getStringExtra("age");
+        String txtEyeColor = getIntent().getStringExtra("eyeColor");
+        String txtWeight = getIntent().getStringExtra("weight");
+        String txtHeight = getIntent().getStringExtra("height");
+        String txtLastSeenLocation = getIntent().getStringExtra("lastSeenLocation");
+        String txtDescription = getIntent().getStringExtra("description");
 
         txtNameEdit = findViewById(R.id.name);
         txtNameEdit.setText(txtName);
@@ -82,8 +72,8 @@ public class ReportEditsActivity extends AppCompatActivity {
         txtDescriptionEdit = findViewById(R.id.description);
         txtDescriptionEdit.setText(txtDescription);
 
-        btnUpdateReportEdit = findViewById(R.id.updateReport);
-        btnDeleteReportEdit = findViewById(R.id.deleteReport);
+        Button btnUpdateReportEdit = findViewById(R.id.updateReport);
+        Button btnDeleteReportEdit = findViewById(R.id.deleteReport);
 
         btnUpdateReportEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,7 +136,7 @@ public class ReportEditsActivity extends AppCompatActivity {
                     public void DataIsDeleted() {
                         toaster("The report has been deleted successfully");
                         finish();
-                        return; // Stops executions of anything else
+                        // Stops executions of anything else return here
                     }
                 });
             }

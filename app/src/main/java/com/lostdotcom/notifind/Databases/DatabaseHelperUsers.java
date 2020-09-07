@@ -8,7 +8,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.Details.UserDetails;
 
 import java.util.ArrayList;

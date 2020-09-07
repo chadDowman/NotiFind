@@ -12,10 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lostdotcom.notifind.Activities.AdminCreationActivity;
-import com.lostdotcom.notifind.Activities.ReportCreationActivity;
-import com.lostdotcom.notifind.Activities.ReportEditsActivity;
 import com.lostdotcom.notifind.Details.AdminDetails;
-import com.lostdotcom.notifind.Details.ReportDetails;
 import com.lostdotcom.notifind.R;
 
 import java.util.List;
@@ -24,12 +21,11 @@ public class AdminRecylerViewConfig {
 
 
     private Context myContext;
-    private AdminAdapter myAdminAdapter;
 
     public void setAdminConfig(RecyclerView recyclerView, Context context, List<AdminDetails> admins, List<String> keys){
 
         myContext = context;
-        myAdminAdapter = new AdminAdapter(admins, keys);
+        AdminAdapter myAdminAdapter = new AdminAdapter(admins, keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(myAdminAdapter);
     }

@@ -53,10 +53,6 @@ public class ReportCreationActivity extends AppCompatActivity {
     private EditText txtLastSeenLocation;
     private EditText txtDescription;
     private ImageView profilepic;
-    private Button uploadbtn;
-    private Button choosebtn;
-    private ImageView PP;
-    private Button btnPostReport;
     StorageReference mStorageRef;
     public Uri image;
     private StorageTask uploadTask;
@@ -78,11 +74,11 @@ public class ReportCreationActivity extends AppCompatActivity {
         txtHeight = findViewById(R.id.height);
         txtLastSeenLocation = findViewById(R.id.lastLocation);
         txtDescription = findViewById(R.id.description);
-        btnPostReport = findViewById(R.id.postReport);
+        Button btnPostReport = findViewById(R.id.postReport);
         profilepic = findViewById(R.id.imageView);
-        uploadbtn = findViewById(R.id.uploadbtn);
-        PP = findViewById(R.id.profilepic);
-        choosebtn = findViewById(R.id.choosebtn);
+        Button uploadbtn = findViewById(R.id.uploadbtn);
+        ImageView PP = findViewById(R.id.profilepic);
+        Button choosebtn = findViewById(R.id.choosebtn);
 
         choosebtn.setOnClickListener(new View.OnClickListener() {
             @Override

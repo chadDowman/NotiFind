@@ -6,7 +6,6 @@ This class is responsible for the login interface and allows users to login, acc
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lostdotcom.notifind.Activities.AdminCreationActivity;
 import com.lostdotcom.notifind.Activities.ReportCreationActivity;
-import com.lostdotcom.notifind.Databases.RecyclerViewConfig;
 import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
@@ -51,8 +49,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText txtLoginEmail;
     private EditText txtLoginPassword;
     private Button btnLogin;
-    //----------------------------------------
-    private FirebaseDatabase myDatabase;
     private DatabaseReference myRef;
     private List<AdminDetails> adminCreations = new ArrayList<>();
     boolean owner = false;
@@ -80,7 +76,8 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setWidth(px);
 
         myAuth = FirebaseAuth.getInstance(); // Gets current database instance or state
-        myDatabase = FirebaseDatabase.getInstance();
+        //----------------------------------------
+        FirebaseDatabase myDatabase = FirebaseDatabase.getInstance();
         myRef = myDatabase.getReference("AdminDetails");
 
     }

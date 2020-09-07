@@ -17,7 +17,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.List;
-import java.util.Random;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -27,7 +26,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.lostdotcom.notifind.Databases.DatabaseHelperUsers;
 import com.lostdotcom.notifind.Details.UserDetails;
 import com.lostdotcom.notifind.R;
-import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -46,7 +44,6 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText txtSignUpLocation;
     private EditText txtSignUpName;
     private EditText txtSignUpSurname;
-    private Button btnSignUpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +56,7 @@ public class SignUpActivity extends AppCompatActivity {
         txtSignUpLocation = findViewById(R.id.address);
         txtSignUpName = findViewById(R.id.signUpName);
         txtSignUpSurname = findViewById(R.id.signUpSurname);
-        btnSignUpButton = findViewById(R.id.signUpButton2);
+        Button btnSignUpButton = findViewById(R.id.signUpButton2);
 
         Resources r = getResources();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());

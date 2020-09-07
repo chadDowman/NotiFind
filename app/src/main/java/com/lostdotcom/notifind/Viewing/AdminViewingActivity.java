@@ -11,7 +11,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.lostdotcom.notifind.Activities.AdminCreationActivity;
 import com.lostdotcom.notifind.Databases.AdminRecylerViewConfig;
 import com.lostdotcom.notifind.Databases.DatabaseHelperAdmins;
-import com.lostdotcom.notifind.Databases.RecyclerViewConfig;
 import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;

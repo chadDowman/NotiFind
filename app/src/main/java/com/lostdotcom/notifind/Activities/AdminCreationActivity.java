@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import com.lostdotcom.notifind.Databases.DatabaseHelper;
+
 import com.lostdotcom.notifind.Databases.DatabaseHelperAdmins;
 import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
@@ -29,10 +29,9 @@ import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.AdminViewingActivity;
 
 
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
+
 
 public class AdminCreationActivity extends AppCompatActivity {
 
@@ -51,10 +50,6 @@ public class AdminCreationActivity extends AppCompatActivity {
     private Switch adminSwitch;
 
     private String key;
-    private String email;
-    private String password;
-    private String location;
-    private String phoneNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,10 +67,10 @@ public class AdminCreationActivity extends AppCompatActivity {
         myRef = myDatabase.getReference("AdminDetails");
 
         key = getIntent().getStringExtra("key");
-        email = getIntent().getStringExtra("email");
-        password = getIntent().getStringExtra("password");
-        location = getIntent().getStringExtra("location");
-        phoneNo = getIntent().getStringExtra("phoneNo");
+        String email = getIntent().getStringExtra("email");
+        String password = getIntent().getStringExtra("password");
+        String location = getIntent().getStringExtra("location");
+        String phoneNo = getIntent().getStringExtra("phoneNo");
 
     }
 

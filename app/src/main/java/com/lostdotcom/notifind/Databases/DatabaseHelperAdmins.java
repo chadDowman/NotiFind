@@ -9,14 +9,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lostdotcom.notifind.Details.AdminDetails;
-import com.lostdotcom.notifind.Details.ReportDetails;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHelperAdmins {
 
-    private FirebaseDatabase myDatabase;
     private DatabaseReference myRef;
     private List<AdminDetails> adminCreations = new ArrayList<>();
 
@@ -28,7 +27,7 @@ public class DatabaseHelperAdmins {
     }
 
     public DatabaseHelperAdmins() {
-        myDatabase = FirebaseDatabase.getInstance();
+        FirebaseDatabase myDatabase = FirebaseDatabase.getInstance();
         myRef = myDatabase.getReference("AdminDetails");
     }
 
