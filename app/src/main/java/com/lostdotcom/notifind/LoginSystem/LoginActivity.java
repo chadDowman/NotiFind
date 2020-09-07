@@ -6,6 +6,7 @@ This class is responsible for the login interface and allows users to login, acc
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lostdotcom.notifind.Activities.AdminCreationActivity;
 import com.lostdotcom.notifind.Activities.ReportCreationActivity;
+import com.lostdotcom.notifind.Databases.RecyclerViewConfig;
 import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
@@ -125,6 +127,7 @@ public class LoginActivity extends AppCompatActivity {
                                 passwordTest = admin.getAdminPassword();
                                 if (email.equals(emailTest) && password.equals(passwordTest) && testBoolean){
                                     toaster("Welcome Admin");
+                                    RecyclerViewConfig recycle = new RecyclerViewConfig(testBoolean);
                                     startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
                                     return;
                                 } else if (owner){

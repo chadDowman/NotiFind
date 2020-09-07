@@ -24,6 +24,7 @@ import java.util.List;
 public class RecyclerViewConfig {
 
     private Context myContext;
+    private boolean admin = true;
 
     public void setReportConfig(RecyclerView recyclerView, Context context, List<ReportDetails> reports, List<String> keys){
         myContext = context;
@@ -33,6 +34,7 @@ public class RecyclerViewConfig {
     }
 
     public RecyclerViewConfig(boolean admin) {
+        this.admin = admin;
     }
 
     public RecyclerViewConfig() {
@@ -67,9 +69,7 @@ public class RecyclerViewConfig {
                 @Override
                 public void onClick(View view) {
 
-                    LoginActivity login = new LoginActivity();
-
-                    if (login.isTestBoolean()){
+                    if (admin){
                         Intent intent = new Intent(myContext, ReportEditsActivity.class);
                         intent.putExtra("key", key);
                         intent.putExtra("name", name.getText().toString());
