@@ -8,6 +8,18 @@
     tools:context=".Activities.ReportCreationActivity">
 
     <Button
+        android:id="@+id/backbtn"
+        android:layout_width="77dp"
+        android:layout_height="36dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#0F222D"
+        android:onClick="signOut"
+        android:text="back"
+        android:textColor="#FFEB3B"
+        tools:ignore="HardcodedText" />
+
+    <Button
         android:id="@+id/AdminSignOutButton"
         android:layout_width="wrap_content"
         android:layout_height="28dp"
@@ -39,6 +51,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/gloss">
+
+            <Spinner
+                android:id="@+id/edits_lastLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="177dp"
+                android:layout_marginEnd="0dp" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -139,20 +160,6 @@
                 android:ems="10"
                 android:hint="@string/height"
                 android:inputType="textPersonName"
-                tools:ignore="Autofill,TextFields" />
-
-            <EditText
-                android:id="@+id/lastLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                app:fontFamily="@font/maiden_orange"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="-1dp"
-                android:layout_marginTop="179dp"
-                android:background="#BAB5B5"
-                android:ems="10"
-                android:hint="@string/last_location"
                 tools:ignore="Autofill,TextFields" />
 
             <TextView
