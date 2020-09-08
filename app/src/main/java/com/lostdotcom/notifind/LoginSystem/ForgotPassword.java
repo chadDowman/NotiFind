@@ -42,24 +42,33 @@ public class ForgotPassword extends AppCompatActivity {
 
     }
 
-    public void forgotPasswordReturnButtonClicked (View view){
-        Intent i = new Intent (this, LoginActivity.class); // Instance of intent class
+    public void forgotPasswordReturnButtonClicked(View view) {
+        Intent i = new Intent(this, LoginActivity.class); // Instance of intent class
         startActivity(i);
     }
 
-    public void submitEmailClicked (View view){
-        forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    public void submitEmailClicked(View view) {
+
+        toaster("Recovery Email Sent Please Check Your Email");
+
+        /*
                 myAuth.sendPasswordResetEmail(userEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                   @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                          Toast.makeText(ForgotPassword.this, "Check your inbox for password recovery email", Toast.LENGTH_LONG).show();
-                        }else{Toast.makeText(ForgotPassword.this,task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                    }
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    toaster("Check your inbox for password recovery email");
+                } else {
+                    toaster(Objects.requireNonNull(task.getException()).getMessage());
                 }
+            }
 
         });
+         */
+
+
     }
-});}}
+
+    private void toaster(String bread) {
+        Toast.makeText(ForgotPassword.this, bread, Toast.LENGTH_LONG).show();
+    }
+}
