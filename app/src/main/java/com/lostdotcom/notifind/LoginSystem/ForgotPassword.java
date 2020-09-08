@@ -16,16 +16,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.lostdotcom.notifind.R;
 
 public class ForgotPassword extends AppCompatActivity {
 
     Button forgotPasswordButton;
-    EditText forgotPasswordEmail;
-    FirebaseAuth fAuth;
+    FirebaseAuth myAuth;
+    EditText userEmail;
+    EditText userPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,10 @@ public class ForgotPassword extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
         forgotPasswordButton = findViewById(R.id.forgotPasswordButton);
-        fAuth = FirebaseAuth.getInstance();
+        myAuth = FirebaseAuth.getInstance();
+        userEmail = findViewById(R.id.email);
+        userPassword = findViewById(R.id.password);
+
     }
 
     public void forgotPasswordReturnButtonClicked (View view){
@@ -42,50 +48,18 @@ public class ForgotPassword extends AppCompatActivity {
     }
 
     public void submitEmailClicked (View view){
-        //TODO This class must send the email to user
-
-
-        final EditText forgotPasswordEmail = new EditText(view.getContext());
-        AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(view.getContext());
-                passwordResetDialog.setTitle("Reset your password ?");
-                passwordResetDialog.setMessage("Enter your email to recieve the password link");
-                passwordResetDialog.setView(forgotPasswordEmail);
-                passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                        //to extract the email and send reset link
-
-                        String mail = forgotPasswordEmail.getText().toString();
-                        //passing the email here
-                        fAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-
-                                Toast.makeText(ForgotPassword.this, "Reset link sent to you email", Toast.LENGTH_SHORT).show();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                // Message to the user
-                                Toast.makeText(ForgotPassword.this, "Error! Reset link is not sent" + e.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
+        forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myAuth.sendPasswordResetEmail(userEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                   @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                          Toast.makeText(ForgotPassword.this, "Check your inbox for password recovery email", Toast.LENGTH_LONG).show();
+                        }else{Toast.makeText(ForgotPassword.this,task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
-                });
+                }
 
-                //negative button for no
-                passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        // to close the dialog
-
-                    }
-
-
-                });
-
-
+        });
     }
-}
+});}}
