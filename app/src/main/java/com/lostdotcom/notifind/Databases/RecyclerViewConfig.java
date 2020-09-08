@@ -11,7 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lostdotcom.notifind.Activities.ReportEditsActivity;
+import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.Details.ReportDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
@@ -19,12 +25,16 @@ import com.lostdotcom.notifind.Viewing.ReportProfile;
 
 import org.w3c.dom.Text;
 
+import java.util.EventListener;
 import java.util.List;
 
 public class RecyclerViewConfig {
 
     private Context myContext;
-    private boolean admin = true;
+    private boolean testAdmin = false;
+    private boolean confirmedAdmin = false;
+    private DatabaseReference myRef;
+
 
     public void setReportConfig(RecyclerView recyclerView, Context context, List<ReportDetails> reports, List<String> keys){
         myContext = context;
@@ -46,8 +56,12 @@ public class RecyclerViewConfig {
         private TextView height;
         private TextView lastSeenLocation;
         private TextView description;
-
+        private boolean isAdminText;
         private String key;
+
+        public ReportItemView(@NonNull View itemView) {
+            super(itemView);
+        }
 
         public ReportItemView(ViewGroup parent){
             super(LayoutInflater.from(myContext).inflate(R.layout.report_list_item, parent, false));
@@ -60,11 +74,15 @@ public class RecyclerViewConfig {
             height = itemView.findViewById(R.id.report_height);
             lastSeenLocation = itemView.findViewById(R.id.report_last_location);
             description = itemView.findViewById(R.id.report_description);
+
+            FirebaseDatabase myDatabase = FirebaseDatabase.getInstance();
+            myRef = myDatabase.getReference("AdminDetails");
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    if (admin){
+                    if (LoginActivity.adminOrNot){
                         Intent intent = new Intent(myContext, ReportEditsActivity.class);
                         intent.putExtra("key", key);
                         intent.putExtra("name", name.getText().toString());
@@ -77,6 +95,7 @@ public class RecyclerViewConfig {
                         intent.putExtra("description", description.getText().toString());
 
                         myContext.startActivity(intent);
+
                     }else{
                         Intent intent = new Intent(myContext, ReportProfile.class);
                         intent.putExtra("key", key);

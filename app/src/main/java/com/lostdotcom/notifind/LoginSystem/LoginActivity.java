@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.lostdotcom.notifind.Activities.AdminCreationActivity;
 import com.lostdotcom.notifind.Activities.ReportCreationActivity;
+import com.lostdotcom.notifind.Activities.ReportEditsActivity;
 import com.lostdotcom.notifind.Databases.RecyclerViewConfig;
 import com.lostdotcom.notifind.Details.AdminDetails;
 import com.lostdotcom.notifind.R;
@@ -59,6 +60,9 @@ public class LoginActivity extends AppCompatActivity {
     private String passwordTest;
     private String email;
     private String password;
+    private boolean sendTest = false;
+
+    public static boolean adminOrNot = false;
 
 
     @Override
@@ -127,12 +131,13 @@ public class LoginActivity extends AppCompatActivity {
                                 passwordTest = admin.getAdminPassword();
                                 if (email.equals(emailTest) && password.equals(passwordTest) && testBoolean){
                                     toaster("Welcome Admin");
-                                    startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
-                                    return;
+                                    adminOrNot = true;
+                                    startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
+                                    break;
                                 } else if (owner){
                                     toaster("Welcome Owner");
                                     startActivity(new Intent(getApplicationContext(), AdminCreationActivity.class));
-                                    return;
+                                    break;
                                 }
                             }
 
@@ -144,7 +149,11 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
 
-                    startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
+                    if(!email.equals(emailTest) && !password.equals(passwordTest) && !owner){
+                        startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
+
+                    }
+
 
 
                     // If not the following error message will be displayed as a toast
@@ -159,6 +168,7 @@ public class LoginActivity extends AppCompatActivity {
     public void signUpButtonClicked (View view){
         Intent i = new Intent (this, SignUpActivity.class); // Instance of intent class
         startActivity(i);
+
     }
 
 
@@ -204,5 +214,29 @@ public class LoginActivity extends AppCompatActivity {
 
     public void setTestBoolean(boolean testBoolean) {
         this.testBoolean = testBoolean;
+    }
+
+    public boolean isSendTest() {
+        return sendTest;
+    }
+
+    public void setSendTest(boolean sendTest) {
+        this.sendTest = sendTest;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

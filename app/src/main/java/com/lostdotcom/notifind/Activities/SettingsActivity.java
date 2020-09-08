@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
@@ -70,12 +71,11 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void closeAccountClicked (View view){
         //Todo Delete account
-        btnCloseAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        toaster("Your Account Will be Deleted Within 24 Hours");
+    }
 
-            }
-        });
+    private void toaster (String bread){
+        Toast.makeText(SettingsActivity.this, bread, Toast.LENGTH_LONG).show();
     }
 
     //Getters and Setters

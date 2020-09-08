@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.lostdotcom.notifind.Databases.DatabaseHelper;
@@ -28,6 +30,7 @@ public class ReportEditsActivity extends AppCompatActivity {
     private EditText txtHeightEdit;
     private EditText txtLastSeenLocationEdit;
     private EditText txtDescriptionEdit;
+    private Spinner mySpinner;
 
     private String key;
 
@@ -66,8 +69,18 @@ public class ReportEditsActivity extends AppCompatActivity {
         txtHeightEdit = findViewById(R.id.height);
         txtHeightEdit.setText(txtHeight);
 
-        txtLastSeenLocationEdit = findViewById(R.id.lastLocation);
-        txtLastSeenLocationEdit.setText(txtLastSeenLocation);
+        mySpinner = findViewById(R.id.edits_lastLocation);
+
+        ArrayAdapter<String> myAdapter =  new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.locations));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myAdapter);
+
+        if (txtLastSeenLocation != null){
+            int spinnerPosition = myAdapter.getPosition(txtLastSeenLocation);
+            mySpinner.setSelection(spinnerPosition);
+        }
+
 
         txtDescriptionEdit = findViewById(R.id.description);
         txtDescriptionEdit.setText(txtDescription);
@@ -85,7 +98,7 @@ public class ReportEditsActivity extends AppCompatActivity {
                 report.setEyeColor(txtEyeColorEdit.getText().toString());
                 report.setWeight(txtWeightEdit.getText().toString());
                 report.setHeight(txtHeightEdit.getText().toString());
-                report.setLastSeenLocation(txtLastSeenLocationEdit.getText().toString());
+                report.setLastSeenLocation(mySpinner.getSelectedItem().toString());
                 report.setDescription(txtDescriptionEdit.getText().toString());
 
                 new DatabaseHelper().updateReport(key, report, new DatabaseHelper.DataStatus() {
