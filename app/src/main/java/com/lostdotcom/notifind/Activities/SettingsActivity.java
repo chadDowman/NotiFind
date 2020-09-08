@@ -5,6 +5,7 @@ This class controls the settings screen and is how users access the account sett
 respectively. It is also where users are able to request closure of their accounts.
  */
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -69,6 +70,12 @@ public class SettingsActivity extends AppCompatActivity {
 
     public void closeAccountClicked (View view){
         //Todo Delete account
+        btnCloseAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     //Getters and Setters
