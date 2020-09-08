@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.lostdotcom.notifind.Databases.DatabaseHelper;
 import com.lostdotcom.notifind.Details.ReportDetails;
 import com.lostdotcom.notifind.R;
+import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 
 import java.util.List;
 
@@ -177,20 +178,22 @@ public class ReportEditsActivity extends AppCompatActivity {
                     item.setChecked(false);
                 else
                     item.setChecked(true);
-                Intent i = new Intent (this, ReportCreationActivity.class); // Instance of intent class
-                startActivity(i);
+                startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
                 return true;
             case R.id.report_view:
                 if(item.isChecked())
                     item.setChecked(false);
                 else
                     item.setChecked(true);
-                Intent intent = new Intent (this, ReportEditsActivity.class); // Instance of intent class
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);// Just default functionality that makes sure everything doest break
         }
 
+    }
+
+    public void backButtonClicked (View view){
+        startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
     }
 }

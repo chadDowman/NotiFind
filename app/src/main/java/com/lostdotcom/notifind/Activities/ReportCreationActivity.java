@@ -40,6 +40,7 @@ import com.lostdotcom.notifind.Databases.DatabaseHelper;
 import com.lostdotcom.notifind.Details.ReportDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
+import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 
 import java.util.List;
 
@@ -261,16 +262,6 @@ public class ReportCreationActivity extends AppCompatActivity {
             }
         });
 
-
-        txtName.setText("");
-        txtSurname.setText("");
-        txtAge.setText("");
-        txtEyeColor.setText("");
-        txtWeight.setText("");
-        txtHeight.setText("");
-        txtLastSeenLocation.setText("");
-        txtDescription.setText("");
-
         notification();
 
 
@@ -283,7 +274,7 @@ public class ReportCreationActivity extends AppCompatActivity {
             manager.createNotificationChannel(channel);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this,"n")
-                    .setContentText("Code Sphere").setSmallIcon(R.drawable.logo).setAutoCancel(true).setContentText("New Data added");
+                    .setContentText("Code Sphere").setSmallIcon(R.drawable.logo).setAutoCancel(true).setContentText("A new person has gone missing in your area");
 
             NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
             managerCompat.notify(999, builder.build());
@@ -310,17 +301,16 @@ public class ReportCreationActivity extends AppCompatActivity {
                     item.setChecked(false);
                 else
                     item.setChecked(true);
-                Intent i = new Intent (this, ReportCreationActivity.class); // Instance of intent class
-                startActivity(i);
+                startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
                 return true;
             case R.id.report_view:
-                if(item.isChecked())
+                if (item.isChecked())
                     item.setChecked(false);
                 else
                     item.setChecked(true);
-                Intent intent = new Intent (this, ReportEditsActivity.class); // Instance of intent class
-                startActivity(intent);
+                startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
                 return true;
+
             default:
                 return super.onOptionsItemSelected(item);// Just default functionality that makes sure everything doest break
         }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.lostdotcom.notifind.Activities.ReportCreationActivity;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
 
@@ -65,10 +66,8 @@ public class ReportProfile extends AppCompatActivity {
 
     }
 
-    public void signOut (View view){
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-        finish();
+    public void backBtnClicked (View view){
+        startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
     }
 
     // Getters and Setters

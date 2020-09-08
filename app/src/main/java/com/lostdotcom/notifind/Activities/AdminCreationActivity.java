@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -45,11 +47,12 @@ public class AdminCreationActivity extends AppCompatActivity {
 
     private EditText adminEmail;
     private EditText adminPassword;
-    private EditText adminLocation;
     private EditText adminPhoneNo;
     private Switch adminSwitch;
 
     private String key;
+
+    private Spinner mySpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +61,14 @@ public class AdminCreationActivity extends AppCompatActivity {
 
         adminEmail = findViewById(R.id.adminEmail);
         adminPassword = findViewById(R.id.adminPassword);
-        adminLocation = findViewById(R.id.adminLocation);
         adminPhoneNo = findViewById(R.id.adminPhoneNo);
         adminSwitch = findViewById(R.id.switch2);
+
+        mySpinner = findViewById(R.id.admin_spinner);
+        ArrayAdapter<String> myAdapter =  new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.locations));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myAdapter);
 
         myAuth = FirebaseAuth.getInstance();
         myDatabase = FirebaseDatabase.getInstance();
@@ -81,7 +89,7 @@ public class AdminCreationActivity extends AppCompatActivity {
         boolean adminPriv;
         String email = adminEmail.getText().toString();
         String password = adminPassword.getText().toString();
-        String location = adminLocation.getText().toString();
+        String location = mySpinner.getSelectedItem().toString();
         String phoneNo = adminPhoneNo.getText().toString();
 
         if (adminSwitch.isChecked()){
@@ -103,11 +111,6 @@ public class AdminCreationActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(password)){
             adminPassword.setError("Missing Password");
-            return;
-        }
-
-        if (TextUtils.isEmpty(location)){
-            adminLocation.setError("Missing Location Info");
             return;
         }
 
@@ -144,15 +147,6 @@ public class AdminCreationActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-        adminEmail.setText("");
-        adminPassword.setText("");
-        adminLocation.setText("");
-        adminPhoneNo.setText("");
-
-
     }
 
     public void deleteAdminClicked (View view){
@@ -176,7 +170,7 @@ public class AdminCreationActivity extends AppCompatActivity {
             public void DataIsDeleted() {
                 toaster("The report has been deleted successfully");
                 finish();
-                return;
+
             }
         });
     }

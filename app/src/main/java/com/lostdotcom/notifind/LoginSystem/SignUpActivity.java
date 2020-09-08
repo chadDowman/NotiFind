@@ -12,8 +12,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.List;
@@ -44,6 +46,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText txtSignUpLocation;
     private EditText txtSignUpName;
     private EditText txtSignUpSurname;
+    private Spinner mySpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,17 +56,22 @@ public class SignUpActivity extends AppCompatActivity {
         txtSignUpEmail = findViewById(R.id.signUpEmail);
         txtSignUpPassword = findViewById(R.id.signUpPassword);
         txtSignUpPasswordConfirm = findViewById(R.id.signUpPassword2);
-        txtSignUpLocation = findViewById(R.id.address);
+
         txtSignUpName = findViewById(R.id.signUpName);
         txtSignUpSurname = findViewById(R.id.signUpSurname);
         Button btnSignUpButton = findViewById(R.id.signUpButton2);
+
+        mySpinner = findViewById(R.id.sign_up_spinner);
+        ArrayAdapter<String> myAdapter =  new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.locations));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myAdapter);
 
         Resources r = getResources();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
 
         txtSignUpEmail.setWidth(px);
         txtSignUpPassword.setWidth(px);
-        txtSignUpLocation.setWidth(px);
         txtSignUpName.setWidth(px);
         txtSignUpPasswordConfirm.setWidth(px);
         txtSignUpSurname.setWidth(px);
@@ -90,7 +98,7 @@ public class SignUpActivity extends AppCompatActivity {
         String passwordConfirm = txtSignUpPasswordConfirm.getText().toString();
         String name = txtSignUpName.getText().toString();
         String surname = txtSignUpSurname.getText().toString();
-        String location = txtSignUpLocation.getText().toString();
+        String location = mySpinner.getSelectedItem().toString();
 
         user.setUserEmail(email);
         user.setPassword(password);

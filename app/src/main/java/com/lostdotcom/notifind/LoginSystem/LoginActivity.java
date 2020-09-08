@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                                 if (email.equals(emailTest) && password.equals(passwordTest) && testBoolean){
                                     toaster("Welcome Admin");
                                     adminOrNot = true;
-                                    startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
+                                    startActivity(new Intent(getApplicationContext(), ReportCreationActivity.class));
                                     break;
                                 } else if (owner){
                                     toaster("Welcome Owner");
