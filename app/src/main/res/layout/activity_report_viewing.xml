@@ -33,7 +33,7 @@
         android:onClick="signOut"
         android:text="Sign Out"
         android:textColor="#FFEB3B"
-        app:fontFamily="@font/mystery_quest"
+        android:fontFamily="@font/mystery_quest"
         tools:ignore="HardcodedText" />
 
 </RelativeLayout>

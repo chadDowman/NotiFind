@@ -48,7 +48,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="67dp"
+                android:layout_marginStart="65dp"
                 android:layout_marginTop="342dp"
                 android:background="#9F9898"
                 android:ems="10"
@@ -98,7 +98,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="145dp"
-                android:layout_marginEnd="61dp"
+                android:layout_marginEnd="60dp"
                 android:background="#9F9898"
                 android:contentDescription="EnterPassword"
                 android:ems="10"
@@ -143,24 +143,24 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="67dp"
-                app:fontFamily="@font/maiden_orange"
+                android:layout_marginStart="65dp"
                 android:layout_marginTop="321dp"
                 android:text="Enter Name"
                 android:textColor="#000000"
+                app:fontFamily="@font/maiden_orange"
                 tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/surnamePromt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/maiden_orange"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="66dp"
+                android:layout_marginStart="65dp"
                 android:layout_marginTop="386dp"
                 android:text="Enter Surname"
                 android:textColor="#000000"
+                app:fontFamily="@font/maiden_orange"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -182,11 +182,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                app:fontFamily="@font/maiden_orange"
-                android:layout_marginStart="66dp"
+                android:layout_marginStart="65dp"
                 android:layout_marginTop="253dp"
-                android:text="Enter Address"
+                android:text="Enter Province"
                 android:textColor="#000000"
+                app:fontFamily="@font/maiden_orange"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -208,29 +208,23 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                app:fontFamily="@font/maiden_orange"
-                android:layout_marginStart="66dp"
+                android:layout_marginStart="65dp"
                 android:layout_marginTop="189dp"
                 android:text="Confirm Password"
                 android:textColor="#000000"
+                app:fontFamily="@font/maiden_orange"
                 tools:ignore="HardcodedText" />
 
-            <EditText
-                android:id="@+id/address"
+            <Spinner
+                android:id="@+id/sign_up_spinner"
                 android:layout_width="174dp"
-                android:layout_height="28dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="66dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="65dp"
                 android:layout_marginTop="275dp"
-                android:background="#9F9898"
-
-                android:ems="10"
-                android:enabled="true"
-                android:hint="@string/enter_address"
-                android:inputType="textPostalAddress"
-                app:fontFamily="@font/lobsters"
-                tools:ignore="Autofill,LabelFor" />
+                android:layout_marginEnd="60dp" />
 
 
         </RelativeLayout>
