@@ -60,7 +60,6 @@ public class RecyclerViewConfig {
             height = itemView.findViewById(R.id.report_height);
             lastSeenLocation = itemView.findViewById(R.id.report_last_location);
             description = itemView.findViewById(R.id.report_description);
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
