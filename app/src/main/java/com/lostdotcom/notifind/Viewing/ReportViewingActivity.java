@@ -4,16 +4,23 @@ package com.lostdotcom.notifind.Viewing;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.lostdotcom.notifind.Activities.SettingsActivity;
 import com.lostdotcom.notifind.Databases.DatabaseHelper;
 import com.lostdotcom.notifind.Databases.RecyclerViewConfig;
@@ -21,6 +28,7 @@ import com.lostdotcom.notifind.Details.ReportDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 
 import com.lostdotcom.notifind.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -29,35 +37,52 @@ public class ReportViewingActivity extends AppCompatActivity {
 
 
     private RecyclerView myRecyclerView;
-
+    FirebaseRecyclerOptions<ReportDetails> options;
+    FirebaseRecyclerAdapter <ReportDetails, MyViewHolder>adapter;
+    DatabaseReference myRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_viewing);
         myRecyclerView = findViewById(R.id.missingPersonsDisplay);
-        new DatabaseHelper().readReports(new DatabaseHelper.DataStatus() {
-            @Override
-            public void DataIsLoaded(List<ReportDetails> reports, List<String> keys) {
-                new RecyclerViewConfig().setReportConfig(myRecyclerView, ReportViewingActivity.this, reports, keys);
-            }
+        myRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        myRecyclerView.setHasFixedSize(true);
 
-            @Override
-            public void DataInserted() {
+        myRef = FirebaseDatabase.getInstance().getReference().child("ReportDetails");
 
-            }
 
-            @Override
-            public void DataIsUpdated() {
+        loadData();
 
-            }
-
-            @Override
-            public void DataIsDeleted() {
-
-            }
-        });
     }
 
+    private void loadData(){
+        options = new FirebaseRecyclerOptions.Builder<ReportDetails>().setQuery(myRef, ReportDetails.class).build();
+        adapter = new FirebaseRecyclerAdapter<ReportDetails, MyViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull ReportDetails model) {
+                holder.name.setText(model.getName());
+                holder.surname.setText(model.getSurname());
+                holder.age.setText(model.getAge());
+                holder.eyeColor.setText(model.getEyeColor());
+                holder.weight.setText(model.getWeight());
+                holder.height.setText(model.getHeight());
+                holder.lastSeenLocation.setText(model.getLastSeenLocation());
+                holder.description.setText(model.getDescription());
+                Picasso.get().load(model.getImageUri()).into(holder.profilePic);
+
+            }
+
+            @NonNull
+            @Override
+            public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.report_list_item, parent, false);
+
+                return new MyViewHolder(v);
+            }
+        };
+        adapter.startListening();
+        myRecyclerView.setAdapter(adapter);
+    }
 
 
     @Override

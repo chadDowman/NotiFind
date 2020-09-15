@@ -3,6 +3,7 @@ package com.lostdotcom.notifind.Activities;
 // This is the screen that will post the missing persons reports.
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -32,6 +33,8 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
@@ -42,11 +45,14 @@ import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 
+import java.util.HashMap;
 import java.util.List;
 
 
 public class ReportCreationActivity extends AppCompatActivity {
 
+    ReportDetails report = new ReportDetails();
+    private static final int REQUEST_CODE_IMAGE = 101;
     //---------------------------------------------------
     private EditText txtName;
     private EditText txtSurname;
@@ -54,31 +60,27 @@ public class ReportCreationActivity extends AppCompatActivity {
     private EditText txtEyeColor;
     private EditText txtWeight;
     private EditText txtHeight;
-    private EditText txtLastSeenLocation;
+    private Button uploadBtn;
+
+
     private EditText txtDescription;
     private ImageView profilepic;
-    StorageReference mStorageRef;
-    public Uri image;
-    private StorageTask uploadTask;
+
     private Switch notificationSwitch;
     private Spinner mySpinner;
+
+    Uri imageUri;
+    boolean isImageAdded = false;
+
+    //Firebase
+    DatabaseReference myRef;
+    StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_creation); // Inflates the layout
 
-        //--------------------------------------------------------------------------------------
-
-        mySpinner = findViewById(R.id.lastLocation);
-        ArrayAdapter<String> myAdapter =  new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.locations));
-        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner.setAdapter(myAdapter);
-
-        //--------------------------------------------------------------------------------------
-        mStorageRef = FirebaseStorage.getInstance().getReference( "Images");
-        //--------------------------------------------------------------------------------------
 
         txtName = findViewById(R.id.name);
         txtSurname = findViewById(R.id.surname);
@@ -86,36 +88,99 @@ public class ReportCreationActivity extends AppCompatActivity {
         txtEyeColor = findViewById(R.id.eyecolor);
         txtWeight = findViewById(R.id.weight);
         txtHeight = findViewById(R.id.height);
-    //    txtLastSeenLocation = findViewById(R.id.lastLocation);
         txtDescription = findViewById(R.id.description);
+        uploadBtn = findViewById(R.id.uploadbtn);
+        profilepic = findViewById(R.id.reportCreationPFP);
+
+        myRef = FirebaseDatabase.getInstance().getReference().child("ReportDetails");
+        storageReference = FirebaseStorage.getInstance().getReference().child("MissingPeopleImages");
         //--------------------------------------------------------------------------------------
-        Button btnPostReport = findViewById(R.id.postReport);
-        profilepic = findViewById(R.id.imageView);
-        Button uploadbtn = findViewById(R.id.uploadbtn);
-        ImageView PP = findViewById(R.id.profilepic);
-        Button choosebtn = findViewById(R.id.choosebtn);
+        mySpinner = findViewById(R.id.lastLocation);
+        ArrayAdapter<String> myAdapter =  new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.locations));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myAdapter);
+
         //--------------------------------------------------------------------------------------
-        choosebtn.setOnClickListener(new View.OnClickListener() {
+        profilepic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FileChooser();
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent, REQUEST_CODE_IMAGE);
             }
-
         });
 
-        uploadbtn.setOnClickListener(new View.OnClickListener(){
-
-
+        uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (uploadTask != null && uploadTask.isInProgress()) {
-                    Toast.makeText( ReportCreationActivity.this, "Upload in progress", Toast.LENGTH_LONG).show();
 
-                } else {
-                    Fileuploader();
+                final String name = txtName.getText().toString();
+                final String surname = txtSurname.getText().toString();
+                final String age = txtAge.getText().toString();
+                final String eyeColor = txtEyeColor.getText().toString();
+                final String weight = txtWeight.getText().toString();
+                final String height = txtHeight.getText().toString();
+                final String description = txtDescription.getText().toString();
+                final String location = mySpinner.getSelectedItem().toString();
+
+                report.setName(name);
+                report.setSurname(surname);
+                report.setAge(age);
+                report.setEyeColor(eyeColor);
+                report.setWeight(weight);
+                report.setHeight(height);
+                report.setLastSeenLocation(location);
+                report.setDescription(description);
+
+                // Makes sure the user or admin does not put in any null values
+                if (TextUtils.isEmpty(name)){
+                    txtName.setError("Missing Name Field");
+                    return;
                 }
+
+                if (TextUtils.isEmpty(surname)){
+                    txtSurname.setError("Missing Surname Field");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(age)){
+                    txtAge.setError("Missing Age Field");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(eyeColor)){
+                    txtEyeColor.setError("Missing Eye Color Field");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(weight)){
+                    txtWeight.setError("Missing Weight Field");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(height)){
+                    txtHeight.setError("Missing Height Field");
+                    return;
+                }
+
+                if (TextUtils.isEmpty(description)){
+                    txtDescription.setError("Missing Description Field");
+                    return;
+                }
+
+                uploadImage();
+
             }
         });
+
+
+
+
+
+
+
         //--------------------------------------------------------------------------------------
         Resources r = getResources();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
@@ -131,139 +196,59 @@ public class ReportCreationActivity extends AppCompatActivity {
         //----------------------------------------------------------------------------------------------------------
     }
 
-
-    private String getExtension(Uri uri){
-
-        ContentResolver cr = getContentResolver();
-        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
-        return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri));
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_IMAGE && data!= null){
+            imageUri = data.getData();
+            isImageAdded = true;
+            profilepic.setImageURI(imageUri);
+        }
     }
-    private void Fileuploader(){
 
-        StorageReference Ref= mStorageRef.child(System.currentTimeMillis()+ "." + getExtension(image));
-
-
-        uploadTask = Ref.putFile(image)
-                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+    private void uploadImage(){
+        final String key = myRef.push().getKey(); // It has to be final because its used inside a internal method
+        storageReference.child(key + ".jpg").putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                storageReference.child(key + ".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        // Get a URL to the uploaded content
-                        //Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                        Toast.makeText( ReportCreationActivity.this, "Image Upload Successful", Toast.LENGTH_LONG).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        // Handle unsuccessful uploads
-                        // ...
+                    public void onSuccess(Uri uri) {
+                        report.setImageUri(uri.toString());
+
+                        new DatabaseHelper().addReport(report, new DatabaseHelper.DataStatus() {
+                            @Override
+                            public void DataIsLoaded(List<ReportDetails> reports, List<String> keys) {
+
+                            }
+
+                            @Override
+                            public void DataInserted() {
+                                notification();
+                                toaster("The report has been recorded successfully");
+                            }
+
+                            @Override
+                            public void DataIsUpdated() {
+
+                            }
+
+                            @Override
+                            public void DataIsDeleted() {
+
+                            }
+                        });
+
                     }
                 });
 
-    }
-
-
-    private void FileChooser(){
-        Intent intent = new Intent();
-        intent.setType("image/'");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, 1);
-
-}
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode==1 && resultCode == RESULT_OK && data!=null && data.getData()!=null);
-
-        image=data.getData();
-        profilepic.setImageURI(image);
-     //   PP.setImageURI(image);
-    }
-
-    public void postReportButtonClicked (View view){
-
-        ReportDetails report = new ReportDetails();
-
-        String name = txtName.getText().toString();
-        String surname = txtSurname.getText().toString();
-        String age = txtAge.getText().toString();
-        String eyeColor = txtEyeColor.getText().toString();
-        String weight = txtWeight.getText().toString();
-        String height = txtHeight.getText().toString();
-        String location = mySpinner.getSelectedItem().toString();
-        String description = txtDescription.getText().toString();
-
-        report.setName(name);
-        report.setSurname(surname);
-        report.setAge(age);
-        report.setEyeColor(eyeColor);
-        report.setWeight(weight);
-        report.setHeight(height);
-        report.setLastSeenLocation(location);
-        report.setDescription(description);
-
-        // Makes sure the user or admin does not put in any null values
-        if (TextUtils.isEmpty(name)){
-            txtName.setError("Missing Name Field");
-            return;
-        }
-
-        if (TextUtils.isEmpty(surname)){
-            txtSurname.setError("Missing Surname Field");
-            return;
-        }
-
-        if (TextUtils.isEmpty(age)){
-            txtAge.setError("Missing Age Field");
-            return;
-        }
-
-        if (TextUtils.isEmpty(eyeColor)){
-            txtEyeColor.setError("Missing Eye Color Field");
-            return;
-        }
-
-        if (TextUtils.isEmpty(weight)){
-            txtWeight.setError("Missing Weight Field");
-            return;
-        }
-
-        if (TextUtils.isEmpty(height)){
-            txtHeight.setError("Missing Height Field");
-            return;
-        }
-
-        if (TextUtils.isEmpty(description)){
-            txtDescription.setError("Missing Description Field");
-            return;
-        }
-
-        new DatabaseHelper().addReport(report, new DatabaseHelper.DataStatus() {
-            @Override
-            public void DataIsLoaded(List<ReportDetails> reports, List<String> keys) {
-
-            }
-
-            @Override
-            public void DataInserted() {
-                toaster("The report has been recorded successfully");
-            }
-
-            @Override
-            public void DataIsUpdated() {
-
-            }
-
-            @Override
-            public void DataIsDeleted() {
 
             }
         });
+    }
 
-        notification();
 
+    public void postReportButtonClicked (View view){
 
     }
 
@@ -315,72 +300,6 @@ public class ReportCreationActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);// Just default functionality that makes sure everything doest break
         }
 
-    }
-
-    //Getters and Setters
-
-    public EditText getTxtName() {
-        return txtName;
-    }
-
-    public void setTxtName(EditText txtName) {
-        this.txtName = txtName;
-    }
-
-    public EditText getTxtSurname() {
-        return txtSurname;
-    }
-
-    public void setTxtSurname(EditText txtSurname) {
-        this.txtSurname = txtSurname;
-    }
-
-    public EditText getTxtAge() {
-        return txtAge;
-    }
-
-    public void setTxtAge(EditText txtAge) {
-        this.txtAge = txtAge;
-    }
-
-    public EditText getTxtEyeColor() {
-        return txtEyeColor;
-    }
-
-    public void setTxtEyeColor(EditText txtEyeColor) {
-        this.txtEyeColor = txtEyeColor;
-    }
-
-    public EditText getTxtWeight() {
-        return txtWeight;
-    }
-
-    public void setTxtWeight(EditText txtWeight) {
-        this.txtWeight = txtWeight;
-    }
-
-    public EditText getTxtHeight() {
-        return txtHeight;
-    }
-
-    public void setTxtHeight(EditText txtHeight) {
-        this.txtHeight = txtHeight;
-    }
-
-    public EditText getTxtLastSeenLocation() {
-        return txtLastSeenLocation;
-    }
-
-    public void setTxtLastSeenLocation(EditText txtLastSeenLocation) {
-        this.txtLastSeenLocation = txtLastSeenLocation;
-    }
-
-    public EditText getTxtDescription() {
-        return txtDescription;
-    }
-
-    public void setTxtDescription(EditText txtDescription) {
-        this.txtDescription = txtDescription;
     }
 
     public void signOut (View view){

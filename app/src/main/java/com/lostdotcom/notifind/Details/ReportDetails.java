@@ -13,11 +13,12 @@ public class ReportDetails {
     private String height;
     private String lastSeenLocation;
     private String description;
+    private String imageUri;
 
     public ReportDetails() {
     }
 
-    public ReportDetails(String name, String surname, String age, String eyeColor, String weight, String height, String lastSeenLocation, String description) {
+    public ReportDetails(String name, String surname, String age, String eyeColor, String weight, String height, String lastSeenLocation, String description, String imageUri) {
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -26,6 +27,7 @@ public class ReportDetails {
         this.height = height;
         this.lastSeenLocation = lastSeenLocation;
         this.description = description;
+        this.imageUri = imageUri;
     }
 
     public String getName() {
@@ -90,5 +92,13 @@ public class ReportDetails {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageUri() {
+        return imageUri;
+    }
+
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 }

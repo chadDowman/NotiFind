@@ -22,6 +22,7 @@ import com.lostdotcom.notifind.Details.ReportDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportProfile;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
