@@ -11,15 +11,23 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lostdotcom.notifind.Databases.DatabaseHelper;
 import com.lostdotcom.notifind.Details.ReportDetails;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ReportEditsActivity extends AppCompatActivity {
 
@@ -29,11 +37,14 @@ public class ReportEditsActivity extends AppCompatActivity {
     private EditText txtEyeColorEdit;
     private EditText txtWeightEdit;
     private EditText txtHeightEdit;
-    private EditText txtLastSeenLocationEdit;
+    private ImageView pic;
+    String imageUriCheck;
+
     private EditText txtDescriptionEdit;
     private Spinner mySpinner;
 
     private String key;
+    DatabaseReference ref;
 
 
     @Override
@@ -41,50 +52,59 @@ public class ReportEditsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_edits);
 
-        key = getIntent().getStringExtra("key");
-
-        String txtName = getIntent().getStringExtra("name");
-        String txtSurname = getIntent().getStringExtra("surname");
-        String txtAge = getIntent().getStringExtra("age");
-        String txtEyeColor = getIntent().getStringExtra("eyeColor");
-        String txtWeight = getIntent().getStringExtra("weight");
-        String txtHeight = getIntent().getStringExtra("height");
-        String txtLastSeenLocation = getIntent().getStringExtra("lastSeenLocation");
-        String txtDescription = getIntent().getStringExtra("description");
-
         txtNameEdit = findViewById(R.id.name);
-        txtNameEdit.setText(txtName);
-
         txtSurnameEdit = findViewById(R.id.surname);
-        txtSurnameEdit.setText(txtSurname);
-
         txtAgeEdit = findViewById(R.id.age);
-        txtAgeEdit.setText(txtAge);
-
         txtEyeColorEdit = findViewById(R.id.eyecolor);
-        txtEyeColorEdit.setText(txtEyeColor);
-
         txtWeightEdit = findViewById(R.id.weight);
-        txtWeightEdit.setText(txtWeight);
-
         txtHeightEdit = findViewById(R.id.height);
-        txtHeightEdit.setText(txtHeight);
-
         mySpinner = findViewById(R.id.edits_lastLocation);
+        txtDescriptionEdit = findViewById(R.id.description);
+        pic = findViewById(R.id.imageView);
 
-        ArrayAdapter<String> myAdapter =  new ArrayAdapter<String>(this,
+        key = getIntent().getStringExtra("key");
+        ref = FirebaseDatabase.getInstance().getReference().child("ReportDetails");
+
+        final ArrayAdapter<String> myAdapter =  new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.locations));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(myAdapter);
 
-        if (txtLastSeenLocation != null){
-            int spinnerPosition = myAdapter.getPosition(txtLastSeenLocation);
-            mySpinner.setSelection(spinnerPosition);
-        }
 
 
-        txtDescriptionEdit = findViewById(R.id.description);
-        txtDescriptionEdit.setText(txtDescription);
+        ref.child(key).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    String name = Objects.requireNonNull(snapshot.child("name").getValue()).toString(); // Prevents Null Point Exception
+                    String surname = Objects.requireNonNull(snapshot.child("surname").getValue()).toString();
+                    String age = Objects.requireNonNull(snapshot.child("age").getValue()).toString();
+                    String eyeColor = Objects.requireNonNull(snapshot.child("eyeColor").getValue()).toString();
+                    String weight = Objects.requireNonNull(snapshot.child("weight").getValue()).toString();
+                    String height = Objects.requireNonNull(snapshot.child("height").getValue()).toString();
+                    String lastSeenLocation = Objects.requireNonNull(snapshot.child("lastSeenLocation").getValue()).toString();
+                    String description = Objects.requireNonNull(snapshot.child("description").getValue()).toString();
+                    String imageUri = Objects.requireNonNull(snapshot.child("imageUri").getValue()).toString();
+                    imageUriCheck = imageUri;
+                    int spinnerPosition = myAdapter.getPosition(lastSeenLocation);
+
+                    Picasso.get().load(imageUri).into(pic);
+                    txtNameEdit.setText(name);
+                    txtSurnameEdit.setText(surname);
+                    txtAgeEdit.setText(age);
+                    txtEyeColorEdit.setText(eyeColor);
+                    txtWeightEdit.setText(weight);
+                    txtHeightEdit.setText(height);
+                    mySpinner.setSelection(spinnerPosition);
+                    txtDescriptionEdit.setText(description);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         Button btnUpdateReportEdit = findViewById(R.id.updateReport);
         Button btnDeleteReportEdit = findViewById(R.id.deleteReport);
@@ -101,6 +121,7 @@ public class ReportEditsActivity extends AppCompatActivity {
                 report.setHeight(txtHeightEdit.getText().toString());
                 report.setLastSeenLocation(mySpinner.getSelectedItem().toString());
                 report.setDescription(txtDescriptionEdit.getText().toString());
+                report.setImageUri(imageUriCheck);
 
                 new DatabaseHelper().updateReport(key, report, new DatabaseHelper.DataStatus() {
                     @Override

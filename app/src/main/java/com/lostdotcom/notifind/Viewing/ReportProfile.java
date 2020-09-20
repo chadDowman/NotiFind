@@ -1,16 +1,26 @@
 package com.lostdotcom.notifind.Viewing;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lostdotcom.notifind.Activities.ReportCreationActivity;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
+import com.squareup.picasso.Picasso;
+
+import java.util.Objects;
 
 public class ReportProfile extends AppCompatActivity {
 
@@ -22,6 +32,10 @@ public class ReportProfile extends AppCompatActivity {
     private TextView txtHeight;
     private TextView txtLocation;
     private TextView txtDescription;
+    private ImageView pic;
+
+
+    DatabaseReference ref;
 
 
     @Override
@@ -29,40 +43,50 @@ public class ReportProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_profile);
 
-        String key = getIntent().getStringExtra("key");
-
-        String name = getIntent().getStringExtra("name");
-        String surname = getIntent().getStringExtra("surname");
-        String age = getIntent().getStringExtra("age");
-        String eyeColor = getIntent().getStringExtra("eyeColor");
-        String weight = getIntent().getStringExtra("weight");
-        String height = getIntent().getStringExtra("height");
-        String location = getIntent().getStringExtra("lastSeenLocation");
-        String description = getIntent().getStringExtra("description");
-
         txtName = findViewById(R.id.name);
-        txtName.setText(name);
-
         txtSurname = findViewById(R.id.surname);
-        txtSurname.setText(surname);
-
         txtAge = findViewById(R.id.age);
-        txtAge.setText(age);
-
         txtEyeColor = findViewById(R.id.eyecolor);
-        txtEyeColor.setText(eyeColor);
-
         txtWeight = findViewById(R.id.weight);
-        txtWeight.setText(weight);
-
         txtHeight = findViewById(R.id.height);
-        txtHeight.setText(height);
-
         txtLocation = findViewById(R.id.lastLocation);
-        txtLocation.setText(location);
-
         txtDescription = findViewById(R.id.description);
-        txtDescription.setText(description);
+        pic = findViewById(R.id.reportViewingPFP);
+        ref = FirebaseDatabase.getInstance().getReference().child("ReportDetails");
+
+        String key = getIntent().getStringExtra("key");
+        assert key != null;
+        ref.child(key).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    String name = Objects.requireNonNull(snapshot.child("name").getValue()).toString(); // Prevents Null Point Exception
+                    String surname = Objects.requireNonNull(snapshot.child("surname").getValue()).toString();
+                    String age = Objects.requireNonNull(snapshot.child("age").getValue()).toString();
+                    String eyeColor = Objects.requireNonNull(snapshot.child("eyeColor").getValue()).toString();
+                    String weight = Objects.requireNonNull(snapshot.child("weight").getValue()).toString();
+                    String height = Objects.requireNonNull(snapshot.child("height").getValue()).toString();
+                    String lastSeenLocation = Objects.requireNonNull(snapshot.child("lastSeenLocation").getValue()).toString();
+                    String description = Objects.requireNonNull(snapshot.child("description").getValue()).toString();
+                    String imageUri = Objects.requireNonNull(snapshot.child("imageUri").getValue()).toString();
+
+                    Picasso.get().load(imageUri).into(pic);
+                    txtName.setText(name);
+                    txtSurname.setText(surname);
+                    txtAge.setText(age);
+                    txtEyeColor.setText(eyeColor);
+                    txtWeight.setText(weight);
+                    txtHeight.setText(height);
+                    txtLocation.setText(lastSeenLocation);
+                    txtDescription.setText(description);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
@@ -70,69 +94,4 @@ public class ReportProfile extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), ReportViewingActivity.class));
     }
 
-    // Getters and Setters
-
-    public TextView getTxtName() {
-        return txtName;
-    }
-
-    public void setTxtName(TextView txtName) {
-        this.txtName = txtName;
-    }
-
-    public TextView getTxtSurname() {
-        return txtSurname;
-    }
-
-    public void setTxtSurname(TextView txtSurname) {
-        this.txtSurname = txtSurname;
-    }
-
-    public TextView getTxtAge() {
-        return txtAge;
-    }
-
-    public void setTxtAge(TextView txtAge) {
-        this.txtAge = txtAge;
-    }
-
-    public TextView getTxtEyeColor() {
-        return txtEyeColor;
-    }
-
-    public void setTxtEyeColor(TextView txtEyeColor) {
-        this.txtEyeColor = txtEyeColor;
-    }
-
-    public TextView getTxtWeight() {
-        return txtWeight;
-    }
-
-    public void setTxtWeight(TextView txtWeight) {
-        this.txtWeight = txtWeight;
-    }
-
-    public TextView getTxtHeight() {
-        return txtHeight;
-    }
-
-    public void setTxtHeight(TextView txtHeight) {
-        this.txtHeight = txtHeight;
-    }
-
-    public TextView getTxtLocation() {
-        return txtLocation;
-    }
-
-    public void setTxtLocation(TextView txtLocation) {
-        this.txtLocation = txtLocation;
-    }
-
-    public TextView getTxtDescription() {
-        return txtDescription;
-    }
-
-    public void setTxtDescription(TextView txtDescription) {
-        this.txtDescription = txtDescription;
-    }
 }

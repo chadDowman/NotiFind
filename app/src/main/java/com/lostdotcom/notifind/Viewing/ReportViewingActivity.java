@@ -1,7 +1,5 @@
 package com.lostdotcom.notifind.Viewing;
 
-
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,17 +19,13 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.lostdotcom.notifind.Activities.ReportEditsActivity;
 import com.lostdotcom.notifind.Activities.SettingsActivity;
-import com.lostdotcom.notifind.Databases.DatabaseHelper;
-import com.lostdotcom.notifind.Databases.RecyclerViewConfig;
 import com.lostdotcom.notifind.Details.ReportDetails;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 
 import com.lostdotcom.notifind.R;
 import com.squareup.picasso.Picasso;
-
-import java.util.List;
-
 
 public class ReportViewingActivity extends AppCompatActivity {
 
@@ -50,7 +44,6 @@ public class ReportViewingActivity extends AppCompatActivity {
 
         myRef = FirebaseDatabase.getInstance().getReference().child("ReportDetails");
 
-
         loadData();
 
     }
@@ -59,7 +52,7 @@ public class ReportViewingActivity extends AppCompatActivity {
         options = new FirebaseRecyclerOptions.Builder<ReportDetails>().setQuery(myRef, ReportDetails.class).build();
         adapter = new FirebaseRecyclerAdapter<ReportDetails, MyViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull ReportDetails model) {
+            protected void onBindViewHolder(@NonNull MyViewHolder holder, final int position, @NonNull ReportDetails model) {
                 holder.name.setText(model.getName());
                 holder.surname.setText(model.getSurname());
                 holder.age.setText(model.getAge());
@@ -70,6 +63,21 @@ public class ReportViewingActivity extends AppCompatActivity {
                 holder.description.setText(model.getDescription());
                 Picasso.get().load(model.getImageUri()).into(holder.profilePic);
 
+                holder.v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (LoginActivity.adminOrNot){
+                            Intent intent = new Intent (ReportViewingActivity.this, ReportEditsActivity.class);
+                            intent.putExtra("key", getRef(position).getKey());
+                            startActivity(intent);
+                        }else{
+                            Intent intent = new Intent (ReportViewingActivity.this, ReportProfile.class);
+                            intent.putExtra("key", getRef(position).getKey());
+                            startActivity(intent);
+                        }
+
+                    }
+                });
             }
 
             @NonNull

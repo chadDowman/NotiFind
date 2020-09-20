@@ -20,6 +20,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
      TextView lastSeenLocation;
      TextView description;
      ImageView profilePic;
+     View v;
 
 
     public MyViewHolder(@NonNull View itemView) {
@@ -34,6 +35,8 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
         lastSeenLocation = itemView.findViewById(R.id.report_last_location);
         description = itemView.findViewById(R.id.report_description);
         profilePic = itemView.findViewById(R.id.profilepic);
+
+        v = itemView;
 
     }
 }
