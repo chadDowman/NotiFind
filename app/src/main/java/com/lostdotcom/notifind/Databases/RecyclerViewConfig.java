@@ -83,7 +83,7 @@ public class RecyclerViewConfig {
                 @Override
                 public void onClick(View view) {
 
-                    if (LoginActivity.adminOrNot){
+                    if (LoginActivity.isAdminOrNot()){
                         Intent intent = new Intent(myContext, ReportEditsActivity.class);
                         intent.putExtra("key", key);
                         intent.putExtra("name", name.getText().toString());

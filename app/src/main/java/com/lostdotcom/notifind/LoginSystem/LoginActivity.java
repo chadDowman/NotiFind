@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
     private String password;
     private boolean sendTest = false;
 
-    public static boolean adminOrNot = false;
+    private static boolean adminOrNot = false;
 
 
     @Override
@@ -182,61 +182,11 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(LoginActivity.this, bread, Toast.LENGTH_SHORT).show();
     }
 
-    // Getters and Setters
-
-    public EditText getTxtLoginEmail() {
-        return txtLoginEmail;
+    public static boolean isAdminOrNot() {
+        return adminOrNot;
     }
 
-    public void setTxtLoginEmail(EditText txtLoginEmail) {
-        this.txtLoginEmail = txtLoginEmail;
-    }
-
-    public EditText getTxtLoginPassword() {
-        return txtLoginPassword;
-    }
-
-    public void setTxtLoginPassword(EditText txtLoginPassword) {
-        this.txtLoginPassword = txtLoginPassword;
-    }
-
-    public Button getBtnLogin() {
-        return btnLogin;
-    }
-
-    public void setBtnLogin(Button btnLogin) {
-        this.btnLogin = btnLogin;
-    }
-
-    public boolean isTestBoolean() {
-        return testBoolean;
-    }
-
-    public void setTestBoolean(boolean testBoolean) {
-        this.testBoolean = testBoolean;
-    }
-
-    public boolean isSendTest() {
-        return sendTest;
-    }
-
-    public void setSendTest(boolean sendTest) {
-        this.sendTest = sendTest;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public static void setAdminOrNot(boolean adminOrNot) {
+        LoginActivity.adminOrNot = adminOrNot;
     }
 }

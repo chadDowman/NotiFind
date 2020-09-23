@@ -66,7 +66,7 @@ public class ReportViewingActivity extends AppCompatActivity {
                 holder.v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (LoginActivity.adminOrNot){
+                        if (LoginActivity.isAdminOrNot()){
                             Intent intent = new Intent (ReportViewingActivity.this, ReportEditsActivity.class);
                             intent.putExtra("key", getRef(position).getKey());
                             startActivity(intent);
@@ -127,6 +127,7 @@ public class ReportViewingActivity extends AppCompatActivity {
     }
 
     public void signOut (View view){
+        LoginActivity.setAdminOrNot(false);
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         finish();

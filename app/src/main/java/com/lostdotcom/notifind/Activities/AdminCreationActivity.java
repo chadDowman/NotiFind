@@ -185,6 +185,7 @@ public class AdminCreationActivity extends AppCompatActivity {
     }
 
     public void signOut (View view){
+        LoginActivity.setAdminOrNot(false);
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         finish();
