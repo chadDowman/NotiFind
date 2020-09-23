@@ -125,13 +125,13 @@ public class ReportCreationActivity extends AppCompatActivity {
                 final String description = txtDescription.getText().toString();
                 final String location = mySpinner.getSelectedItem().toString();
 
-                report.setName(name);
-                report.setSurname(surname);
-                report.setAge(age);
-                report.setEyeColor(eyeColor);
-                report.setWeight(weight);
-                report.setHeight(height);
-                report.setLastSeenLocation(location);
+                report.setName("Name: " + name);
+                report.setSurname("Surname: " + surname);
+                report.setAge("Age: " + age);
+                report.setEyeColor("Eye Color: " + eyeColor);
+                report.setWeight("Weight: " + weight);
+                report.setHeight("Height: " + height);
+                report.setLastSeenLocation("Last Seen Location: " + location);
                 report.setDescription(description);
 
                 // Makes sure the user or admin does not put in any null values
