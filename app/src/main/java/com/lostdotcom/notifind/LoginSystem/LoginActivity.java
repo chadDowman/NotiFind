@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
     protected static final String ownerEmail = "owner@gmail.com";
     protected static final String ownerPassword = "password69";
-
+    //
     private FirebaseAuth myAuth;
     private static final String TAG = "LoginActivity";
     //----------------------------------------
