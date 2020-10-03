@@ -5,8 +5,11 @@ This class controls the settings screen and is how users access the account sett
 respectively. It is also where users are able to request closure of their accounts.
  */
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -15,6 +18,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 
@@ -27,6 +37,12 @@ public class SettingsActivity extends AppCompatActivity {
     private Button btnAbout;
     private Button btnCloseAccount;
 
+    FirebaseAuth myAuth;
+    FirebaseUser myUser;
+
+    private FirebaseDatabase myDatabase;
+    private DatabaseReference myRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +53,12 @@ public class SettingsActivity extends AppCompatActivity {
         btnPrivacySettings = findViewById(R.id.btnPrivacySettings);
         btnAbout = findViewById(R.id.btnAbout);
         btnCloseAccount = findViewById(R.id.btnCloseAccount);
+
+        myDatabase = FirebaseDatabase.getInstance();
+        myRef = myDatabase.getReference("UserDetails");
+
+        myAuth = FirebaseAuth.getInstance();
+        myUser = myAuth.getCurrentUser();
 
         Resources r = getResources();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
@@ -70,8 +92,37 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void closeAccountClicked (View view){
-        //Todo Delete account
-        toaster("Your Account Will be Deleted Within 24 Hours");
+        AlertDialog.Builder dialog = new AlertDialog.Builder(SettingsActivity.this);
+        dialog.setTitle("Are you sure?");
+        dialog.setMessage("Deleting this account will completed remove it from our system and you won't be able to access the app.");
+
+        dialog.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                    myUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()){
+                                toaster("Account Deleted");
+                                LoginActivity.setAdminOrNot(false);
+                                FirebaseAuth.getInstance().signOut();
+                                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            }else{
+                                toaster(task.getException().getMessage());
+                            }
+                        }
+                    });
+            }
+        });
+
+        dialog.setNegativeButton("Dismiss", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
     }
 
     private void toaster (String bread){

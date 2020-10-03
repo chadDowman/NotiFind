@@ -28,7 +28,6 @@ public class ForgotPassword extends AppCompatActivity {
     Button forgotPasswordButton;
     FirebaseAuth myAuth;
     EditText userEmail;
-    EditText userPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +36,7 @@ public class ForgotPassword extends AppCompatActivity {
 
         forgotPasswordButton = findViewById(R.id.forgotPasswordButton);
         myAuth = FirebaseAuth.getInstance();
-        userEmail = findViewById(R.id.email);
-        userPassword = findViewById(R.id.password);
+        userEmail = findViewById(R.id.forgotPasswordEmail);
 
     }
 
@@ -49,21 +47,16 @@ public class ForgotPassword extends AppCompatActivity {
 
     public void submitEmailClicked(View view) {
 
-        toaster("Recovery Email Sent Please Check Your Email");
-
-        /*
-                myAuth.sendPasswordResetEmail(userEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+        myAuth.sendPasswordResetEmail(userEmail.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    toaster("Check your inbox for password recovery email");
-                } else {
-                    toaster(Objects.requireNonNull(task.getException()).getMessage());
+                if (task.isSuccessful()){
+                    toaster("Recovery Email Sent Please Check Your Email");
+                }else{
+                    toaster(task.getException().getMessage());
                 }
             }
-
         });
-         */
 
 
     }
