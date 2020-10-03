@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +36,8 @@ import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 import android.content.res.Resources;
 import android.util.TypedValue;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -61,6 +64,10 @@ public class LoginActivity extends AppCompatActivity {
     private String passwordTest;
     private String email;
     private String password;
+    private ProgressBar pBar;
+    private TextView pText;
+    private int pStat;
+    private Handler handle = new Handler();
     private boolean sendTest = false;
 
     private static boolean adminOrNot = false;
@@ -74,6 +81,9 @@ public class LoginActivity extends AppCompatActivity {
         txtLoginEmail = findViewById(R.id.email);
         txtLoginPassword = findViewById(R.id.password);
         btnLogin = findViewById(R.id.btnLogin);
+
+        pBar = (ProgressBar) findViewById(R.id.loading);
+        pText = (TextView) findViewById(R.id.loadingProgress);
 
         Resources r = getResources();
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,200,r.getDisplayMetrics());
@@ -93,6 +103,9 @@ public class LoginActivity extends AppCompatActivity {
 
           email = txtLoginEmail.getText().toString();
           password = txtLoginPassword.getText().toString();
+          pBar.setVisibility(View.VISIBLE);
+          pText.setVisibility(View.VISIBLE);
+          pText.setText("Loading...");
 
         if (email.equalsIgnoreCase(ownerEmail) && password.equals(ownerPassword)){
             owner = true;
