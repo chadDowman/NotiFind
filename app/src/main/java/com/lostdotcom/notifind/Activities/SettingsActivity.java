@@ -31,9 +31,7 @@ import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
 public class SettingsActivity extends AppCompatActivity {
 
     private Button btnPrevious;
-    private Button btnAccountSettings;
-    private Button btnNotificationSettings;
-    private Button btnPrivacySettings;
+    private Button btnHowToUseButt;
     private Button btnAbout;
     private Button btnCloseAccount;
 
@@ -49,10 +47,9 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         btnPrevious =  findViewById(R.id.btnPrevious);
-        btnAccountSettings = findViewById(R.id.btnAccountSettings);
-        btnPrivacySettings = findViewById(R.id.btnPrivacySettings);
         btnAbout = findViewById(R.id.btnAbout);
         btnCloseAccount = findViewById(R.id.btnCloseAccount);
+        btnHowToUseButt = findViewById(R.id.howToUseButt);
 
         myDatabase = FirebaseDatabase.getInstance();
         myRef = myDatabase.getReference("UserDetails");
@@ -65,9 +62,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         btnPrevious.setWidth(px);
         btnAbout.setWidth(px);
-        btnAccountSettings.setWidth(px);
         btnCloseAccount.setWidth(px);
-        btnPrivacySettings.setWidth(px);
 
     }
 
@@ -76,19 +71,13 @@ public class SettingsActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void btnAccountSettingsClicked (View view){
-        Intent i = new Intent (this, AccountSettingsActivity.class); // Instance of intent class
-        startActivity(i);
-    }
-
-    public void btnPrivacySettingsClicked (View view){
-        Intent i = new Intent (this, PrivacySettingsActivity.class); // Instance of intent class
-        startActivity(i);
-    }
-
     public void btnAboutClicked (View view){
         Intent i = new Intent (this, AboutActivity.class); // Instance of intent class
         startActivity(i);
+    }
+
+    public void btnHowToUseButtClicked (View view){
+
     }
 
     public void closeAccountClicked (View view){
