@@ -20,8 +20,6 @@
         <activity android:name=".Activities.AdminCreationActivity" />
         <activity android:name=".Viewing.ReportViewingActivity" />
         <activity android:name=".Activities.AboutActivity" />
-        <activity android:name=".Activities.PrivacySettingsActivity" />
-        <activity android:name=".Activities.AccountSettingsActivity" />
         <activity android:name=".Activities.SettingsActivity" />
         <activity android:name=".Activities.ReportCreationActivity" />
         <activity android:name=".LoginSystem.ForgotPassword" />

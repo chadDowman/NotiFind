@@ -102,27 +102,16 @@ public class ReportViewingActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
-            case R.id.settings_menu:
-                if (item.isChecked())
-                    item.setChecked(false);
-                else
-                    item.setChecked(true);
-                Intent i = new Intent (this, SettingsActivity.class); // Instance of intent class
-                startActivity(i);
-                return true;
-            case R.id.light_theme:
-
-            case R.id.dark_theme:
-                if(item.isChecked())
-                    item.setChecked(false);
-                else
-                    item.setChecked(true);
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);// Just default functionality that makes sure everything doest break
+        if (item.getItemId() == R.id.settings_menu) {
+            if (item.isChecked())
+                item.setChecked(false);
+            else
+                item.setChecked(true);
+            Intent i = new Intent(this, SettingsActivity.class); // Instance of intent class
+            startActivity(i);
+            return true;
         }
+        return super.onOptionsItemSelected(item);// Just default functionality that makes sure everything doest break
 
     }
 

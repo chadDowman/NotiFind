@@ -10,15 +10,5 @@
             android:orderInCategory="1"
             android:title="@string/menu_settings"
             app:showAsAction="never" />
-        <item
-            android:id="@+id/light_theme"
-            android:orderInCategory="1"
-            android:title="@string/menu_light_theme"
-            app:showAsAction="never" />
-        <item
-            android:id="@+id/dark_theme"
-            android:orderInCategory="1"
-            android:title="@string/menu_dark_theme"
-            app:showAsAction="never" />
     </group>
 </menu>
