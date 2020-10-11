@@ -8,8 +8,8 @@
     tools:context=".Activities.SettingsActivity" >
 
     <androidx.cardview.widget.CardView
-        android:layout_width="256dp"
-        android:layout_height="419dp"
+        android:layout_width="264dp"
+        android:layout_height="348dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -23,37 +23,15 @@
             android:background="@drawable/gloss">
 
             <Button
-                android:id="@+id/btnAccountSettings"
-                android:layout_width="149dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="49dp"
-                android:layout_marginTop="126dp"
-                android:background="@android:color/transparent"
-                android:onClick="btnAccountSettingsClicked"
-                android:text="@string/account_settings" />
-
-            <Button
-                android:id="@+id/btnPrivacySettings"
-                android:layout_width="149dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="49dp"
-                android:layout_marginBottom="340dp"
-                android:background="@android:color/transparent"
-                android:onClick="btnPrivacySettingsClicked"
-                android:text="@string/privacy_settings" />
-
-            <Button
                 android:id="@+id/btnAbout"
                 android:layout_width="149dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="49dp"
-                android:layout_marginBottom="151dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginEnd="59dp"
+                android:layout_marginBottom="152dp"
                 android:background="@android:color/transparent"
                 android:onClick="btnAboutClicked"
                 android:text="@string/about" />
@@ -63,12 +41,27 @@
                 android:layout_width="152dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="49dp"
-                android:layout_marginBottom="58dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginEnd="56dp"
+                android:layout_marginBottom="76dp"
                 android:background="@android:color/transparent"
                 android:onClick="closeAccountClicked"
                 android:text="@string/close_account" />
+
+            <Button
+                android:id="@+id/howToUseButt"
+                android:layout_width="147dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="68dp"
+                android:layout_marginEnd="61dp"
+                android:text="How to use app" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
