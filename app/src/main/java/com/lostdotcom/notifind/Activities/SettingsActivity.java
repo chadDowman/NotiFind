@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.lostdotcom.notifind.LoginSystem.LoginActivity;
 import com.lostdotcom.notifind.R;
 import com.lostdotcom.notifind.Viewing.ReportViewingActivity;
+import com.lostdotcom.notifind.how_to_use;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -77,7 +78,9 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void btnHowToUseButtClicked (View view){
+        Intent i = new Intent (this, how_to_use.class); // Instance of intent class
 
+        startActivity(i);
     }
 
     public void closeAccountClicked (View view){
