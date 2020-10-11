@@ -175,41 +175,17 @@
                 tools:ignore="Autofill" />
 
             <Button
-                android:id="@+id/postReport"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/description"
-                android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
-                android:layout_marginEnd="135dp"
-                android:layout_marginBottom="-331dp"
-                android:background="@android:color/transparent"
-                android:onClick="postReportButtonClicked"
-                android:text="Post Report"
-                tools:ignore="HardcodedText" />
-
-            <Button
-                android:id="@+id/choosebtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="22dp"
-                android:layout_marginBottom="82dp"
-                android:text="Choose File"
-                app:fontFamily="@font/mystery_quest"
-                tools:ignore="HardcodedText" />
-
-            <Button
                 android:id="@+id/uploadbtn"
-                android:layout_width="wrap_content"
+                android:layout_width="113dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
 
-                android:layout_marginStart="219dp"
-                android:layout_marginBottom="79dp"
-                android:text="Upload File"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="120dp"
+                android:layout_marginEnd="119dp"
+                android:layout_marginBottom="34dp"
+                android:text="Post report"
                 app:fontFamily="@font/mystery_quest"
                 tools:ignore="HardcodedText" />
 
